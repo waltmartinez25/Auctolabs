@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/AuctoLabs_Logo.png';
+import { Logo } from '@/components/ui/Logo';
 
 const navLinks = [
   { name: 'Services', href: '/services' },
@@ -35,7 +35,7 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/90 backdrop-blur-xl border-b border-border shadow-soft-sm'
+          ? 'bg-background/90 backdrop-blur-xl border-b border-border shadow-glow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -43,7 +43,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="AuctoLabs" className="h-10 w-auto" />
+            <Logo size="md" showText />
           </Link>
 
           {/* Desktop Navigation */}
