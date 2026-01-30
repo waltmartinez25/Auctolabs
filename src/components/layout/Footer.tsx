@@ -36,7 +36,7 @@ export const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="AuctoLabs" className="h-16 w-auto" />
+              <img src={logo} alt="AuctoLabs" className="h-20 w-auto" />
             </Link>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Helping small businesses grow with websites and automations that work as hard as you do.
