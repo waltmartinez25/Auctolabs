@@ -1,29 +1,24 @@
-import { Layout } from '@/components/layout/Layout';
-import { AnimatedSection } from '@/components/ui/AnimatedSection';
-import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Target, Zap, Users } from 'lucide-react';
+import { Target, Zap, BarChart3, ArrowRight } from 'lucide-react';
+import { Layout } from '@/components/layout/Layout';
+import { Button } from '@/components/ui/button';
+import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
-const values = [
-  {
-    icon: Heart,
-    title: 'Small Business First',
-    description: 'We build solutions sized for growing businesses, not enterprise budgets.',
-  },
+const principles = [
   {
     icon: Target,
-    title: 'Results-Focused',
-    description: 'Every decision is driven by one question: will this help you grow?',
+    title: 'Systems-First Thinking',
+    description: 'We build systems, not just websites. Every component is designed to work together as a cohesive lead generation and qualification machine.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Measurable Outcomes',
+    description: 'We focus on metrics that matter: response time, conversion rate, cost per lead. If we cannot measure it, we do not build it.',
   },
   {
     icon: Zap,
-    title: 'Speed Matters',
-    description: 'Fast response times win clients. We build systems that move quickly.',
-  },
-  {
-    icon: Users,
-    title: 'Partnership Approach',
-    description: "We're not just vendors—we're partners invested in your success.",
+    title: 'Automation as Leverage',
+    description: 'Technology should multiply your efforts, not add complexity. We automate the repetitive so your team can focus on high-value work.',
   },
 ];
 
@@ -31,53 +26,68 @@ const About = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="section-padding bg-warm-radial">
+      <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>
-            <div className="text-center max-w-3xl mx-auto">
-              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-wide">About Us</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 text-foreground">
-                Built for Businesses <span className="gradient-text-warm">Like Yours</span>
+            <div className="max-w-3xl">
+              <span className="text-primary font-semibold mb-4 block">About AuctoLabs</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+                We Build <span className="gradient-text-warm">Automated Client-Generating Machines</span>
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                We're a team of designers, developers, and automation experts who believe every small business deserves enterprise-level growth systems.
+              <p className="text-lg text-muted-foreground mb-8">
+                AuctoLabs was founded on a simple observation: businesses are losing clients
+                because they respond too slowly. In a world where prospects expect instant
+                answers, the companies that respond first win the deal.
+              </p>
+              <p className="text-lg text-muted-foreground">
+                We combine high-converting web design with AI-powered automation to help
+                service businesses respond to leads in seconds, qualify prospects automatically,
+                and book meetings while they sleep.
               </p>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="section-padding">
+      {/* Mission */}
+      <section className="section-padding bg-secondary/30">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
-              <div>
-                <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-wide">Our Story</span>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-foreground">
-                  Why We Started AuctoLabs
-                </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    We saw too many small businesses struggling with outdated websites and manual processes while their larger competitors were automating everything.
-                  </p>
-                  <p>
-                    The tools existed, but they were either too expensive or too complex for the average business owner to implement. We knew there had to be a better way.
-                  </p>
-                  <p>
-                    That's why we built AuctoLabs—to bring enterprise-grade growth systems to businesses of all sizes, packaged in a way that's affordable and easy to manage.
-                  </p>
-                  <p>
-                    Today, we help businesses across industries respond faster, convert more leads, and grow predictably with beautiful websites and smart automations.
-                  </p>
-                </div>
-              </div>
+              <span className="text-primary font-semibold mb-4 block">Our Mission</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+                Make Every Business As Responsive As The Best
+              </h2>
+              <p className="text-muted-foreground mb-4">
+                The gap between businesses that respond instantly and those that don't is
+                growing every day. We're on a mission to close that gap.
+              </p>
+              <p className="text-muted-foreground">
+                By combining beautiful, conversion-focused websites with intelligent automation,
+                we help service businesses compete with (and beat) larger competitors who have
+                bigger teams and bigger budgets.
+              </p>
             </AnimatedSection>
+
             <AnimatedSection delay={100}>
-              <div className="soft-card p-8 bg-gradient-to-br from-primary/5 to-accent/5 min-h-[400px] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl font-serif font-bold text-primary mb-2">100+</div>
-                  <p className="text-muted-foreground">Businesses Served</p>
+              <div className="soft-card p-8">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-4xl font-serif font-bold gradient-text-warm mb-2">100+</div>
+                    <div className="text-sm text-muted-foreground">Systems Deployed</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-serif font-bold gradient-text-warm mb-2">&lt;60s</div>
+                    <div className="text-sm text-muted-foreground">Avg Response Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-serif font-bold gradient-text-warm mb-2">340%</div>
+                    <div className="text-sm text-muted-foreground">Avg Conversion Lift</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-serif font-bold gradient-text-warm mb-2">24/7</div>
+                    <div className="text-sm text-muted-foreground">System Uptime</div>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
@@ -85,27 +95,27 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section-padding bg-secondary/30">
+      {/* Principles */}
+      <section className="section-padding">
         <div className="container-custom">
           <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-wide">Our Values</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-foreground">
-                What Drives Us
+            <div className="text-center mb-16">
+              <span className="text-primary font-semibold mb-4 block">Our Principles</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+                How We Think About Growth
               </h2>
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <AnimatedSection key={value.title} delay={index * 50}>
-                <div className="soft-card p-6 text-center h-full bg-background">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-7 h-7 text-primary" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {principles.map((principle, index) => (
+              <AnimatedSection key={principle.title} delay={index * 100}>
+                <div className="soft-card p-8 h-full">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                    <principle.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-serif font-bold mb-2 text-foreground">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <h3 className="text-xl font-serif font-bold mb-3">{principle.title}</h3>
+                  <p className="text-muted-foreground">{principle.description}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -113,20 +123,45 @@ const About = () => {
         </div>
       </section>
 
+      {/* Who We Work With */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom">
+          <AnimatedSection>
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="text-primary font-semibold mb-4 block">Who We Work With</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+                Service Businesses That Value Speed
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                We work best with service businesses and professional firms—especially
+                those in competitive markets where speed-to-lead matters. Law firms,
+                home services, healthcare practices, and B2B service providers are our
+                sweet spot.
+              </p>
+              <p className="text-muted-foreground">
+                If you're tired of losing leads to slower competitors and want a system
+                that works as hard as you do, we should talk.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section-padding">
         <div className="container-custom">
           <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-foreground">
-                Ready to Work Together?
+            <div className="soft-card p-12 text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+                Ready to Build Your Growth Machine?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Let's discuss how we can help your business grow.
+              <p className="text-muted-foreground mb-8">
+                Let's discuss how we can help you respond faster and convert more.
               </p>
-              <Button asChild variant="hero" size="xl">
+              <Button asChild variant="hero" size="lg">
                 <Link to="/contact">
-                  Book a Strategy Call <ArrowRight className="ml-2 h-5 w-5" />
+                  Book a Strategy Call
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
