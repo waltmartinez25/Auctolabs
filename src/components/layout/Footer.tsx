@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Mail, ArrowUpRight, Heart } from 'lucide-react';
-import { Logo } from '@/components/ui/Logo';
+import logo from '@/assets/AuctoLabs_Logo.png';
 
 const footerLinks = {
   services: [
@@ -30,13 +30,13 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-secondary/30 border-t border-border">
+    <footer className="bg-secondary/50 border-t border-border">
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-6">
-              <Logo size="lg" showText />
+            <Link to="/" className="flex items-center gap-2 mb-6">
+              <img src={logo} alt="AuctoLabs" className="h-12 w-auto" />
             </Link>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Helping small businesses grow with websites and automations that work as hard as you do.
@@ -57,7 +57,7 @@ export const Footer = () => {
 
           {/* Services Column */}
           <div>
-            <h4 className="font-display font-semibold mb-5 text-foreground">Services</h4>
+            <h4 className="font-serif font-semibold mb-5 text-foreground">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -75,7 +75,7 @@ export const Footer = () => {
 
           {/* Company Column */}
           <div>
-            <h4 className="font-display font-semibold mb-5 text-foreground">Company</h4>
+            <h4 className="font-serif font-semibold mb-5 text-foreground">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -93,7 +93,7 @@ export const Footer = () => {
 
           {/* Legal Column */}
           <div>
-            <h4 className="font-display font-semibold mb-5 text-foreground">Legal</h4>
+            <h4 className="font-serif font-semibold mb-5 text-foreground">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>

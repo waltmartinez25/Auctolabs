@@ -9,15 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_20px_hsl(195_85%_55%/0.3)] hover:shadow-[0_0_30px_hsl(195_85%_55%/0.4)] hover:-translate-y-0.5",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_4px_20px_hsl(28_85%_55%/0.3)] hover:shadow-[0_6px_30px_hsl(28_85%_55%/0.4)] hover:-translate-y-0.5",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border-2 border-primary/40 bg-background text-foreground hover:border-primary hover:bg-primary/5",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground shadow-[0_0_30px_hsl(195_85%_55%/0.4)] hover:shadow-[0_0_50px_hsl(195_85%_55%/0.5)] hover:-translate-y-1",
-        heroOutline: "border-2 border-primary/50 bg-transparent text-foreground hover:border-primary hover:bg-primary/10 hover:shadow-[0_0_20px_hsl(195_85%_55%/0.2)]",
-        glow: "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(195_85%_55%/0.4),0_0_40px_hsl(195_85%_55%/0.2)] hover:shadow-[0_0_30px_hsl(195_85%_55%/0.5),0_0_60px_hsl(195_85%_55%/0.3)] hover:-translate-y-0.5",
+        hero: "bg-primary text-primary-foreground shadow-[0_8px_30px_hsl(28_85%_55%/0.4)] hover:shadow-[0_12px_40px_hsl(28_85%_55%/0.5)] hover:-translate-y-1",
+        heroOutline: "border-2 border-primary/50 bg-transparent text-foreground hover:border-primary hover:bg-primary/10",
+        glow: "bg-primary text-primary-foreground shadow-[0_4px_20px_hsl(28_85%_55%/0.3)] hover:shadow-[0_8px_30px_hsl(28_85%_55%/0.45)] hover:-translate-y-0.5",
       },
       size: {
         default: "h-11 px-5 py-2",

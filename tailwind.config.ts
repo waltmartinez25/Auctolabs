@@ -14,9 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
-        serif: ['Space Grotesk', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
+        serif: ['DM Serif Display', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -62,9 +61,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        glow: {
-          primary: "hsl(var(--glow-primary))",
-          accent: "hsl(var(--glow-accent))",
+        warm: {
+          glow: "hsl(var(--warm-glow))",
+          secondary: "hsl(var(--warm-secondary))",
         },
       },
       borderRadius: {
