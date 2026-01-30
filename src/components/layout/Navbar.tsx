@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/AuctoLabs_Logo.png';
 
 const navLinks = [
   { name: 'Services', href: '/services' },
@@ -43,7 +42,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="AuctoLabs" className="h-20 w-auto" />
+            <span className="font-serif text-2xl font-bold text-foreground">AuctoLabs</span>
           </Link>
 
           {/* Desktop Navigation */}
