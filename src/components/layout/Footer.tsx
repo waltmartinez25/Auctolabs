@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, Mail, ArrowUpRight, Sparkles, Heart } from 'lucide-react';
+import { Linkedin, Twitter, Mail, ArrowUpRight, Heart } from 'lucide-react';
+import logo from '@/assets/AuctoLabs_Logo.png';
 
 const footerLinks = {
   services: [
@@ -35,10 +36,7 @@ export const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-xl font-serif font-bold text-foreground">AuctoLabs</span>
+              <img src={logo} alt="AuctoLabs" className="h-12 w-auto" />
             </Link>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Helping small businesses grow with websites and automations that work as hard as you do.
