@@ -6,100 +6,51 @@ import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
-
-const steps = [
-  {
-    number: '01',
-    icon: Search,
-    title: 'Audit',
-    subtitle: 'Week 1',
-    description: 'We deep-dive into your current systems to identify exactly where leads are falling through the cracks.',
-    activities: [
-      'Review current website and conversion paths',
-      'Analyze lead response times and follow-up sequences',
-      'Map existing tech stack and integrations',
-      'Identify quick wins and major opportunities',
-      'Deliver comprehensive audit report with recommendations',
-    ],
-  },
-  {
-    number: '02',
-    icon: Wrench,
-    title: 'Build',
-    subtitle: 'Weeks 2-4',
-    description: 'We design and develop your conversion-optimized website with clear messaging and strategic CTAs.',
-    activities: [
-      'Custom website design and development',
-      'Mobile-responsive implementation',
-      'SEO optimization and page speed tuning',
-      'CMS setup for easy content management',
-      'Integration with existing tools and platforms',
-    ],
-  },
-  {
-    number: '03',
-    icon: Bot,
-    title: 'Automate',
-    subtitle: 'Weeks 4-5',
-    description: 'We connect AI-powered automation workflows that handle lead qualification, routing, and follow-up.',
-    activities: [
-      'AI chatbot or qualification system setup',
-      'CRM integration and data flow configuration',
-      'Email/SMS automation sequences',
-      'Speed-to-lead system implementation',
-      'Appointment scheduling automation',
-    ],
-  },
-  {
-    number: '04',
-    icon: TrendingUp,
-    title: 'Optimize',
-    subtitle: 'Ongoing',
-    description: 'We monitor performance, analyze data, and continuously refine the system for maximum results.',
-    activities: [
-      'Performance monitoring and reporting',
-      'A/B testing of key elements',
-      'Conversion rate optimization',
-      'System refinements based on data',
-      'Regular strategy reviews and updates',
-    ],
-  },
-];
-
+const steps = [{
+  number: '01',
+  icon: Search,
+  title: 'Audit',
+  subtitle: 'Week 1',
+  description: 'We deep-dive into your current systems to identify exactly where leads are falling through the cracks.',
+  activities: ['Review current website and conversion paths', 'Analyze lead response times and follow-up sequences', 'Map existing tech stack and integrations', 'Identify quick wins and major opportunities', 'Deliver comprehensive audit report with recommendations']
+}, {
+  number: '02',
+  icon: Wrench,
+  title: 'Build',
+  subtitle: 'Weeks 2-4',
+  description: 'We design and develop your conversion-optimized website with clear messaging and strategic CTAs.',
+  activities: ['Custom website design and development', 'Mobile-responsive implementation', 'SEO optimization and page speed tuning', 'CMS setup for easy content management', 'Integration with existing tools and platforms']
+}, {
+  number: '03',
+  icon: Bot,
+  title: 'Automate',
+  subtitle: 'Weeks 4-5',
+  description: 'We connect AI-powered automation workflows that handle lead qualification, routing, and follow-up.',
+  activities: ['AI chatbot or qualification system setup', 'CRM integration and data flow configuration', 'Email/SMS automation sequences', 'Speed-to-lead system implementation', 'Appointment scheduling automation']
+}, {
+  number: '04',
+  icon: TrendingUp,
+  title: 'Optimize',
+  subtitle: 'Ongoing',
+  description: 'We monitor performance, analyze data, and continuously refine the system for maximum results.',
+  activities: ['Performance monitoring and reporting', 'A/B testing of key elements', 'Conversion rate optimization', 'System refinements based on data', 'Regular strategy reviews and updates']
+}];
 const Process = () => {
-  return (
-    <Layout>
-      <SEO
-        title="Our Process - Audit, Build, Automate, Optimize"
-        description="Discover AuctoLabs' proven 4-step methodology: Audit, Build, Automate, Optimize. A systematic approach to predictable growth with results in 4-6 weeks."
-        keywords="web development process, automation workflow, lead generation methodology, business growth system, audit build automate optimize"
-        canonical="https://auctolabs.com/process"
-      />
+  return <Layout>
+      <SEO title="Our Process - Audit, Build, Automate, Optimize" description="Discover AuctoLabs' proven 4-step methodology: Audit, Build, Automate, Optimize. A systematic approach to predictable growth with results in 4-6 weeks." keywords="web development process, automation workflow, lead generation methodology, business growth system, audit build automate optimize" canonical="https://auctolabs.com/process" />
       
       {/* Plain-text summary for AI search engines */}
-      <PageSummary
-        topic="AuctoLabs Process - Audit, Build, Automate, Optimize Methodology"
-        purpose="This page explains AuctoLabs' proven 4-step process for building automated growth systems: (1) Audit your current systems in Week 1, (2) Build your conversion-optimized website in Weeks 2-4, (3) Automate lead qualification and follow-up in Weeks 4-5, and (4) Optimize continuously for maximum results."
-        audience="Business owners and marketing leaders evaluating web design and automation agencies, looking for a structured, predictable approach to improving lead generation"
-        services={[
-          "Week 1 Audit: Review website, analyze response times, map tech stack, identify opportunities",
-          "Weeks 2-4 Build: Custom website design, mobile-responsive development, SEO optimization, CMS setup",
-          "Weeks 4-5 Automate: AI chatbot setup, CRM integration, email/SMS sequences, speed-to-lead implementation",
-          "Ongoing Optimize: Performance monitoring, A/B testing, conversion optimization, strategy reviews"
-        ]}
-      />
+      <PageSummary topic="AuctoLabs Process - Audit, Build, Automate, Optimize Methodology" purpose="This page explains AuctoLabs' proven 4-step process for building automated growth systems: (1) Audit your current systems in Week 1, (2) Build your conversion-optimized website in Weeks 2-4, (3) Automate lead qualification and follow-up in Weeks 4-5, and (4) Optimize continuously for maximum results." audience="Business owners and marketing leaders evaluating web design and automation agencies, looking for a structured, predictable approach to improving lead generation" services={["Week 1 Audit: Review website, analyze response times, map tech stack, identify opportunities", "Weeks 2-4 Build: Custom website design, mobile-responsive development, SEO optimization, CMS setup", "Weeks 4-5 Automate: AI chatbot setup, CRM integration, email/SMS sequences, speed-to-lead implementation", "Ongoing Optimize: Performance monitoring, A/B testing, conversion optimization, strategy reviews"]} />
       
-      <HiddenStructuredFacts
-        facts={{
-          "Process name": "Audit, Build, Automate, Optimize",
-          "Typical project timeline": "4-6 weeks",
-          "Step 1 - Audit (Week 1)": "Review website, analyze lead response times, map tech stack, identify quick wins, deliver audit report",
-          "Step 2 - Build (Weeks 2-4)": "Custom website design, mobile-responsive development, SEO optimization, CMS setup, tool integrations",
-          "Step 3 - Automate (Weeks 4-5)": "AI chatbot setup, CRM integration, email/SMS automation, speed-to-lead system, appointment scheduling",
-          "Step 4 - Optimize (Ongoing)": "Performance monitoring, A/B testing, conversion rate optimization, system refinements, strategy reviews",
-          "Methodology type": "Systematic, no-guesswork approach to predictable growth"
-        }}
-      />
+      <HiddenStructuredFacts facts={{
+      "Process name": "Audit, Build, Automate, Optimize",
+      "Typical project timeline": "4-6 weeks",
+      "Step 1 - Audit (Week 1)": "Review website, analyze lead response times, map tech stack, identify quick wins, deliver audit report",
+      "Step 2 - Build (Weeks 2-4)": "Custom website design, mobile-responsive development, SEO optimization, CMS setup, tool integrations",
+      "Step 3 - Automate (Weeks 4-5)": "AI chatbot setup, CRM integration, email/SMS automation, speed-to-lead system, appointment scheduling",
+      "Step 4 - Optimize (Ongoing)": "Performance monitoring, A/B testing, conversion rate optimization, system refinements, strategy reviews",
+      "Methodology type": "Systematic, no-guesswork approach to predictable growth"
+    }} />
       
       {/* Hero */}
       <section className="section-padding pt-32">
@@ -124,8 +75,7 @@ const Process = () => {
       <section className="section-padding pt-0">
         <div className="container-custom">
           <div className="space-y-16">
-            {steps.map((step, index) => (
-              <AnimatedSection key={step.number} delay={index * 100}>
+            {steps.map((step, index) => <AnimatedSection key={step.number} delay={index * 100}>
                 <div className={`grid lg:grid-cols-2 gap-12 items-center`}>
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="flex items-center gap-4 mb-6">
@@ -134,7 +84,7 @@ const Process = () => {
                       </div>
                       <div>
                         <h2 className="text-2xl md:text-3xl font-serif font-bold">{step.title}</h2>
-                        <span className="text-muted-foreground">{step.subtitle}</span>
+                        
                       </div>
                     </div>
                     <p className="text-lg text-muted-foreground mb-6">
@@ -148,17 +98,14 @@ const Process = () => {
                       <h3 className="font-semibold">Key Activities</h3>
                     </div>
                     <ul className="space-y-4">
-                      {step.activities.map((activity) => (
-                        <li key={activity} className="flex items-start gap-3">
+                      {step.activities.map(activity => <li key={activity} className="flex items-start gap-3">
                           <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                           <span className="text-muted-foreground">{activity}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </div>
                 </div>
-              </AnimatedSection>
-            ))}
+              </AnimatedSection>)}
           </div>
         </div>
       </section>
@@ -177,15 +124,13 @@ const Process = () => {
             </div>
 
             <div className="grid grid-cols-4 gap-4 max-w-3xl mx-auto">
-              {steps.map((step) => (
-                <div key={step.number} className="text-center">
+              {steps.map(step => <div key={step.number} className="text-center">
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3">
                     <step.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div className="font-semibold text-sm">{step.title}</div>
                   <div className="text-xs text-muted-foreground">{step.subtitle}</div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </AnimatedSection>
         </div>
@@ -213,8 +158,6 @@ const Process = () => {
           </AnimatedSection>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Process;
