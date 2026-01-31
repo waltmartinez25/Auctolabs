@@ -1,9 +1,17 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
 const Privacy = () => {
   return (
     <Layout>
+      <SEO
+        title="Privacy Policy"
+        description="AuctoLabs Privacy Policy. Learn how we collect, use, and protect your personal information when you use our web design and automation services."
+        keywords="privacy policy, data protection, personal information, AuctoLabs privacy"
+        canonical="https://auctolabs.com/privacy"
+      />
+      
       <section className="section-padding">
         <div className="container-custom">
           <AnimatedSection>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Target, Zap, BarChart3, ArrowRight } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -25,7 +26,12 @@ const principles = [
 const About = () => {
   return (
     <Layout>
-      {/* Hero */}
+      <SEO
+        title="About AuctoLabs - Automated Client-Generating Machines"
+        description="AuctoLabs builds automated client-generating machines. We help service businesses respond to leads in seconds, qualify prospects automatically, and book meetings 24/7."
+        keywords="about AuctoLabs, web design agency, AI automation company, lead generation experts, business automation"
+        canonical="https://auctolabs.com/about"
+      />
       <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>

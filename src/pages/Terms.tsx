@@ -1,9 +1,17 @@
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
 const Terms = () => {
   return (
     <Layout>
+      <SEO
+        title="Terms of Service"
+        description="AuctoLabs Terms of Service. Read our terms and conditions for web design, development, and automation services."
+        keywords="terms of service, terms and conditions, AuctoLabs terms, service agreement"
+        canonical="https://auctolabs.com/terms"
+      />
+      
       <section className="section-padding">
         <div className="container-custom">
           <AnimatedSection>

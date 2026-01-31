@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Check, ArrowRight, MessageCircle } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -78,10 +79,46 @@ const addOns = [
   { name: 'Custom Integration', price: 'From $1,000', description: 'Connect additional tools and platforms' },
 ];
 
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "AuctoLabs Web Design & Automation Services",
+  "description": "Web design and AI automation packages for small businesses",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Starter",
+      "price": "3500",
+      "priceCurrency": "USD",
+      "description": "Custom 5-page website with basic SEO"
+    },
+    {
+      "@type": "Offer",
+      "name": "Growth",
+      "price": "7500",
+      "priceCurrency": "USD",
+      "description": "Website + AI automation with CRM integration"
+    },
+    {
+      "@type": "Offer",
+      "name": "Scale",
+      "price": "15000",
+      "priceCurrency": "USD",
+      "description": "Enterprise-grade automation with dedicated support"
+    }
+  ]
+};
+
 const Pricing = () => {
   return (
     <Layout>
-      {/* Hero */}
+      <SEO
+        title="Pricing - Transparent Investment, Measurable Returns"
+        description="AuctoLabs pricing: Starter from $3,500, Growth from $7,500, Scale from $15,000. No hidden fees, no long-term contracts. Get a custom quote today."
+        keywords="web design pricing, automation pricing, lead generation cost, website development prices, AI automation packages"
+        canonical="https://auctolabs.com/pricing"
+        jsonLd={pricingSchema}
+      />
       <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>
