@@ -129,7 +129,7 @@ const Process = () => {
                     <step.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div className="font-semibold text-sm">{step.title}</div>
-                  <div className="text-xs text-muted-foreground">{step.subtitle}</div>
+                  
                 </div>)}
             </div>
           </AnimatedSection>
