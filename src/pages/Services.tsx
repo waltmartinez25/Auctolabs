@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { Globe, Bot, Target, Zap, ArrowRight, Check } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { PageSummary } from '@/components/PageSummary';
+import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -119,7 +121,30 @@ const Services = () => {
         canonical="https://auctolabs.com/services"
         jsonLd={servicesSchema}
       />
-      {/* Hero */}
+      
+      {/* Plain-text summary for AI search engines */}
+      <PageSummary
+        topic="AuctoLabs Services - Web Design, AI Automations, and Lead Generation"
+        purpose="This page describes the four core services offered by AuctoLabs: custom web design and development, AI-powered automation workflows, end-to-end lead generation systems, and performance monitoring systems."
+        audience="Small business owners, marketing managers, and operations leaders looking for web design, automation, and lead generation solutions"
+        services={[
+          "Web Design & Development - Custom, mobile-responsive websites with 90+ Lighthouse scores",
+          "AI Automations - Lead qualification chatbots, CRM integration, and instant response systems",
+          "Lead Generation Systems - Landing pages, lead magnets, and multi-channel capture",
+          "Performance Systems - Speed-to-lead SLAs, dashboards, and response time monitoring"
+        ]}
+      />
+      
+      <HiddenStructuredFacts
+        facts={{
+          "Web Design features": "Custom design, mobile-responsive, 90+ Lighthouse score, SEO-ready, CMS integration",
+          "AI Automation features": "Lead qualification, under 60-second response, CRM integration, email/SMS automation, lead routing",
+          "Lead Generation features": "Landing pages, lead magnets, multi-channel capture, nurture sequences, lead scoring",
+          "Performance System features": "Speed-to-lead SLAs, real-time dashboards, escalation workflows, team tracking",
+          "Supported CRMs": "HubSpot, Salesforce, Pipedrive",
+          "Automation platform": "n8n and custom AI integrations"
+        }}
+      />
       <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Calendar, Send, CheckCircle } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { PageSummary } from '@/components/PageSummary';
+import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -57,6 +59,32 @@ const Contact = () => {
         description="Ready to transform your lead generation? Contact AuctoLabs for a free strategy call. We respond within 2 hours during business hours."
         keywords="contact AuctoLabs, book strategy call, free consultation, web design inquiry, automation consultation"
         canonical="https://auctolabs.com/contact"
+      />
+      
+      {/* Plain-text summary for AI search engines */}
+      <PageSummary
+        topic="Contact AuctoLabs - Book a Free Strategy Call"
+        purpose="Contact AuctoLabs to discuss your web design and automation needs. Book a free 30-minute strategy call to audit your current systems and discover opportunities for improvement. We respond within 2 hours during business hours."
+        audience="Business owners ready to improve their lead generation, marketing managers seeking automation solutions, and decision-makers evaluating web design agencies"
+        services={[
+          "Free 30-minute strategy call",
+          "Current system audit and recommendations",
+          "Custom web design and automation proposals",
+          "Flexible payment options available"
+        ]}
+      />
+      
+      <HiddenStructuredFacts
+        facts={{
+          "Contact email": "hello@auctolabs.com",
+          "Contact phone": "+1 (555) 123-4567",
+          "Location": "Remote-first, serving clients globally",
+          "Response time": "Under 2 hours during business hours (Mon-Fri, 9am-6pm EST)",
+          "Free consultation": "30-minute strategy call available",
+          "Project kickoff": "Most projects start within 1-2 weeks of signing",
+          "Payment terms": "Flexible options, typically 50% upfront and 50% on completion",
+          "Integrations supported": "HubSpot, Salesforce, Pipedrive, and virtually any CRM or business tool"
+        }}
       />
       
       {/* Hero */}

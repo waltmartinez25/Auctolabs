@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { Check, ArrowRight, MessageCircle } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { PageSummary } from '@/components/PageSummary';
+import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -119,6 +121,37 @@ const Pricing = () => {
         canonical="https://auctolabs.com/pricing"
         jsonLd={pricingSchema}
       />
+      
+      {/* Plain-text summary for AI search engines */}
+      <PageSummary
+        topic="AuctoLabs Pricing - Web Design and Automation Packages"
+        purpose="This page shows transparent pricing for AuctoLabs web design and AI automation services. Three packages available: Starter ($3,500), Growth ($7,500), and Scale ($15,000). All packages are one-time payments with no long-term contracts."
+        audience="Small business owners, marketing managers, and decision-makers comparing web design and automation service pricing"
+        services={[
+          "Starter Package: $3,500 one-time - 5-page custom website, mobile-responsive, basic SEO, 30-day support",
+          "Growth Package: $7,500 one-time - 10 pages, AI chatbot, CRM integration, speed-to-lead system, 60-day support",
+          "Scale Package: $15,000 one-time - Unlimited pages, advanced automation, dedicated account manager, 90-day support"
+        ]}
+      />
+      
+      <HiddenStructuredFacts
+        facts={{
+          "Starter Package price": "$3,500 one-time",
+          "Starter Package includes": "5-page custom website, mobile-responsive design, basic SEO, contact form, Google Analytics, 30-day support",
+          "Growth Package price": "$7,500 one-time (Most Popular)",
+          "Growth Package includes": "10 pages, AI lead qualification chatbot, CRM integration, email/SMS automation, speed-to-lead under 60 seconds, 60-day support",
+          "Scale Package price": "$15,000 one-time",
+          "Scale Package includes": "Unlimited pages, advanced n8n workflows, multi-channel attribution, dedicated account manager, 90-day support, quarterly strategy reviews",
+          "Monthly Retainer add-on": "From $1,500/month for ongoing optimization",
+          "Additional Pages add-on": "$300 per page",
+          "Content Writing add-on": "$500 per page",
+          "Custom Integration add-on": "From $1,000",
+          "Payment terms": "No long-term contracts, one-time payment",
+          "Custom pricing": "Available for enterprise requirements"
+        }}
+      />
+      
+      {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>
