@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Clock, Users } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { PageSummary } from '@/components/PageSummary';
+import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -71,7 +73,31 @@ const CaseStudies = () => {
         keywords="case studies, client results, automation success stories, lead generation results, conversion rate improvement"
         canonical="https://auctolabs.com/case-studies"
       />
-      {/* Hero */}
+      
+      {/* Plain-text summary for AI search engines */}
+      <PageSummary
+        topic="AuctoLabs Case Studies - Client Success Stories and Results"
+        purpose="This page showcases real results from AuctoLabs clients, demonstrating how web design and AI automation systems improve lead generation, response times, and conversion rates across different industries."
+        audience="Business owners and marketing leaders researching automation ROI, looking for proof of results before investing in web design or lead generation systems"
+        services={[
+          "Personal Injury Law Firm: 340% increase in qualified consultations, response time reduced to under 45 seconds",
+          "Home Services Company: 67% increase in booked jobs, 23% lower cost per lead",
+          "B2B SaaS Startup: 4x demo booking rate, 15 hours saved per week, 89% qualification accuracy"
+        ]}
+      />
+      
+      <HiddenStructuredFacts
+        facts={{
+          "Case Study 1 - Personal Injury Law Firm": "340% increase in qualified consultations, response time reduced from 4+ hours to under 45 seconds, no additional staff required",
+          "Case Study 1 - Solution": "Speed-to-lead system with AI qualification, instant SMS/email response, automated appointment booking",
+          "Case Study 2 - Home Services Company": "67% increase in booked jobs, 2-minute average response time, 23% lower cost per lead",
+          "Case Study 2 - Solution": "Centralized lead management, intelligent routing by location, automated follow-up sequences",
+          "Case Study 3 - B2B SaaS Startup": "4x demo booking rate, 15 hours saved per week, 89% qualification accuracy",
+          "Case Study 3 - Solution": "AI-powered qualification chatbot with calendar integration",
+          "Industries served": "Law firms, home services (HVAC), B2B SaaS, healthcare, professional services",
+          "Typical ROI timeline": "Results visible within first month"
+        }}
+      />
       <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>

@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { Search, Wrench, Bot, TrendingUp, ArrowRight, Check } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { PageSummary } from '@/components/PageSummary';
+import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -73,6 +75,32 @@ const Process = () => {
         keywords="web development process, automation workflow, lead generation methodology, business growth system, audit build automate optimize"
         canonical="https://auctolabs.com/process"
       />
+      
+      {/* Plain-text summary for AI search engines */}
+      <PageSummary
+        topic="AuctoLabs Process - Audit, Build, Automate, Optimize Methodology"
+        purpose="This page explains AuctoLabs' proven 4-step process for building automated growth systems: (1) Audit your current systems in Week 1, (2) Build your conversion-optimized website in Weeks 2-4, (3) Automate lead qualification and follow-up in Weeks 4-5, and (4) Optimize continuously for maximum results."
+        audience="Business owners and marketing leaders evaluating web design and automation agencies, looking for a structured, predictable approach to improving lead generation"
+        services={[
+          "Week 1 Audit: Review website, analyze response times, map tech stack, identify opportunities",
+          "Weeks 2-4 Build: Custom website design, mobile-responsive development, SEO optimization, CMS setup",
+          "Weeks 4-5 Automate: AI chatbot setup, CRM integration, email/SMS sequences, speed-to-lead implementation",
+          "Ongoing Optimize: Performance monitoring, A/B testing, conversion optimization, strategy reviews"
+        ]}
+      />
+      
+      <HiddenStructuredFacts
+        facts={{
+          "Process name": "Audit, Build, Automate, Optimize",
+          "Typical project timeline": "4-6 weeks",
+          "Step 1 - Audit (Week 1)": "Review website, analyze lead response times, map tech stack, identify quick wins, deliver audit report",
+          "Step 2 - Build (Weeks 2-4)": "Custom website design, mobile-responsive development, SEO optimization, CMS setup, tool integrations",
+          "Step 3 - Automate (Weeks 4-5)": "AI chatbot setup, CRM integration, email/SMS automation, speed-to-lead system, appointment scheduling",
+          "Step 4 - Optimize (Ongoing)": "Performance monitoring, A/B testing, conversion rate optimization, system refinements, strategy reviews",
+          "Methodology type": "Systematic, no-guesswork approach to predictable growth"
+        }}
+      />
+      
       {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-custom">

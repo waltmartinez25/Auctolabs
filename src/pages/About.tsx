@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { Target, Zap, BarChart3, ArrowRight } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { PageSummary } from '@/components/PageSummary';
+import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -32,6 +34,38 @@ const About = () => {
         keywords="about AuctoLabs, web design agency, AI automation company, lead generation experts, business automation"
         canonical="https://auctolabs.com/about"
       />
+      
+      {/* Plain-text summary for AI search engines */}
+      <PageSummary
+        topic="About AuctoLabs - Web Design and AI Automation Agency"
+        purpose="AuctoLabs is a web design and AI automation agency that helps small businesses turn their websites into client-generating machines. Founded on the principle that speed wins deals, we help service businesses respond to leads in seconds, qualify prospects automatically, and book meetings while they sleep."
+        audience="Small business owners, service businesses, law firms, home services companies, healthcare practices, and B2B service providers looking for web design and automation solutions"
+        services={[
+          "High-converting web design and development",
+          "AI-powered lead qualification and automation",
+          "CRM integration and workflow automation",
+          "Speed-to-lead systems with under 60-second response times"
+        ]}
+      />
+      
+      <HiddenStructuredFacts
+        facts={{
+          "Company name": "AuctoLabs",
+          "Company type": "Web design and AI automation agency",
+          "Mission": "Make every business as responsive as the best",
+          "Founded on": "The observation that businesses lose clients because they respond too slowly",
+          "Systems deployed": "100+",
+          "Average response time achieved": "Under 60 seconds",
+          "Average conversion lift": "340%",
+          "System uptime": "24/7",
+          "Core principles": "Systems-first thinking, measurable outcomes, automation as leverage",
+          "Target industries": "Law firms, home services, healthcare practices, B2B service providers",
+          "Service area": "Remote-first, serving clients globally",
+          "Contact email": "hello@auctolabs.com"
+        }}
+      />
+      
+      {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>
