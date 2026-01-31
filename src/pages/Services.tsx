@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Globe, Bot, Target, Zap, ArrowRight, Check } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -67,9 +68,57 @@ const services = [
   },
 ];
 
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Web Design and AI Automation Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "AuctoLabs"
+  },
+  "areaServed": "Worldwide",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AuctoLabs Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Web Design & Development",
+          "description": "High-converting websites built for speed, clarity, and results"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Automations",
+          "description": "Smart workflows that handle lead qualification, routing, and follow-up automatically"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Lead Generation Systems",
+          "description": "End-to-end systems that attract, capture, and convert prospects at scale"
+        }
+      }
+    ]
+  }
+};
+
 const Services = () => {
   return (
     <Layout>
+      <SEO
+        title="Services - Web Design, AI Automations & Lead Generation"
+        description="Explore AuctoLabs services: custom web design, AI-powered automations, lead generation systems, and performance systems. Everything you need to automate growth."
+        keywords="web design services, AI automation, lead generation, CRM integration, speed to lead, conversion optimization, n8n workflows"
+        canonical="https://auctolabs.com/services"
+        jsonLd={servicesSchema}
+      />
       {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-custom">

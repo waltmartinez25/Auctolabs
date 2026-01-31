@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Calendar, Send, CheckCircle } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -40,10 +41,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     setIsLoading(false);
     setIsSubmitted(true);
     toast({
@@ -54,6 +52,13 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Contact AuctoLabs - Book a Free Strategy Call"
+        description="Ready to transform your lead generation? Contact AuctoLabs for a free strategy call. We respond within 2 hours during business hours."
+        keywords="contact AuctoLabs, book strategy call, free consultation, web design inquiry, automation consultation"
+        canonical="https://auctolabs.com/contact"
+      />
+      
       {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-custom">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Clock, Users } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -64,6 +65,12 @@ const caseStudies = [
 const CaseStudies = () => {
   return (
     <Layout>
+      <SEO
+        title="Case Studies - Real Results From Real Clients"
+        description="See how businesses achieved 340% more consultations, 67% more booked jobs, and 4x demo booking rates with AuctoLabs automation systems."
+        keywords="case studies, client results, automation success stories, lead generation results, conversion rate improvement"
+        canonical="https://auctolabs.com/case-studies"
+      />
       {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-custom">

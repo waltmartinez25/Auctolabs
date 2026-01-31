@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Search, Wrench, Bot, TrendingUp, ArrowRight, Check } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -66,6 +67,12 @@ const steps = [
 const Process = () => {
   return (
     <Layout>
+      <SEO
+        title="Our Process - Audit, Build, Automate, Optimize"
+        description="Discover AuctoLabs' proven 4-step methodology: Audit, Build, Automate, Optimize. A systematic approach to predictable growth with results in 4-6 weeks."
+        keywords="web development process, automation workflow, lead generation methodology, business growth system, audit build automate optimize"
+        canonical="https://auctolabs.com/process"
+      />
       {/* Hero */}
       <section className="section-padding pt-32">
         <div className="container-custom">
