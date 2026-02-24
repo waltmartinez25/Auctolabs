@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Calendar, Send, CheckCircle } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
 import { PageSummary } from '@/components/PageSummary';
@@ -43,8 +44,27 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const formData = new FormData(e.currentTarget);
+    const { error } = await supabase.from('form_submissions').insert({
+      first_name: formData.get('first_name') as string,
+      last_name: formData.get('last_name') as string,
+      email: formData.get('email') as string,
+      company: (formData.get('company') as string) || null,
+      message: formData.get('message') as string,
+    });
+
     setIsLoading(false);
+
+    if (error) {
+      toast({
+        title: 'Something went wrong',
+        description: 'Please try again or email us directly.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setIsSubmitted(true);
     toast({
       title: 'Message sent!',
@@ -135,6 +155,7 @@ const Contact = () => {
                         </label>
                         <Input
                           type="text"
+                          name="first_name"
                           required
                           placeholder="John"
                           className="bg-secondary/50"
@@ -146,6 +167,7 @@ const Contact = () => {
                         </label>
                         <Input
                           type="text"
+                          name="last_name"
                           required
                           placeholder="Smith"
                           className="bg-secondary/50"
@@ -159,6 +181,7 @@ const Contact = () => {
                       </label>
                       <Input
                         type="email"
+                        name="email"
                         required
                         placeholder="john@company.com"
                         className="bg-secondary/50"
@@ -171,6 +194,7 @@ const Contact = () => {
                       </label>
                       <Input
                         type="text"
+                        name="company"
                         placeholder="Your Company"
                         className="bg-secondary/50"
                       />
@@ -181,6 +205,7 @@ const Contact = () => {
                         What can we help you with? *
                       </label>
                       <Textarea
+                        name="message"
                         required
                         rows={4}
                         placeholder="Tell us about your project, goals, or questions..."
