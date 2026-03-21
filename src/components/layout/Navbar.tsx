@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/AuctoLabs_Logo.png';
+import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
+import { useScroll } from '@/components/ui/use-scroll';
+import { cn } from '@/lib/utils';
+import logo from '@/assets/AuctoLabs_Logo_transparent.png';
 
 const navLinks = [
   { name: 'Services', href: '/services' },
-  { name: 'Case Studies', href: '/case-studies' },
   { name: 'Process', href: '/process' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'About', href: '/about' },
@@ -14,100 +15,107 @@ const navLinks = [
 ];
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const scrolled = useScroll(10);
   const location = useLocation();
 
+  // Close mobile menu on route change
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
+    setOpen(false);
   }, [location]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  const floated = scrolled && !open;
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/90 backdrop-blur-xl border-b border-border shadow-soft-sm'
-          : 'bg-transparent'
-      }`}
+    <header
+      className={cn(
+        'fixed left-0 right-0 z-50 px-4 transition-[top] duration-300 ease-out',
+        floated ? 'top-4' : 'top-0',
+      )}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="AuctoLabs" className="h-20 w-auto" />
-          </Link>
+      <nav
+        className={cn(
+          'mx-auto flex items-center justify-between transition-all duration-300 ease-out',
+          floated
+            ? 'max-w-4xl h-14 px-6 rounded-2xl border border-border bg-background/95 backdrop-blur-xl shadow-soft-sm'
+            : 'max-w-screen-xl h-20 px-2 md:px-6',
+        )}
+      >
+        {/* Logo */}
+        <Link to="/" className="flex items-center shrink-0">
+          <img
+            src={logo}
+            alt="AuctoLabs"
+            className={cn('w-auto transition-all duration-300', floated ? 'h-12' : 'h-20')}
+            fetchPriority="high"
+          />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.href
-                    ? 'text-primary'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+        {/* Desktop links */}
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.href}
+              className={cn(
+                'text-sm font-medium transition-colors hover:text-primary',
+                location.pathname === link.href ? 'text-primary' : 'text-muted-foreground',
+              )}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
 
-          {/* CTA Button */}
+        {/* CTA + mobile toggle */}
+        <div className="flex items-center gap-3">
           <div className="hidden lg:block">
             <Button asChild variant="glow">
               <Link to="/contact">Book a Call</Link>
             </Button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => setOpen(!open)}
+            className="lg:hidden"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
-            ) : (
-              <Menu className="h-6 w-6 text-foreground" />
-            )}
-          </button>
+            <MenuToggleIcon open={open} className="size-5" duration={300} />
+          </Button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-background/98 backdrop-blur-xl border-b border-border">
-          <div className="container-custom py-6 space-y-4">
+      {/* Mobile menu overlay */}
+      {open && (
+        <div className="fixed inset-0 top-[80px] z-40 bg-background/98 backdrop-blur-xl border-t border-border lg:hidden">
+          <div className="px-6 py-8 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`block py-2 text-lg font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.href
-                    ? 'text-primary'
-                    : 'text-muted-foreground'
-                }`}
+                className={cn(
+                  'flex py-4 text-lg font-medium transition-colors hover:text-primary border-b border-border/30',
+                  location.pathname === link.href ? 'text-primary' : 'text-muted-foreground',
+                )}
               >
                 {link.name}
               </Link>
             ))}
-            <Button asChild variant="glow" className="w-full mt-4">
-              <Link to="/contact">Book a Call</Link>
-            </Button>
+            <div className="pt-6">
+              <Button asChild variant="glow" className="w-full">
+                <Link to="/contact">Book a Call</Link>
+              </Button>
+            </div>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };

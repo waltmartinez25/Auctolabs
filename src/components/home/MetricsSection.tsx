@@ -1,63 +1,76 @@
-import { Clock, TrendingUp, Users, Zap } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
 const metrics = [
   {
-    icon: Clock,
     value: '<60s',
     label: 'Speed to Lead',
     description: 'Average response time to new inquiries',
+    accent: 'text-accent',
   },
   {
-    icon: TrendingUp,
     value: '340%',
     label: 'Contact Rate Increase',
     description: 'Average improvement in qualified conversations',
+    accent: 'text-primary',
   },
   {
-    icon: Users,
     value: '67%',
     label: 'More Meetings',
     description: 'Increase in booked consultations',
+    accent: 'text-primary',
   },
   {
-    icon: Zap,
     value: '15hrs',
     label: 'Saved Weekly',
     description: 'On average per team member',
+    accent: 'text-contrast',
   },
 ];
 
 export const MetricsSection = () => {
   return (
-    <section className="section-padding">
+    <section className="section-padding border-t border-border/40">
       <div className="container-custom">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-wide">Results That Matter</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-foreground">
-              Real Outcomes,<br />Not Empty Promises
+        {/* Heading — fade left (slides from right) */}
+        <AnimatedSection variant="fadeLeft">
+          <div className="mb-16">
+            <span className="text-primary font-bold text-xs uppercase tracking-widest mb-4 block">
+              Results That Matter
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight">
+              Value in Numbers
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our clients see genuine improvements in lead response time, conversion rates, and team efficiency.
-            </p>
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Full-width counter row — stagger each metric */}
+        <AnimatedSection
+          delay={100}
+          variant="fadeUp"
+          stagger
+          staggerDelay={150}
+          className="relative grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
+        >
+          <div className="absolute -inset-40 bg-primary/5 blur-[100px] rounded-full -z-10 animate-pulse-soft" />
           {metrics.map((metric, index) => (
-            <AnimatedSection key={metric.label} delay={index * 100}>
-              <div className="stat-card">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <metric.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-4xl font-serif font-bold text-primary mb-2">{metric.value}</div>
-                <div className="font-semibold text-foreground mb-1">{metric.label}</div>
-                <p className="text-sm text-muted-foreground">{metric.description}</p>
-              </div>
-            </AnimatedSection>
+            <div
+              key={metric.label}
+              className={`group glass-card py-12 px-8 rounded-3xl text-center hover:scale-[1.03] transition-all duration-500 ${metric.accent === 'text-accent' ? 'hover:border-accent/40' : 'hover:border-contrast/40'
+                }`}
+            >
+              <span className={`text-5xl md:text-6xl lg:text-7xl font-serif font-black leading-none block mb-6 transition-all duration-500 group-hover:scale-110 drop-shadow-xl ${metric.accent === 'text-accent' ? 'text-accent accent-glow' : 'text-contrast contrast-glow'
+                }`}>
+                {metric.value}
+              </span>
+              <span className="text-sm md:text-base font-bold uppercase tracking-widest text-foreground block mb-3 opacity-90 group-hover:opacity-100">
+                {metric.label}
+              </span>
+              <p className="text-sm text-muted-foreground leading-relaxed font-medium mx-auto max-w-[200px]">
+                {metric.description}
+              </p>
+            </div>
           ))}
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

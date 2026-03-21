@@ -6,8 +6,8 @@ const Privacy = () => {
   return (
     <Layout>
       <SEO
-        title="Privacy Policy"
-        description="AuctoLabs Privacy Policy. Learn how we collect, use, and protect your personal information when you use our web design and automation services."
+        title="AuctoLabs Privacy Policy — How We Protect Your Data"
+        description="AuctoLabs Privacy Policy. Learn how we collect, use, and protect your personal information when you use our web design and AI automation services worldwide."
         keywords="privacy policy, data protection, personal information, AuctoLabs privacy"
         canonical="https://auctolabs.com/privacy"
       />
@@ -16,7 +16,7 @@ const Privacy = () => {
         <div className="container-custom">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-serif mb-8 text-foreground">Privacy Policy</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-8 text-foreground">Privacy Policy</h1>
               
               <div className="prose prose-lg text-muted-foreground space-y-6">
                 <p className="text-sm">Last updated: {new Date().toLocaleDateString()}</p>

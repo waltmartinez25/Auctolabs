@@ -6,8 +6,6 @@ import { HeroSection } from '@/components/home/HeroSection';
 import { SocialProofSection } from '@/components/home/SocialProofSection';
 import { ServicesSection } from '@/components/home/ServicesSection';
 import { ProcessSection } from '@/components/home/ProcessSection';
-import { MetricsSection } from '@/components/home/MetricsSection';
-import { CaseStudyPreview } from '@/components/home/CaseStudyPreview';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { PricingPreview } from '@/components/home/PricingPreview';
 import { FAQSection } from '@/components/home/FAQSection';
@@ -26,8 +24,9 @@ const organizationSchema = {
     "contactType": "customer service"
   },
   "sameAs": [
-    "https://linkedin.com/company/auctolabs",
-    "https://twitter.com/auctolabs"
+    "https://www.linkedin.com/company/auctolabs",
+    "https://x.com/AuctoLabs",
+    "https://www.instagram.com/auctolabs"
   ]
 };
 
@@ -35,8 +34,8 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="AuctoLabs | Web Design & AI Automations for Small Business Growth"
-        description="Turn your website into a client-getting machine. AuctoLabs builds high-converting websites and AI-powered automations that respond to leads in under 60 seconds."
+        title="AuctoLabs | Web Design, AI Automations & Lead Generation"
+        description="Turn your website into a client-getting machine. AuctoLabs builds high-converting websites and AI-powered automations that respond to leads in under 60s."
         keywords="web design, AI automations, lead generation, small business, CRM integration, speed to lead, conversion optimization"
         canonical="https://auctolabs.com/"
         jsonLd={organizationSchema}
@@ -73,15 +72,29 @@ const Index = () => {
         }}
       />
       
+      {/* 1. Attention — above the fold */}
       <HeroSection />
+
+      {/* 2. Immediate trust — credibility before they scroll */}
       <SocialProofSection />
+
+      {/* 3. The offer — what we do */}
       <ServicesSection />
+
+      {/* 5. The path — now they want results, show them how */}
       <ProcessSection />
-      <MetricsSection />
-      <CaseStudyPreview />
+
+      {/* 6. Emotional proof — fast, human, scannable */}
       <TestimonialsSection />
+
+
+      {/* 8. Investment — after full value has been demonstrated */}
       <PricingPreview />
+
+      {/* 9. Objection handling — clear doubts before final decision */}
       <FAQSection />
+
+      {/* 10. Final conversion push */}
       <CTASection />
     </Layout>
   );

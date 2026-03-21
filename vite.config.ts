@@ -28,4 +28,7 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  optimizeDeps: {
+    include: ['three', 'framer-motion'],
+  },
 }));

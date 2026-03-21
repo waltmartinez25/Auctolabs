@@ -1,127 +1,139 @@
 import { Link } from 'react-router-dom';
-import { Check, ArrowRight, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { CheckLg, ArrowRight } from 'react-bootstrap-icons';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { Button } from '@/components/ui/button';
 
 const plans = [
   {
     name: 'Starter',
     price: '$3,500',
-    description: 'Perfect for businesses ready to upgrade their online presence',
+    retainer: '$1,500/mo',
+    description: 'A professional website built to convert — the foundation for growth.',
     features: [
-      'Custom 5-page website',
+      'Pages included',
       'Mobile-responsive design',
-      'Basic SEO optimization',
-      'Contact form with email notifications',
-      '30-day support',
+      'On-page SEO setup',
+      'Contact form + analytics',
     ],
-    cta: 'Get Started',
-    featured: false,
+    popular: false,
   },
   {
     name: 'Growth',
     price: '$7,500',
-    description: 'For businesses ready to automate lead generation',
+    retainer: '$2,500/mo',
+    description: 'Everything in Starter plus AI automation and lead capture systems.',
     features: [
       'Everything in Starter',
-      'AI lead qualification chatbot',
-      'CRM integration (HubSpot, Pipedrive, etc.)',
-      'Automated email/SMS sequences',
-      'Speed-to-lead system (<60s response)',
-      '60-day support + training',
+      'AI-assisted qualification workflows',
+      'CRM integration',
+      'Speed-to-lead automation',
+      'Email & SMS sequences',
+      'Advanced n8n workflows',
     ],
-    cta: 'Book a Call',
-    featured: true,
+    popular: true,
   },
   {
     name: 'Scale',
     price: '$15,000',
-    description: 'For growing businesses ready for enterprise systems',
+    retainer: '$4,000/mo',
+    description: 'Full-stack growth infrastructure with dedicated support.',
     features: [
       'Everything in Growth',
-      'Advanced automation workflows',
-      'Custom lead routing logic',
-      'Multi-channel attribution tracking',
+      'Custom integrations',
       'Dedicated account manager',
-      '90-day support + optimization',
+      'Quarterly strategy reviews',
     ],
-    cta: 'Book a Call',
-    featured: false,
+    popular: false,
   },
 ];
 
 export const PricingPreview = () => {
   return (
-    <section className="section-padding bg-secondary/30">
+    <section className="section-padding bg-secondary/20 border-t border-border/40">
       <div className="container-custom">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-wide">Pricing</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-foreground">
-              Investment Levels
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Transparent pricing with no hidden fees. Choose the package that fits your growth goals.
-            </p>
+        <AnimatedSection variant="fadeRight">
+          <div className="uxis-split mb-16">
+            <div className="section-heading-left">
+              <span className="section-label">Pricing</span>
+              <h2>Investment Levels</h2>
+              <p>
+                Every business is different, and so is every website we build.
+                Our pricing reflects the level of strategy, design, and systems
+                required to create a website that truly supports your growth.
+                Choose the option that fits where you are today — and where
+                you're going next.
+              </p>
+            </div>
+            <div />
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {plans.map((plan, index) => (
-            <AnimatedSection key={plan.name} delay={index * 100}>
-              <div
-                className={`h-full rounded-2xl p-8 relative ${
-                  plan.featured
-                    ? 'bg-gradient-to-b from-primary/10 to-background border-2 border-primary/30 shadow-soft-lg'
-                    : 'soft-card'
-                }`}
-              >
-                {plan.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1 px-4 py-1.5 text-xs font-semibold rounded-full bg-primary text-primary-foreground">
-                      <Sparkles className="w-3 h-3" />
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <h3 className="text-xl font-serif font-bold mb-2 text-foreground">{plan.name}</h3>
-                <div className="mb-4">
-                  <span className="text-4xl font-serif font-bold text-foreground">{plan.price}</span>
-                  <span className="text-muted-foreground text-sm ml-1">one-time</span>
-                </div>
-                <p className="text-muted-foreground mb-6 text-sm">{plan.description}</p>
+        <AnimatedSection
+          delay={100}
+          variant="fadeUp"
+          stagger
+          staggerDelay={120}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`soft-card p-8 flex flex-col relative ${
+                plan.popular ? 'border-primary/40 ring-1 ring-primary/20' : ''
+              }`}
+            >
+              {plan.popular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                  Most Popular
+                </span>
+              )}
 
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button
-                  asChild
-                  variant={plan.featured ? 'hero' : 'outline'}
-                  className="w-full"
-                >
-                  <Link to="/contact">
-                    {plan.cta}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+              <h3 className="text-xl font-serif font-bold text-foreground mb-1">
+                {plan.name}
+              </h3>
+              <div className="mb-1">
+                <span className="text-4xl font-serif font-bold text-primary">
+                  {plan.price}
+                </span>
+                <span className="text-sm text-muted-foreground ml-2">one-time</span>
               </div>
-            </AnimatedSection>
-          ))}
-        </div>
+              <p className="text-xs text-muted-foreground mb-6">
+                + {plan.retainer} retainer (optional)
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                {plan.description}
+              </p>
 
-        <AnimatedSection delay={400}>
-          <p className="text-center text-muted-foreground mt-8">
-            Need something custom?{' '}
-            <Link to="/contact" className="text-primary hover:underline font-medium">
-              Let's talk about your specific needs →
+              <ul className="space-y-3 flex-1 mb-8">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <CheckLg className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span className="text-sm text-muted-foreground">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Button asChild variant={plan.popular ? 'hero' : 'outline'} className="w-full">
+                <Link to="/contact">
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+            </div>
+          ))}
+        </AnimatedSection>
+
+        <AnimatedSection delay={400} variant="fadeIn">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 text-sm text-muted-foreground">
+            <Link to="/pricing" className="link-arrow text-primary font-medium">
+              View full pricing details
+              <ArrowRight className="w-4 h-4" />
             </Link>
-          </p>
+            <span className="hidden sm:block text-border">·</span>
+            <Link to="/contact" className="hover:text-primary transition-colors">
+              Need something custom? Let's talk
+            </Link>
+          </div>
         </AnimatedSection>
       </div>
     </section>

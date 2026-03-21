@@ -1,63 +1,33 @@
-import { Star, Quote } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
-
-const testimonials = [
-  {
-    quote: "Within 30 days of launching, our lead response time dropped from 4 hours to under a minute. The automation handles everything—we just show up to qualified calls.",
-    author: 'Michael Chen',
-    role: 'Partner',
-    company: 'Chen & Associates Law',
-  },
-  {
-    quote: "We were losing leads to competitors who responded faster. AuctoLabs fixed that completely. Now we're the ones beating everyone to the punch.",
-    author: 'Sarah Martinez',
-    role: 'Marketing Director',
-    company: 'TechFlow Solutions',
-  },
-  {
-    quote: "The ROI was obvious within 60 days. More qualified leads, less admin work, and a website that actually converts. Worth every penny.",
-    author: 'David Park',
-    role: 'CEO',
-    company: 'BuildRight Construction',
-  },
-];
+import { Testimonial } from '@/components/ui/clean-testimonial';
 
 export const TestimonialsSection = () => {
   return (
-    <section className="section-padding">
+    <section className="section-padding border-t border-border/40 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/5 blur-[120px] rounded-full -z-10" />
       <div className="container-custom">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-wide">Client Stories</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-foreground">
-              What Our Clients Say
-            </h2>
+
+        {/* Section label + heading */}
+        <AnimatedSection variant="fadeDown">
+          <span className="text-primary font-bold text-xs uppercase tracking-widest mb-6 block">
+            Client Stories
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground leading-tight mb-4">
+            Trusted by businesses<br />
+            <span className="text-primary italic">ready to grow.</span>
+          </h2>
+          <p className="text-muted-foreground leading-relaxed max-w-md mb-12">
+            Our clients don't just want a new website — they want a platform that supports their next stage of growth. That's exactly what we build.
+          </p>
+        </AnimatedSection>
+
+        {/* Testimonial component centered in a card */}
+        <AnimatedSection variant="scaleUp" delay={100}>
+          <div className="max-w-2xl mx-auto soft-card rounded-3xl overflow-hidden">
+            <Testimonial />
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <AnimatedSection key={testimonial.author} delay={index * 100}>
-              <div className="soft-card p-8 h-full flex flex-col">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <Quote className="w-6 h-6 text-primary/20 mb-3" />
-                <p className="text-foreground flex-grow mb-6 leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-                <div className="pt-4 border-t border-border">
-                  <p className="font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.role} at {testimonial.company}
-                  </p>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
       </div>
     </section>
   );

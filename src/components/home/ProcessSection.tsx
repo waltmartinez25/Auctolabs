@@ -1,4 +1,5 @@
-import { Search, Wrench, Bot, TrendingUp } from 'lucide-react';
+import { Search, WrenchAdjustable, Robot, GraphUpArrow, ArrowRight } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
 const steps = [
@@ -6,63 +7,100 @@ const steps = [
     number: '01',
     icon: Search,
     title: 'Audit',
-    description: 'We analyze your current setup, identify bottlenecks, and map out where leads are slipping through the cracks.',
+    description:
+      'We start by understanding your business, your audience, and where your current website falls short.',
   },
   {
     number: '02',
-    icon: Wrench,
+    icon: WrenchAdjustable,
     title: 'Build',
-    description: 'We design and develop a beautiful website with clear messaging, fast load times, and conversion-focused design.',
+    description:
+      'Next, we design and develop a modern website built for speed, clarity, and conversion.',
   },
   {
     number: '03',
-    icon: Bot,
+    icon: Robot,
     title: 'Automate',
-    description: 'We connect smart automations for instant lead response, qualification workflows, and CRM integration.',
+    description:
+      'We integrate systems that capture leads, streamline workflows, and reduce manual work.',
   },
   {
     number: '04',
-    icon: TrendingUp,
+    icon: GraphUpArrow,
     title: 'Optimize',
-    description: 'We continuously monitor performance, test improvements, and refine the system for maximum results.',
+    description:
+      'Then we refine and improve — using data, insights, and continuous iteration to help your website perform better over time.',
   },
 ];
 
 export const ProcessSection = () => {
   return (
-    <section className="section-padding bg-secondary/30">
+    <section className="section-padding bg-secondary/20 border-t border-border/60">
       <div className="container-custom">
-        <AnimatedSection>
+        {/* Centered heading — scale up */}
+        <AnimatedSection variant="scaleUp">
           <div className="text-center mb-16">
-            <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-wide">How It Works</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-foreground">
-              A Proven Process for<br />Predictable Growth
+            <span className="text-primary font-bold text-xs uppercase tracking-widest mb-4 block">
+              Our Approach
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-tight mb-6">
+              Audit. Build. Automate. Optimize.
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We follow a systematic approach that transforms your online presence into a revenue-generating asset.
+            <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              We follow a systematic approach that transforms your online
+              presence into a revenue-generating asset.
             </p>
           </div>
         </AnimatedSection>
 
-        <div className="relative">
-          {/* Connection line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2" />
+        {/* Horizontal step cards — stagger with fadeUp */}
+        <AnimatedSection
+          delay={100}
+          variant="fadeUp"
+          stagger
+          staggerDelay={120}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-border/60 rounded-xl overflow-hidden"
+        >
+          {steps.map((step, index) => (
+            <div
+              key={step.title}
+              className={`relative p-8 md:p-10 ${index < steps.length - 1
+                ? 'border-b lg:border-b-0 lg:border-r border-border/60'
+                : ''
+                } group card-hover`}
+            >
+              {/* Large faded step number */}
+              <span className="absolute top-4 right-4 text-6xl font-serif font-bold text-border/30 select-none leading-none">
+                {step.number}
+              </span>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, index) => (
-              <AnimatedSection key={step.title} delay={index * 100}>
-                <div className="soft-card p-6 text-center relative bg-background">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                    <step.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <span className="text-xs font-bold text-primary mb-2 block">{step.number}</span>
-                  <h3 className="text-lg font-serif font-bold mb-3 text-foreground">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors">
+                  <step.icon className="w-6 h-6 text-primary" />
                 </div>
-              </AnimatedSection>
-            ))}
+                <h3 className="text-lg font-serif font-bold text-foreground mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </AnimatedSection>
+
+        {/* CTA link — fade in */}
+        <AnimatedSection delay={600} variant="fadeIn">
+          <div className="text-center mt-10">
+            <Link
+              to="/services"
+              className="link-arrow text-primary font-medium"
+            >
+              Explore our process
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

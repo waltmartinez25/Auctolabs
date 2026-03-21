@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Twitter, Mail, ArrowUpRight, Heart } from 'lucide-react';
-import logo from '@/assets/AuctoLabs_Logo.png';
+import { ArrowUpRight, Envelope } from 'react-bootstrap-icons';
+import logo from '@/assets/AuctoLabs_Logo_transparent.png';
 
 const footerLinks = {
   services: [
-    { name: 'Web Design', href: '/services#web-design' },
-    { name: 'AI Automations', href: '/services#ai-automations' },
-    { name: 'Lead Generation', href: '/services#lead-generation' },
-    { name: 'Performance Systems', href: '/services#performance-systems' },
+    { name: 'Web Design', href: '/services' },
+    { name: 'AI Automations', href: '/services' },
+    { name: 'Lead Generation', href: '/services' },
+    { name: 'Performance Systems', href: '/services' },
   ],
   company: [
     { name: 'About', href: '/about' },
-    { name: 'Case Studies', href: '/case-studies' },
     { name: 'Process', href: '/process' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Contact', href: '/contact' },
@@ -22,11 +21,14 @@ const footerLinks = {
   ],
 };
 
+// slug = Simple Icons identifier; bg = brand color for the icon box
+// Email uses a BSI icon since it's not a third-party brand
 const socialLinks = [
-  { name: 'LinkedIn', href: '#', icon: Linkedin },
-  { name: 'Twitter', href: '#', icon: Twitter },
-  { name: 'Email', href: 'mailto:hello@auctolabs.com', icon: Mail },
-];
+  { name: 'LinkedIn',  href: 'https://www.linkedin.com/company/auctolabs', slug: 'linkedin',  bg: '#0A66C2' },
+  { name: 'X',         href: 'https://x.com/AuctoLabs',                    slug: 'x',         bg: '#000000' },
+  { name: 'Instagram', href: 'https://www.instagram.com/auctolabs',        slug: 'instagram', bg: '#E4405F' },
+  { name: 'Email',     href: 'mailto:hello@auctolabs.com',                 slug: null,        bg: null      },
+] as const;
 
 export const Footer = () => {
   return (
@@ -36,20 +38,37 @@ export const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="AuctoLabs" className="h-20 w-auto" />
+              <img src={logo} alt="AuctoLabs" className="h-10 w-auto" />
             </Link>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Helping small businesses grow with websites and automations that work as hard as you do.
+              AuctoLabs builds intelligent websites and automation systems designed to attract the right people, convert them into clients, and scale with your business.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  className="p-2.5 rounded-xl bg-background border border-border hover:border-primary/50 hover:bg-primary/5 transition-all"
                   aria-label={social.name}
+                  target={social.href.startsWith('mailto') ? undefined : '_blank'}
+                  rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                  style={social.bg ? { backgroundColor: social.bg } : undefined}
+                  className={`p-2.5 rounded-xl border transition-all ${
+                    social.bg
+                      ? 'border-transparent hover:opacity-80'
+                      : 'bg-background border-border hover:border-primary/50 hover:bg-primary/5'
+                  }`}
                 >
-                  <social.icon className="h-4 w-4 text-muted-foreground" />
+                  {social.slug ? (
+                    <img
+                      src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${social.slug}.svg`}
+                      alt={social.name}
+                      className="h-4 w-4"
+                      draggable={false}
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
+                  ) : (
+                    <Envelope className="h-4 w-4 text-muted-foreground" />
+                  )}
                 </a>
               ))}
             </div>
@@ -57,7 +76,7 @@ export const Footer = () => {
 
           {/* Services Column */}
           <div>
-            <h4 className="font-serif font-semibold mb-5 text-foreground">Services</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-5">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -75,7 +94,7 @@ export const Footer = () => {
 
           {/* Company Column */}
           <div>
-            <h4 className="font-serif font-semibold mb-5 text-foreground">Company</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-5">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -93,7 +112,7 @@ export const Footer = () => {
 
           {/* Legal Column */}
           <div>
-            <h4 className="font-serif font-semibold mb-5 text-foreground">Legal</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-5">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
@@ -110,13 +129,21 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* SEO paragraph — read by search engines */}
+        <p className="mt-12 text-xs text-muted-foreground/60 leading-relaxed max-w-3xl">
+          AuctoLabs specializes in AI-powered website development, automated lead generation systems,
+          and automation infrastructure designed to help service businesses convert more visitors
+          into clients. From conversion-focused websites to AI automation systems — we build
+          the complete growth infrastructure your business needs.
+        </p>
+
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} AuctoLabs. All rights reserved.
+            © {new Date().getFullYear()} AuctoLabs. Websites engineered for growth.
           </p>
-          <p className="text-muted-foreground text-sm flex items-center gap-1">
-            Made with <Heart className="h-3 w-3 text-primary fill-primary" /> for small businesses
+          <p className="text-muted-foreground text-sm">
+            Built for businesses ready to grow.
           </p>
         </div>
       </div>

@@ -1,46 +1,83 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowRight, LightningCharge } from 'react-bootstrap-icons';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
 export const CTASection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-warm-gradient" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-
+    <section className="border-t border-border/40 relative overflow-hidden bg-foreground text-background">
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(94,177,191,0.1),transparent)] pointer-events-none" />
       <div className="container-custom relative z-10">
-        <AnimatedSection>
-          <div className="soft-card p-10 md:p-16 text-center max-w-4xl mx-auto bg-background/80 backdrop-blur-sm">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Heart className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Built for businesses like yours</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 text-foreground">
-              Ready to Turn Your Website Into a{' '}
-              <span className="gradient-text-warm">Client-Getting Machine?</span>
+        <div className="py-32 md:py-48 lg:py-60">
+          {/* Giant heading — scale up from center */}
+          <AnimatedSection variant="scaleUp" duration="slow" className="flex flex-col items-center text-center">
+            <span className="text-primary font-bold text-sm uppercase tracking-[0.4em] mb-12 block accent-glow">
+              Let's get to work.
+            </span>
+            <h2 className="text-7xl md:text-9xl lg:text-[180px] xl:text-[220px] font-serif font-black leading-[0.75] tracking-tightest mb-20 italic">
+              Let's
+              <br />
+              <span className="text-primary accent-glow">Build</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Let's discuss your goals and show you exactly how we can help you
-              respond faster, convert more, and grow predictably.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/contact">
-                  Book a Strategy Call
-                  <ArrowRight className="ml-2 h-5 w-5" />
+          </AnimatedSection>
+
+          {/* Subtitle + CTA row — fade up with delay */}
+          <AnimatedSection delay={300} variant="fadeUp">
+            <div className="flex flex-col items-center text-center gap-12">
+              <p className="text-xl md:text-2xl text-background/60 max-w-2xl leading-relaxed font-medium">
+                Your website should work as hard as you do. If you're ready to turn it into a system that supports{' '}
+                <span className="text-background font-bold italic underline decoration-primary underline-offset-8">real growth</span>,
+                {' '}we'd love to help.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl px-4">
+                <Link
+                  to="/contact"
+                  className="group relative inline-flex items-center justify-center gap-4 px-10 py-6 rounded-2xl bg-primary text-primary-foreground font-black text-xl hover:scale-[1.05] active:scale-[0.95] transition-all duration-500 shadow-[0_0_40px_rgba(94,177,191,0.3)] hover:shadow-[0_0_60px_rgba(94,177,191,0.5)] overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                  <span className="relative z-10">Start Building</span>
+                  <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
                 </Link>
-              </Button>
-              <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact?audit=true">
-                  Get a Free Loom Audit
+                <Link
+                  to="/contact?audit=true"
+                  className="group relative inline-flex items-center justify-center gap-4 px-10 py-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl text-background font-black text-xl hover:bg-white/10 hover:border-white/20 hover:scale-[1.05] active:scale-[0.95] transition-all duration-500 shadow-xl"
+                >
+                  <span className="relative z-10">Free Audit</span>
+                  <LightningCharge className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </Link>
-              </Button>
+              </div>
             </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+
+          {/* Social links — stagger fade in */}
+          <AnimatedSection
+            delay={500}
+            variant="fadeUp"
+            stagger
+            staggerDelay={150}
+            className="flex flex-wrap justify-center gap-12 mt-32 pt-12 border-t border-white/5"
+          >
+            {[
+              { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/auctolabs' },
+              { label: 'X',         href: 'https://x.com/AuctoLabs' },
+              { label: 'Instagram', href: 'https://www.instagram.com/auctolabs' },
+              { label: 'Email',     href: 'mailto:hello@auctolabs.com' },
+            ].map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('mailto') ? undefined : '_blank'}
+                rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                className="group flex flex-col items-center gap-2"
+              >
+                <span className="text-sm text-background/40 group-hover:text-primary transition-all duration-300 font-black uppercase tracking-[0.3em] group-hover:tracking-[0.4em]">
+                  {label}
+                </span>
+                <div className="w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-500" />
+              </a>
+            ))}
+          </AnimatedSection>
+        </div>
       </div>
     </section>
   );

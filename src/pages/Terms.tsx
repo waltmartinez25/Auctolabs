@@ -6,8 +6,8 @@ const Terms = () => {
   return (
     <Layout>
       <SEO
-        title="Terms of Service"
-        description="AuctoLabs Terms of Service. Read our terms and conditions for web design, development, and automation services."
+        title="AuctoLabs Terms of Service — Web & Automation Agreements"
+        description="AuctoLabs Terms of Service. Read our terms and conditions for web design, development, and AI automation services — covering payments, IP, and liability."
         keywords="terms of service, terms and conditions, AuctoLabs terms, service agreement"
         canonical="https://auctolabs.com/terms"
       />
@@ -16,7 +16,7 @@ const Terms = () => {
         <div className="container-custom">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-serif mb-8 text-foreground">Terms of Service</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-8 text-foreground">Terms of Service</h1>
               
               <div className="prose prose-lg text-muted-foreground space-y-6">
                 <p className="text-sm">Last updated: {new Date().toLocaleDateString()}</p>
