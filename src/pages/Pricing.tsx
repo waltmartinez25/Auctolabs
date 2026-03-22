@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChatDots } from 'react-bootstrap-icons';
+import { ArrowRight, CheckLg } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
 import { PageSummary } from '@/components/PageSummary';
@@ -27,6 +27,32 @@ const tableFeatures: PricingFeature[] = [
   { name: 'Custom Integrations',         included: 'all' },
   { name: 'Dedicated Account Manager',   included: 'all' },
   { name: 'Quarterly Strategy Reviews',  included: 'all' },
+];
+
+const capabilities = [
+  'Custom lead routing and qualification logic',
+  'Advanced multi-step automation workflows',
+  'CRM customization and pipeline structuring',
+  'API integrations between tools and platforms',
+  'Internal workflow automation (sales, ops, support)',
+  'AI-powered chat and response systems',
+  'Custom dashboards and reporting systems',
+];
+
+const integrationsList = [
+  'CRMs (HubSpot, Salesforce, Pipedrive)',
+  'Communication (Twilio, email, SMS platforms)',
+  'Scheduling (Calendly, booking systems)',
+  'Marketing tools and ad platforms',
+  'Internal databases and custom APIs',
+  'Automation platforms (n8n, Zapier, Make)',
+];
+
+const outcomes = [
+  'Reduces manual work',
+  'Eliminates delays',
+  'Improves accuracy',
+  'Scales with your business',
 ];
 
 const addOns = [
@@ -171,27 +197,101 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Custom */}
-      <section className="section-padding">
+      {/* Custom Systems */}
+      <section className="section-padding border-t border-border/40">
         <div className="container-custom">
+
+          {/* Heading + intro */}
           <AnimatedSection>
-            <div className="soft-card p-12 text-center max-w-3xl mx-auto">
-              <ChatDots className="w-12 h-12 text-primary mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-                Need Something Custom?
+            <div className="max-w-3xl mb-14">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest mb-5 block">
+                Custom Systems
+              </span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground leading-tight mb-6">
+                Built Around Your Business —<br className="hidden sm:block" /> Not Templates
               </h2>
-              <p className="text-muted-foreground mb-8">
-                Enterprise requirements? Complex integrations? Multi-location deployment?
-                Let's discuss a custom solution tailored to your needs.
+              <p className="text-base text-muted-foreground leading-relaxed mb-3 max-w-2xl">
+                Every business runs differently. That's why we don't rely on rigid templates or one-size-fits-all setups.
               </p>
-              <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  Discuss Custom Requirements
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
+                We design and build custom automation workflows and integrations tailored to how your business actually operates — so everything works together seamlessly.
+              </p>
             </div>
           </AnimatedSection>
+
+          {/* Two-col: What We Can Build + Common Integrations */}
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <AnimatedSection variant="fadeUp" delay={100}>
+              <div className="soft-card p-8 h-full">
+                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-6">
+                  What We Can Build
+                </p>
+                <ul className="space-y-3.5">
+                  {capabilities.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckLg className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm font-medium text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection variant="fadeUp" delay={180}>
+              <div className="soft-card p-8 h-full">
+                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">
+                  Common Integrations
+                </p>
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                  We work with tools across your entire stack, including:
+                </p>
+                <ul className="space-y-3.5">
+                  {integrationsList.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" aria-hidden="true" />
+                      <span className="text-sm font-medium text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Why This Matters — callout + CTA */}
+          <AnimatedSection variant="fadeUp" delay={260}>
+            <div className="rounded-2xl bg-primary/5 border border-primary/20 p-8 md:p-10">
+              <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                    Why This Matters
+                  </p>
+                  <p className="text-base font-semibold text-foreground mb-2 max-w-xl">
+                    Most businesses lose time and revenue because their systems don't talk to each other.
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-7 max-w-xl leading-relaxed">
+                    We fix that by connecting everything into one streamlined system that:
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {outcomes.map((item) => (
+                      <div key={item} className="flex items-center gap-2">
+                        <CheckLg className="w-4 h-4 text-primary shrink-0" />
+                        <span className="text-sm font-semibold text-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="shrink-0 lg:self-center">
+                  <Button asChild variant="hero" size="lg">
+                    <Link to="/contact">
+                      Discuss Custom Requirements
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
         </div>
       </section>
     </Layout>

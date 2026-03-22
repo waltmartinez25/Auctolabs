@@ -68,7 +68,7 @@ const BubblePill = ({ label, side, css, floatDuration, delay }: (typeof bubbles)
   const reduceMotion = useReducedMotion();
   return (
     <motion.div
-      className="absolute z-30 hidden md:flex items-center"
+      className="absolute z-30 hidden lg:flex items-center"
       style={css}
       initial={{ opacity: 0, x: side === 'left' ? -16 : 16 }}
       animate={{ opacity: 1, x: 0 }}
@@ -161,6 +161,7 @@ export const HeroSection = () => (
         <FadeIn delay={0.75}>
           <div className="glass-panel border-border/30 p-1.5 rounded-2xl inline-flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center shadow-xl">
 
+
             <Link
               to="/contact"
               aria-label="Start building your website with AuctoLabs"
@@ -180,6 +181,20 @@ export const HeroSection = () => (
               <span className="tracking-wide">Free Audit</span>
             </Link>
 
+          </div>
+        </FadeIn>
+
+        {/* Static service pills — visible on mobile/tablet (<lg), hidden on lg+ where floating pills take over */}
+        <FadeIn delay={1.0}>
+          <div className="flex lg:hidden flex-wrap justify-center gap-2 mt-6 px-2">
+            {bubbles.map((b) => (
+              <div
+                key={b.label}
+                className="glass-panel border-border/40 shadow rounded-full px-4 py-2 whitespace-nowrap"
+              >
+                <span className="text-xs font-bold text-foreground">{b.label}</span>
+              </div>
+            ))}
           </div>
         </FadeIn>
 

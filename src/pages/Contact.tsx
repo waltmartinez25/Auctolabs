@@ -163,15 +163,33 @@ const Contact = () => {
                 <h2 className="text-2xl font-serif font-bold mb-6">Send Us a Message</h2>
 
                 {isSubmitted ? (
-                  <div className="text-center py-12">
+                  <div className="text-center py-10">
                     <CheckCircle className="w-16 h-16 text-primary mx-auto mb-6" />
                     <h3 className="text-xl font-serif font-bold mb-2">Message Sent!</h3>
-                    <p className="text-muted-foreground mb-6">
+                    <p className="text-muted-foreground mb-4">
                       We will get back to you within 24 hours.
                     </p>
-                    <Button onClick={() => setIsSubmitted(false)} variant="outline">
+                    <Button onClick={() => setIsSubmitted(false)} variant="outline" size="sm">
                       Send Another Message
                     </Button>
+                    <div className="mt-8 pt-8 border-t border-border/30 text-left">
+                      <p className="text-sm font-semibold text-foreground mb-1">
+                        Don't want to wait?
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Skip the inbox — book a 30-minute strategy call directly on our calendar.
+                      </p>
+                      <Button asChild variant="hero" className="w-full">
+                        <a
+                          href="https://calendly.com/waltermartinez-auctolabs/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Calendar3 className="mr-2 h-4 w-4" />
+                          Schedule a Strategy Call
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 ) : (
                   <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">

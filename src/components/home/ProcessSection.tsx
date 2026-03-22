@@ -61,16 +61,26 @@ export const ProcessSection = () => {
           staggerDelay={120}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-border/60 rounded-xl overflow-hidden"
         >
-          {steps.map((step, index) => (
+          {steps.map((step, index) => {
+            // Border logic for 1-col / sm:2-col / lg:4-col grid
+            // Mobile (1-col):  all but last → border-b
+            // sm (2-col):      top row (0,1) → border-b; left col (0,2) → border-r; bottom row (2,3) → no border-b
+            // lg (4-col):      all but last → border-r; no border-b
+            const isLast = index === steps.length - 1;
+            const isBottomRow2Col = index >= 2;
+            const isLeftCol2Col   = index % 2 === 0;
+            const borderClass = isLast ? '' : [
+              isBottomRow2Col ? 'border-b sm:border-b-0' : 'border-b lg:border-b-0',
+              isLeftCol2Col   ? 'sm:border-r' : '',
+              'lg:border-r border-border/60',
+            ].filter(Boolean).join(' ');
+            return (
             <div
               key={step.title}
-              className={`relative p-8 md:p-10 ${index < steps.length - 1
-                ? 'border-b lg:border-b-0 lg:border-r border-border/60'
-                : ''
-                } group card-hover`}
+              className={`relative p-8 md:p-10 ${borderClass} group card-hover`}
             >
               {/* Large faded step number */}
-              <span className="absolute top-4 right-4 text-6xl font-serif font-bold text-border/30 select-none leading-none">
+              <span className="absolute top-4 right-4 text-5xl sm:text-6xl font-serif font-bold text-border/30 select-none leading-none pointer-events-none">
                 {step.number}
               </span>
 
@@ -86,7 +96,8 @@ export const ProcessSection = () => {
                 </p>
               </div>
             </div>
-          ))}
+            );
+          })}
         </AnimatedSection>
 
         {/* CTA link — fade in */}

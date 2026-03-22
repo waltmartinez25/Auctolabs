@@ -9,6 +9,10 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  html, body {
+    overflow-x: hidden;
+  }
+
   :root {
     /* Neutral Off-White Background */
     --background: 210 40% 98%;

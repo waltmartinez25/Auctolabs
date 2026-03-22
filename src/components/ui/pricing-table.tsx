@@ -142,18 +142,18 @@ export function PricingTable({
       {/* Features table */}
       <div className="border border-border/50 rounded-2xl overflow-hidden">
         <div className="overflow-x-auto">
-          <div className="min-w-[560px] divide-y divide-border/30">
+          <div className="min-w-[360px] sm:min-w-[460px] md:min-w-[560px] divide-y divide-border/30">
             {/* Table header */}
-            <div className="flex items-center px-5 py-4 bg-secondary/30">
+            <div className="flex items-center px-3 sm:px-5 py-4 bg-secondary/30">
               <div className="flex-1 text-xs font-bold uppercase tracking-widest text-muted-foreground">
                 Features
               </div>
-              <div className="flex items-center gap-6 text-xs">
+              <div className="flex items-center gap-2 sm:gap-4 md:gap-6 text-xs">
                 {plans.map((plan) => (
                   <div
                     key={plan.level}
                     className={cn(
-                      'w-16 text-center font-bold uppercase tracking-wider text-xs',
+                      'w-10 sm:w-14 md:w-16 text-center font-bold uppercase tracking-wider text-xs',
                       plan.level === selectedPlan ? 'text-primary' : 'text-muted-foreground/60',
                     )}
                   >
@@ -168,16 +168,16 @@ export function PricingTable({
               <div
                 key={feature.name}
                 className={cn(
-                  'flex items-center px-5 py-3.5 transition-colors',
+                  'flex items-center px-3 sm:px-5 py-3.5 transition-colors',
                   feature.included === selectedPlan
                     ? 'bg-primary/5'
                     : index % 2 === 0 ? 'bg-white' : 'bg-secondary/10',
                 )}
               >
-                <div className="flex-1 text-sm text-foreground font-medium">{feature.name}</div>
-                <div className="flex items-center gap-6">
+                <div className="flex-1 text-sm text-foreground font-medium pr-2">{feature.name}</div>
+                <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
                   {plans.map((plan) => (
-                    <div key={plan.level} className="w-16 flex justify-center">
+                    <div key={plan.level} className="w-10 sm:w-14 md:w-16 flex justify-center">
                       {shouldShowCheck(feature.included, plan.level) ? (
                         <span
                           className={cn(

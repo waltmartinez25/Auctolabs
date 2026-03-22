@@ -331,6 +331,14 @@ const About = () => {
               <p className="text-center text-xs text-muted-foreground mt-10 max-w-md mx-auto">
                 Results vary by business, but the system is designed for measurable improvement.
               </p>
+              <div className="text-center mt-8">
+                <Button asChild variant="hero">
+                  <Link to="/contact">
+                    Want These Results?
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </AnimatedSection>
         </div>
@@ -414,6 +422,17 @@ const About = () => {
               If you're losing deals because competitors respond faster —{' '}
               <span className="font-semibold text-foreground">we fix that.</span>
             </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={380}>
+            <div className="flex justify-center mt-8">
+              <Button asChild variant="hero" size="lg">
+                <Link to="/contact">
+                  Let's Fix Your Response Gap
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
           </AnimatedSection>
         </div>
       </section>

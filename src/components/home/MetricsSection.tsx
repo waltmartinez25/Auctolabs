@@ -55,10 +55,10 @@ export const MetricsSection = () => {
           {metrics.map((metric, index) => (
             <div
               key={metric.label}
-              className={`group glass-card py-12 px-8 rounded-3xl text-center hover:scale-[1.03] transition-all duration-500 ${metric.accent === 'text-accent' ? 'hover:border-accent/40' : 'hover:border-contrast/40'
+              className={`group glass-card py-8 px-4 sm:py-12 sm:px-8 rounded-3xl text-center hover:scale-[1.03] transition-all duration-500 ${metric.accent === 'text-accent' ? 'hover:border-accent/40' : 'hover:border-contrast/40'
                 }`}
             >
-              <span className={`text-5xl md:text-6xl lg:text-7xl font-serif font-black leading-none block mb-6 transition-all duration-500 group-hover:scale-110 drop-shadow-xl ${metric.accent === 'text-accent' ? 'text-accent accent-glow' : 'text-contrast contrast-glow'
+              <span className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-black leading-none block mb-4 sm:mb-6 transition-all duration-500 group-hover:scale-110 drop-shadow-xl ${metric.accent === 'text-accent' ? 'text-accent accent-glow' : 'text-contrast contrast-glow'
                 }`}>
                 {metric.value}
               </span>
@@ -71,6 +71,7 @@ export const MetricsSection = () => {
             </div>
           ))}
         </AnimatedSection>
+
       </div>
     </section>
   );

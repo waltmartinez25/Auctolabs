@@ -77,7 +77,7 @@ const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 // ─── Browser mockup ────────────────────────────────────────────────────────────
 
 const BrowserMockup = ({ entry }: { entry: (typeof entries)[number] }) => (
-  <div className="relative mx-auto max-w-xs mt-6">
+  <div className="relative mx-auto w-full max-w-[280px] sm:max-w-xs mt-6">
     {/* Browser frame */}
     <div className="bg-[#f1f3f5] rounded-xl overflow-hidden shadow-2xl border border-black/8">
       {/* Chrome bar */}
@@ -95,7 +95,7 @@ const BrowserMockup = ({ entry }: { entry: (typeof entries)[number] }) => (
         </div>
       </div>
       {/* Screenshot — above-the-fold crop */}
-      <div className="h-[260px] overflow-hidden">
+      <div className="h-[200px] sm:h-[240px] md:h-[260px] overflow-hidden">
         <img
           src={entry.preview}
           alt={`${entry.client} website preview`}

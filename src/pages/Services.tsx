@@ -460,6 +460,28 @@ const Services = () => {
               </div>
             </AnimatedSection>
           </div>
+
+          <AnimatedSection delay={250}>
+            <div className="text-center mt-12">
+              <p className="text-sm text-muted-foreground mb-4 font-medium">
+                Want a system that does this for your business?
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button asChild variant="hero" size="lg">
+                  <Link to="/contact">
+                    Book a Free Strategy Call
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link to="/pricing">
+                    See Pricing
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

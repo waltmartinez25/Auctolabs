@@ -113,9 +113,9 @@ export const SocialProofSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -16 }}
                     transition={{ duration: 0.32, delay: i * 0.06, ease: STAT_EASE }}
-                    className="rounded-2xl border border-border/50 bg-[#F8FAFC] px-5 py-5 hover:border-primary/30 hover:bg-white hover:shadow-sm transition-all duration-200 cursor-default"
+                    className="rounded-2xl border border-border/50 bg-[#F8FAFC] px-3 py-4 sm:px-5 sm:py-5 hover:border-primary/30 hover:bg-white hover:shadow-sm transition-all duration-200 cursor-default"
                   >
-                    <p className="text-[2.75rem] md:text-[3rem] font-black leading-none tracking-tight text-foreground/[0.13] mb-1.5 select-none">
+                    <p className="text-[2rem] sm:text-[2.75rem] md:text-[3rem] font-black leading-none tracking-tight text-foreground/[0.13] mb-1.5 select-none">
                       {stat.value}
                     </p>
                     <p className="text-[0.8125rem] font-bold text-foreground leading-snug">

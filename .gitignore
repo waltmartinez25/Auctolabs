@@ -11,6 +11,13 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+nul
+vite.config.ts.timestamp-*.mjs
 
 # Editor directories and files
 .vscode/*
