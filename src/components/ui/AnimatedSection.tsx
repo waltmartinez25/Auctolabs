@@ -1,6 +1,6 @@
 import { useInView } from '@/hooks/useInView';
 import { cn } from '@/lib/utils';
-import { ReactNode, Children, cloneElement, isValidElement, useState, useEffect } from 'react';
+import { ReactNode, ReactElement, CSSProperties, HTMLAttributes, Children, cloneElement, isValidElement, useState, useEffect } from 'react';
 
 function usePrefersReducedMotion() {
   const [prefersReduced, setPrefersReduced] = useState(
@@ -63,6 +63,8 @@ const variantStyles: Record<AnimationVariant, { hidden: string; visible: string 
   },
 };
 
+type ChildWithProps = ReactElement<{ className?: string; style?: CSSProperties }>;
+
 const durationClass = {
   fast: 'duration-500',
   normal: 'duration-700',
@@ -91,15 +93,15 @@ export const AnimatedSection = ({
         {childArray.map((child, index) => {
           if (!isValidElement(child)) return child;
           const childDelay = prefersReducedMotion ? 0 : delay + index * staggerDelay;
-          return cloneElement(child as React.ReactElement<any>, {
+          return cloneElement(child as ChildWithProps, {
             key: index,
             className: cn(
-              (child as React.ReactElement<any>).props.className,
+              (child as ChildWithProps).props.className,
               !prefersReducedMotion && `transition-all ${durationClass[duration]} ease-[cubic-bezier(0.25,0.46,0.45,0.94)]`,
               show ? styles.visible : styles.hidden,
             ),
             style: {
-              ...((child as React.ReactElement<any>).props.style || {}),
+              ...((child as ChildWithProps).props.style || {}),
               transitionDelay: `${childDelay}ms`,
             },
           });
@@ -138,7 +140,7 @@ export const AnimatedCard = ({
   className,
   as: Component = 'div',
   ...rest
-}: AnimatedCardProps & Record<string, any>) => {
+}: AnimatedCardProps & HTMLAttributes<HTMLElement> & { href?: string; target?: string; rel?: string }) => {
   return (
     <Component
       className={cn(

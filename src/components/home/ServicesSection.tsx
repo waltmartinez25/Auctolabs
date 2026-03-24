@@ -12,8 +12,8 @@ const entries = [
     description:
       'For law firms, your website is the first conversation with a potential client. We build digital experiences that establish credibility instantly and convert visitors into qualified leads.',
     stats: [
-      { value: '340%', label: 'Increase in qualified leads' },
-      { value: '<1 min', label: 'Average lead response time' },
+      { value: '35%', label: 'Increase in qualified leads' },
+      { value: '15 min', label: 'Avg lead response time' },
     ],
     mockUrl: 'pinnaclelawgroup.com',
     preview: '/mockups/mock-ai-automations.jpg',
@@ -25,8 +25,8 @@ const entries = [
     description:
       'For agencies, growth demands more than a portfolio site. We build conversion-focused websites with CRM integration and real-time analytics designed to close more deals.',
     stats: [
-      { value: '3×', label: 'Lead volume increase' },
-      { value: '67%', label: 'Reduction in bounce rate' },
+      { value: '2×', label: 'Lead volume increase' },
+      { value: '35%', label: 'Reduction in bounce rate' },
     ],
     mockUrl: 'dreamhomerealty.com',
     preview: '/mockups/mock-web-design.png',
@@ -38,8 +38,8 @@ const entries = [
     description:
       'For construction firms, trust and visibility win contracts. We build websites that generate qualified leads, automate follow-up, and keep your pipeline full year-round.',
     stats: [
-      { value: '340%', label: 'ROI achieved in 60 days' },
-      { value: '53/mo', label: 'Qualified consultations booked' },
+      { value: '120%', label: 'ROI in 90 days' },
+      { value: '18/mo', label: 'Qualified consultations booked' },
     ],
     mockUrl: 'grouproomgold.com',
     preview: '/mockups/mock-lead-generation.jpg',
@@ -51,8 +51,8 @@ const entries = [
     description:
       'For SaaS teams, speed is a competitive advantage. We build workflow automations that eliminate manual work, connect your tools, and multiply team output.',
     stats: [
-      { value: '82%', label: 'Reduction in manual tasks' },
-      { value: '2.5×', label: 'Faster team output' },
+      { value: '45%', label: 'Reduction in manual tasks' },
+      { value: '1.6×', label: 'Faster team output' },
     ],
     mockUrl: 'mitrixit.com',
     preview: '/mockups/mock-ai-workflows.jpg',
@@ -64,8 +64,8 @@ const entries = [
     description:
       'For small businesses, your online presence is your storefront. We build beautiful e-commerce experiences that showcase your brand, drive sales, and turn visitors into loyal customers.',
     stats: [
-      { value: '4.2×', label: 'Increase in online sales' },
-      { value: '58%', label: 'Higher customer retention' },
+      { value: '1.8×', label: 'Increase in online sales' },
+      { value: '18%', label: 'Higher customer retention' },
     ],
     mockUrl: 'grandmawalkers.com',
     preview: '/mockups/mock-ecommerce.jpg',
@@ -119,7 +119,7 @@ export const ServicesSection = () => {
   return (
     <section className="section-padding bg-white border-t border-border/40">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
           {/* ── LEFT COLUMN ── */}
           <div>
@@ -188,7 +188,7 @@ export const ServicesSection = () => {
           </div>
 
           {/* ── RIGHT COLUMN ── */}
-          <div className="lg:pt-[6.5rem]">
+          <div>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIdx}

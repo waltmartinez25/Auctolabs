@@ -8,6 +8,7 @@ import logo from '@/assets/AuctoLabs_Logo_transparent.png';
 
 const navLinks = [
   { name: 'Services', href: '/services' },
+  { name: 'Industries', href: '/industries' },
   { name: 'Process', href: '/process' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'About', href: '/about' },

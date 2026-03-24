@@ -136,17 +136,16 @@ const Contact = () => {
         <div className="container-custom">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-primary font-semibold mb-4 block">Contact</span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
-                Let's Build Your<br />
+              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">Contact</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
+                Let's Build Your{' '}
                 <span className="gradient-text-warm">Growth Machine</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-3">
+              <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 Ready to turn your website into a client-generating system?
               </p>
-              <p className="text-xl text-muted-foreground">
-                Book a strategy call or send us a message. We'll review your current
-                setup and show you how it can work harder for your business.
+              <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
+                Book a strategy call or send us a message — we'll show you exactly how it can work for your business.
               </p>
             </div>
           </AnimatedSection>

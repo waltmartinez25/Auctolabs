@@ -11,8 +11,10 @@ const footerLinks = {
   ],
   company: [
     { name: 'About', href: '/about' },
+    { name: 'Industries', href: '/industries' },
     { name: 'Process', href: '/process' },
     { name: 'Pricing', href: '/pricing' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ],
   legal: [
@@ -34,13 +36,16 @@ export const Footer = () => {
   return (
     <footer className="bg-secondary/50 border-t border-border">
       <div className="container-custom section-padding">
+
+        {/* Main grid: Brand (2 cols) + Services + Company */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
+
+          {/* Brand Column — spans 2 on lg */}
+          <div className="md:col-span-2 lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
               <img src={logo} alt="AuctoLabs" className="h-10 w-auto" />
             </Link>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-muted-foreground mb-6 leading-relaxed max-w-sm">
               AuctoLabs builds intelligent websites and automation systems designed to attract the right people, convert them into clients, and scale with your business.
             </p>
             <div className="flex gap-3">
@@ -110,23 +115,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal Column */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-5">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group text-sm"
-                  >
-                    {link.name}
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* SEO paragraph — read by search engines */}
@@ -142,10 +130,19 @@ export const Footer = () => {
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} AuctoLabs. Websites engineered for growth.
           </p>
-          <p className="text-muted-foreground text-sm">
-            Built for businesses ready to grow.
-          </p>
+          <div className="flex items-center gap-6">
+            {footerLinks.legal.map((link) => (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-muted-foreground hover:text-primary transition-colors text-sm"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
         </div>
+
       </div>
     </footer>
   );

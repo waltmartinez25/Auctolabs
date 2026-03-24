@@ -22,6 +22,7 @@ export interface PricingPlan {
     yearly: number;  // monthly retainer price
   };
   popular?: boolean;
+  tagline?: string;
 }
 
 export interface PricingTableProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -135,6 +136,9 @@ export function PricingTable({
                 {isRetainer ? '/mo' : ' one-time'}
               </span>
             </div>
+            {plan.tagline && (
+              <p className="text-xs text-muted-foreground mt-2 leading-snug">{plan.tagline}</p>
+            )}
           </button>
         ))}
       </div>

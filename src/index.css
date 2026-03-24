@@ -13,6 +13,17 @@ All colors MUST be HSL.
     overflow-x: hidden;
   }
 
+  html {
+    scroll-padding-top: 6rem; /* 96px — clears fixed navbar (h-20 = 80px) + breathing room */
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   :root {
     /* Neutral Off-White Background */
     --background: 210 40% 98%;

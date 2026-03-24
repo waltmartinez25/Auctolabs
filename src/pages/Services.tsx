@@ -93,7 +93,7 @@ const systemFlow = [
 const pricingTiers = [
   {
     name: 'Starter System',
-    price: '$3,500+',
+    price: '$3,500',
     description: 'For businesses needing a strong conversion foundation',
     highlight: false,
     features: [
@@ -106,7 +106,7 @@ const pricingTiers = [
   },
   {
     name: 'Growth System',
-    price: '$5,000 – $10,000+',
+    price: '$7,500',
     description: 'Full website + automation + lead flow system',
     highlight: true,
     features: [
@@ -121,7 +121,7 @@ const pricingTiers = [
   },
   {
     name: 'Advanced System',
-    price: '$10,000 – $15,000+',
+    price: '$15,000',
     description: 'Complete infrastructure + optimization + scaling',
     highlight: false,
     features: [
@@ -224,7 +224,7 @@ const Services = () => {
           'AI Automation features': 'Automated lead capture and qualification, instant response systems, CRM integration (HubSpot, Salesforce, Pipedrive), email and SMS follow-up, automated appointment booking, intelligent lead routing',
           'Lead Generation features': 'High-converting landing pages, lead magnet strategy and funnel setup, multi-channel lead capture, automated nurture sequences, lead scoring and qualification, analytics and attribution tracking',
           'Performance System features': 'Real-time performance dashboards, lead response time tracking, automated alerts and escalation workflows, conversion rate optimization, continuous system improvements',
-          'Investment range': 'Starter from $3,500, Growth $5,000–$10,000, Advanced $10,000–$15,000',
+          'Investment range': 'Starter $3,500, Growth $7,500, Scale $15,000',
           'Supported CRMs': 'HubSpot, Salesforce, Pipedrive',
         }}
       />

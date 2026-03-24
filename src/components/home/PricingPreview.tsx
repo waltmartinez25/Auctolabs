@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 
 const plans = [
   {
-    name: 'Starter',
+    name: 'Launch',
     price: '$3,500',
     retainer: '$1,500/mo',
-    description: 'A professional website built to convert — the foundation for growth.',
+    description: 'A conversion-ready website that gets your business found and generates consistent inquiries.',
     features: [
       'Pages included',
       'Mobile-responsive design',
@@ -18,17 +18,17 @@ const plans = [
     popular: false,
   },
   {
-    name: 'Growth',
+    name: 'Grow',
     price: '$7,500',
     retainer: '$2,500/mo',
-    description: 'Everything in Starter plus AI automation and lead capture systems.',
+    description: 'Everything in Launch, plus a fully automated lead pipeline — AI qualification, CRM sync, and speed-to-lead under 60 seconds.',
     features: [
-      'Everything in Starter',
+      'Everything in Launch',
       'AI-assisted qualification workflows',
       'CRM integration',
       'Speed-to-lead automation',
       'Email & SMS sequences',
-      'Advanced n8n workflows',
+      'Advanced automation workflows',
     ],
     popular: true,
   },
@@ -36,9 +36,9 @@ const plans = [
     name: 'Scale',
     price: '$15,000',
     retainer: '$4,000/mo',
-    description: 'Full-stack growth infrastructure with dedicated support.',
+    description: 'Full-stack growth infrastructure with custom integrations, dedicated strategy, and unlimited optimization.',
     features: [
-      'Everything in Growth',
+      'Everything in Grow',
       'Custom integrations',
       'Dedicated account manager',
       'Quarterly strategy reviews',

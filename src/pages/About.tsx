@@ -126,7 +126,7 @@ const About = () => {
       <section className="section-padding pt-32">
         <div className="container-custom">
           <AnimatedSection>
-            <div className="max-w-3xl">
+            <div className="text-center max-w-4xl mx-auto">
               <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">
                 About AuctoLabs
               </span>
@@ -134,14 +134,14 @@ const About = () => {
                 We Build Automated{' '}
                 <span className="gradient-text-warm">Client-Generating Systems</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-3 max-w-2xl">
+              <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 Most businesses don't struggle because of demand. They struggle because their
                 systems don't capture, respond, or convert fast enough.
               </p>
               <p className="text-base font-semibold text-foreground mb-4">
                 AuctoLabs was built to fix that.
               </p>
-              <p className="text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+              <p className="text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
                 We combine conversion-focused websites with intelligent automation to create
                 systems that capture leads instantly, qualify prospects automatically, and book
                 meetings while you sleep. This isn't just marketing. It's infrastructure for

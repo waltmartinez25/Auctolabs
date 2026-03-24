@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckLg } from 'react-bootstrap-icons';
+import { ArrowRight, CheckLg, XLg } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
 import { PageSummary } from '@/components/PageSummary';
@@ -9,9 +9,9 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { PricingTable, type PricingFeature, type PricingPlan } from '@/components/ui/pricing-table';
 
 const tablePlans: PricingPlan[] = [
-  { name: 'Starter', level: 'starter', price: { monthly: 3500, yearly: 1500 } },
-  { name: 'Growth',  level: 'pro',     price: { monthly: 7500, yearly: 2500 }, popular: true },
-  { name: 'Scale',   level: 'all',     price: { monthly: 15000, yearly: 4000 } },
+  { name: 'Launch', level: 'starter', price: { monthly: 3500, yearly: 1500 }, tagline: 'A conversion-ready website that gets your business found and generates inquiries.' },
+  { name: 'Grow',   level: 'pro',     price: { monthly: 7500, yearly: 2500 }, popular: true, tagline: 'Automate your entire lead pipeline — respond in under 60 seconds, 24/7.' },
+  { name: 'Scale',  level: 'all',     price: { monthly: 15000, yearly: 4000 }, tagline: 'Full-stack growth infrastructure with dedicated strategy and unlimited customization.' },
 ];
 
 const tableFeatures: PricingFeature[] = [
@@ -23,7 +23,7 @@ const tableFeatures: PricingFeature[] = [
   { name: 'CRM Integration',               included: 'pro' },
   { name: 'Speed-to-Lead Automation',      included: 'pro' },
   { name: 'Email & SMS Sequences',         included: 'pro' },
-  { name: 'Advanced n8n Workflows',        included: 'pro' },
+  { name: 'Advanced Automation Workflows',  included: 'pro' },
   { name: 'Custom Integrations',         included: 'all' },
   { name: 'Dedicated Account Manager',   included: 'all' },
   { name: 'Quarterly Strategy Reviews',  included: 'all' },
@@ -45,7 +45,7 @@ const integrationsList = [
   'Scheduling (Calendly, booking systems)',
   'Marketing tools and ad platforms',
   'Internal databases and custom APIs',
-  'Automation platforms (n8n, Zapier, Make)',
+  'Automation platforms (Zapier, Make, and more)',
 ];
 
 const outcomes = [
@@ -53,6 +53,17 @@ const outcomes = [
   'Eliminates delays',
   'Improves accuracy',
   'Scales with your business',
+];
+
+type ComparisonValue = 'yes' | 'no' | 'text';
+const comparisonRows: { feature: string; auctolabs: string; aval: ComparisonValue; freelancer: string; fval: ComparisonValue; inhouse: string; ival: ComparisonValue; diy: string; dval: ComparisonValue }[] = [
+  { feature: 'Launch timeline',        auctolabs: '4–8 weeks',     aval: 'yes', freelancer: '8–16 weeks',  fval: 'text', inhouse: '3–6 months',  ival: 'text', diy: '1–2 days',      dval: 'text' },
+  { feature: 'Automation included',    auctolabs: 'Included',      aval: 'yes', freelancer: 'Extra cost',  fval: 'no',   inhouse: 'Extra hire',   ival: 'no',   diy: 'Not available', dval: 'no'   },
+  { feature: 'CRM integration',        auctolabs: 'Included',      aval: 'yes', freelancer: 'Extra cost',  fval: 'no',   inhouse: 'Extra cost',   ival: 'no',   diy: 'Not available', dval: 'no'   },
+  { feature: 'Speed-to-lead <60s',     auctolabs: 'Standard',      aval: 'yes', freelancer: 'Not offered', fval: 'no',   inhouse: 'Varies',       ival: 'text', diy: 'Not available', dval: 'no'   },
+  { feature: 'Ongoing optimization',   auctolabs: 'Optional retainer', aval: 'yes', freelancer: 'Not included', fval: 'no', inhouse: 'Ongoing cost', ival: 'text', diy: 'Self-managed', dval: 'text' },
+  { feature: 'Single point of contact', auctolabs: 'Always',       aval: 'yes', freelancer: 'Usually',    fval: 'yes',  inhouse: 'Multiple hires',ival: 'no',   diy: 'Self-serve',    dval: 'text' },
+  { feature: 'Proven results',         auctolabs: 'Tracked & reported', aval: 'yes', freelancer: 'Varies', fval: 'text', inhouse: 'Varies',      ival: 'text', diy: 'Not tracked',   dval: 'no'   },
 ];
 
 const addOns = [
@@ -70,17 +81,17 @@ const pricingSchema = {
   "offers": [
     {
       "@type": "Offer",
-      "name": "Starter",
+      "name": "Launch",
       "price": "3500",
       "priceCurrency": "USD",
-      "description": "Custom 5-page website with basic SEO"
+      "description": "Conversion-ready website with SEO and analytics"
     },
     {
       "@type": "Offer",
-      "name": "Growth",
+      "name": "Grow",
       "price": "7500",
       "priceCurrency": "USD",
-      "description": "Website + AI automation with CRM integration"
+      "description": "Website + AI automation, CRM integration, and speed-to-lead pipeline"
     },
     {
       "@type": "Offer",
@@ -109,20 +120,20 @@ const Pricing = () => {
         purpose="This page shows transparent pricing for AuctoLabs web design and AI automation services. Three packages available: Starter ($3,500), Growth ($7,500), and Scale ($15,000). All packages are one-time payments with no long-term contracts."
         audience="Small business owners, marketing managers, and decision-makers comparing web design and automation service pricing"
         services={[
-          "Starter Package: $3,500 one-time - 5-page custom website, mobile-responsive, basic SEO, 30-day support",
-          "Growth Package: $7,500 one-time - 10 pages, AI chatbot, CRM integration, speed-to-lead system, 60-day support",
+          "Launch Package: $3,500 one-time - 5-page custom website, mobile-responsive, basic SEO, 30-day support",
+          "Grow Package: $7,500 one-time - 10 pages, AI lead qualification, CRM integration, speed-to-lead system, 60-day support",
           "Scale Package: $15,000 one-time - Unlimited pages, advanced automation, dedicated account manager, 90-day support"
         ]}
       />
       
       <HiddenStructuredFacts
         facts={{
-          "Starter Package price": "$3,500 one-time",
-          "Starter Package includes": "5-page custom website, mobile-responsive design, basic SEO, contact form, Google Analytics, 30-day support",
-          "Growth Package price": "$7,500 one-time (Most Popular)",
-          "Growth Package includes": "10 pages, AI lead qualification chatbot, CRM integration, email/SMS automation, speed-to-lead under 60 seconds, 60-day support",
+          "Launch Package price": "$3,500 one-time",
+          "Launch Package includes": "5-page custom website, mobile-responsive design, basic SEO, contact form, Google Analytics, 30-day support",
+          "Grow Package price": "$7,500 one-time (Most Popular)",
+          "Grow Package includes": "10 pages, AI lead qualification, CRM integration, email/SMS automation, speed-to-lead under 60 seconds, 60-day support",
           "Scale Package price": "$15,000 one-time",
-          "Scale Package includes": "Unlimited pages, advanced n8n workflows, multi-channel attribution, dedicated account manager, 90-day support, quarterly strategy reviews",
+          "Scale Package includes": "Unlimited pages, advanced automation workflows, multi-channel attribution, dedicated account manager, 90-day support, quarterly strategy reviews",
           "Monthly Retainer add-on": "From $1,500/month for ongoing optimization",
           "Additional Pages add-on": "$300 per page",
           "Content Writing add-on": "$500 per page",
@@ -137,20 +148,17 @@ const Pricing = () => {
         <div className="container-custom">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-primary font-semibold mb-4 block">Pricing</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
-                Transparent Investment.<br />
+              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">Pricing</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
+                Transparent Investment.{' '}
                 <span className="gradient-text-warm">Measurable Returns.</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-4">
+              <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 No hidden fees. No long-term contracts. Just clear pricing for
                 systems designed to generate consistent leads and measurable growth.
               </p>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Choosing the right system depends on where your business is today — and
-                where you want it to go. Each AuctoLabs package combines strategy, design,
-                automation, and optimization to create a website that works as a true
-                growth asset.
+              <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
+                Every plan is fully customized to your business — pick your starting point and we'll build the rest around you.
               </p>
             </div>
           </AnimatedSection>
@@ -171,6 +179,21 @@ const Pricing = () => {
         </div>
       </section>
 
+      {/* Performance guarantee strip */}
+      <section className="pb-2 pt-0">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto px-4">
+            <div className="rounded-xl bg-primary/5 border border-primary/20 px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+              <CheckLg className="w-4 h-4 text-primary shrink-0 mt-0.5 sm:mt-0" />
+              <p className="text-sm text-foreground leading-relaxed">
+                <span className="font-semibold">Built to perform, not just deliver.</span>{' '}
+                Every system we build is tested against real outcomes. If something doesn't work as designed, we fix it — at no extra charge.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Add-ons */}
       <section className="section-padding bg-secondary/30">
         <div className="container-custom">
@@ -178,7 +201,7 @@ const Pricing = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Add-Ons & Extras</h2>
               <p className="text-muted-foreground">
-                Customize your package with additional services.
+                Every engagement starts with a plan and grows from there — add only what moves the needle for your business.
               </p>
             </div>
           </AnimatedSection>
@@ -192,6 +215,77 @@ const Pricing = () => {
                   <p className="text-sm text-muted-foreground">{addon.description}</p>
                 </div>
               ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Comparison */}
+      <section className="section-padding border-t border-border/40">
+        <div className="container-custom">
+          <AnimatedSection>
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest mb-5 block">Why AuctoLabs</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+                One investment.<br />
+                <span className="gradient-text-warm">The complete growth infrastructure.</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Most businesses pay more for less. Here's why our clients switch — and stay.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection variant="fadeUp" delay={100}>
+            <div className="soft-card rounded-2xl overflow-x-auto">
+              <table className="w-full min-w-[640px] text-sm">
+                <thead>
+                  <tr className="border-b border-border/40">
+                    <th className="text-left py-4 px-5 font-semibold text-foreground w-[28%]">Feature</th>
+                    <th className="py-4 px-4 text-center font-bold text-primary bg-primary/5 border-x border-primary/20">
+                      <span className="block text-xs uppercase tracking-widest mb-0.5 font-bold">AuctoLabs</span>
+                    </th>
+                    <th className="py-4 px-4 text-center font-medium text-muted-foreground">Freelancer</th>
+                    <th className="py-4 px-4 text-center font-medium text-muted-foreground">In-House Hire</th>
+                    <th className="py-4 px-4 text-center font-medium text-muted-foreground">DIY Tools</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((row, i) => (
+                    <tr key={row.feature} className={`border-b border-border/30 ${i % 2 === 0 ? '' : 'bg-secondary/10'}`}>
+                      <td className="py-4 px-5 font-medium text-foreground text-sm">{row.feature}</td>
+                      <td className="py-4 px-4 text-center bg-primary/5 border-x border-primary/20">
+                        <div className="flex flex-col items-center gap-1">
+                          {row.aval === 'yes' && <CheckLg className="w-4 h-4 text-primary shrink-0" />}
+                          {row.aval === 'no'  && <XLg className="w-3.5 h-3.5 text-muted-foreground/50 shrink-0" />}
+                          <span className="text-xs font-semibold text-foreground leading-tight">{row.auctolabs}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-4 text-center">
+                        <div className="flex flex-col items-center gap-1">
+                          {row.fval === 'yes' && <CheckLg className="w-4 h-4 text-primary shrink-0" />}
+                          {row.fval === 'no'  && <XLg className="w-3.5 h-3.5 text-muted-foreground/50 shrink-0" />}
+                          <span className="text-xs text-muted-foreground leading-tight">{row.freelancer}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-4 text-center">
+                        <div className="flex flex-col items-center gap-1">
+                          {row.ival === 'yes' && <CheckLg className="w-4 h-4 text-primary shrink-0" />}
+                          {row.ival === 'no'  && <XLg className="w-3.5 h-3.5 text-muted-foreground/50 shrink-0" />}
+                          <span className="text-xs text-muted-foreground leading-tight">{row.inhouse}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-4 text-center">
+                        <div className="flex flex-col items-center gap-1">
+                          {row.dval === 'yes' && <CheckLg className="w-4 h-4 text-primary shrink-0" />}
+                          {row.dval === 'no'  && <XLg className="w-3.5 h-3.5 text-muted-foreground/50 shrink-0" />}
+                          <span className="text-xs text-muted-foreground leading-tight">{row.diy}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </AnimatedSection>
         </div>

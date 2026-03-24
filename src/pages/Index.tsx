@@ -11,22 +11,79 @@ import { PricingPreview } from '@/components/home/PricingPreview';
 import { FAQSection } from '@/components/home/FAQSection';
 import { CTASection } from '@/components/home/CTASection';
 
-const organizationSchema = {
+const homeSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "AuctoLabs",
-  "url": "https://auctolabs.com",
-  "logo": "https://auctolabs.com/logo.png",
-  "description": "Web design, AI automations, and lead generation systems for small businesses",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "hello@auctolabs.com",
-    "contactType": "customer service"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/auctolabs",
-    "https://x.com/AuctoLabs",
-    "https://www.instagram.com/auctolabs"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "AuctoLabs",
+      "url": "https://auctolabs.com",
+      "logo": "https://auctolabs.com/logo.png",
+      "description": "Web design, AI automations, and lead generation systems for small businesses",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@auctolabs.com",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/auctolabs",
+        "https://x.com/AuctoLabs",
+        "https://www.instagram.com/auctolabs"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most websites launch within 4–8 weeks depending on the scope of the project. This includes design, development, automation setup, and integration testing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes an AuctoLabs website different?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We combine modern web design with automation and performance strategy to create websites that don't just look great — they actively help grow your business. Every build is engineered for speed, conversion, and long-term results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can my website integrate with my existing tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. AuctoLabs websites integrate with CRM systems, marketing platforms, analytics tools, and other essential software — including HubSpot, Salesforce, Pipedrive, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the speed-to-lead automation work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses — all within seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the project is complete?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide training for your team and include support in all packages. For ongoing optimization and growth, we offer monthly retainer options."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with businesses outside the US?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we work with clients globally. Our systems are built to handle multi-timezone and multi-language requirements."
+          }
+        }
+      ]
+    }
   ]
 };
 
@@ -38,7 +95,7 @@ const Index = () => {
         description="Turn your website into a client-getting machine. AuctoLabs builds high-converting websites and AI-powered automations that respond to leads in under 60s."
         keywords="web design, AI automations, lead generation, small business, CRM integration, speed to lead, conversion optimization"
         canonical="https://auctolabs.com/"
-        jsonLd={organizationSchema}
+        jsonLd={homeSchema}
       />
       
       {/* Plain-text summary for AI search engines */}
