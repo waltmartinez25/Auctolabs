@@ -22,7 +22,7 @@ const homeSchema = {
       "description": "Web design, AI automations, and lead generation systems for small businesses",
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "hello@auctolabs.com",
+        "email": "contact@auctolabs.com",
         "contactType": "customer service"
       },
       "sameAs": [

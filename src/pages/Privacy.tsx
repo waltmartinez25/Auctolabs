@@ -34,7 +34,7 @@ const Privacy = () => {
                 <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
                 
                 <h2 className="text-2xl font-serif font-bold text-foreground mt-8">5. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy, please contact us at hello@auctolabs.com.</p>
+                <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:contact@auctolabs.com" className="text-primary hover:underline">contact@auctolabs.com</a>.</p>
               </div>
             </div>
           </AnimatedSection>

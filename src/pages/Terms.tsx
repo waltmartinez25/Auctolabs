@@ -37,7 +37,7 @@ const Terms = () => {
                 <p>Our liability is limited to the amount paid for services. We are not liable for indirect, incidental, or consequential damages.</p>
                 
                 <h2 className="text-2xl font-serif font-bold text-foreground mt-8">6. Contact</h2>
-                <p>For questions about these Terms, please contact us at hello@auctolabs.com.</p>
+                <p>For questions about these Terms, please contact us at <a href="mailto:contact@auctolabs.com" className="text-primary hover:underline">contact@auctolabs.com</a>.</p>
               </div>
             </div>
           </AnimatedSection>

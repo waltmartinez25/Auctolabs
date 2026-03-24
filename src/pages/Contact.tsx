@@ -121,7 +121,7 @@ const Contact = () => {
       
       <HiddenStructuredFacts
         facts={{
-          "Contact email": "hello@auctolabs.com",
+          "Contact email": "contact@auctolabs.com",
           "Location": "Remote-first, serving clients globally",
           "Response time": "Under 2 hours during business hours (Mon-Fri, 9am-6pm EST)",
           "Free consultation": "30-minute strategy call available",
@@ -321,7 +321,7 @@ const Contact = () => {
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
                       <Envelope className="w-5 h-5 text-primary" />
-                      <a href="mailto:hello@auctolabs.com" className="hover:text-primary transition-colors">hello@auctolabs.com</a>
+                      <a href="mailto:contact@auctolabs.com" className="hover:text-primary transition-colors">contact@auctolabs.com</a>
                     </div>
                     <div className="flex items-center gap-4">
                       <GeoAlt className="w-5 h-5 text-primary" />

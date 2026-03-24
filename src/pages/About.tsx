@@ -118,7 +118,7 @@ const About = () => {
           'System uptime': '24/7 automated',
           'Core principles': 'Systems-first thinking, measurable outcomes, automation as leverage',
           'Target industries': 'Law firms, home service companies, healthcare practices, B2B service providers',
-          'Contact email': 'hello@auctolabs.com',
+          'Contact email': 'contact@auctolabs.com',
         }}
       />
 

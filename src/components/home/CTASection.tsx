@@ -61,7 +61,7 @@ export const CTASection = () => {
               { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/auctolabs' },
               { label: 'X',         href: 'https://x.com/AuctoLabs' },
               { label: 'Instagram', href: 'https://www.instagram.com/auctolabs' },
-              { label: 'Email',     href: 'mailto:hello@auctolabs.com' },
+              { label: 'Email',     href: 'mailto:contact@auctolabs.com' },
             ].map(({ label, href }) => (
               <a
                 key={label}

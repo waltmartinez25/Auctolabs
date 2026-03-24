@@ -29,7 +29,7 @@ const socialLinks = [
   { name: 'LinkedIn',  href: 'https://www.linkedin.com/company/auctolabs', slug: 'linkedin',  bg: '#0A66C2' },
   { name: 'X',         href: 'https://x.com/AuctoLabs',                    slug: 'x',         bg: '#000000' },
   { name: 'Instagram', href: 'https://www.instagram.com/auctolabs',        slug: 'instagram', bg: '#E4405F' },
-  { name: 'Email',     href: 'mailto:hello@auctolabs.com',                 slug: null,        bg: null      },
+  { name: 'Email',     href: 'mailto:contact@auctolabs.com',                 slug: null,        bg: null      },
 ] as const;
 
 export const Footer = () => {
