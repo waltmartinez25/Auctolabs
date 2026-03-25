@@ -45,6 +45,49 @@ const faqs = [
   },
 ];
 
+const seoSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'AuctoLabs',
+    url: 'https://auctolabs.com',
+    email: 'contact@auctolabs.com',
+    description: 'AuctoLabs builds conversion-focused websites and AI automation systems for service businesses — responding to leads in under 60 seconds, 24/7.',
+    areaServed: 'Worldwide',
+    availableLanguage: 'English',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'contact@auctolabs.com',
+      contactType: 'customer service',
+      availableLanguage: 'English',
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/auctolabs',
+      'https://x.com/AuctoLabs',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://auctolabs.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://auctolabs.com/contact' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+];
+
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -100,10 +143,11 @@ const Contact = () => {
   return (
     <Layout>
       <SEO
-        title="Contact AuctoLabs — Free 30-Min Web Design Strategy Call"
-        description="Ready to transform your lead generation? Book a free AuctoLabs strategy call. We respond within 2 hours and help identify your biggest growth opportunities."
+        title="Contact AuctoLabs — Book a Free Strategy Call"
+        description="Ready to capture more leads and respond faster? Book a free 30-minute AuctoLabs strategy call. We audit your current site, identify the gaps, and show you exactly how to fix them. We respond within 2 hours."
         keywords="contact AuctoLabs, book strategy call, free consultation, web design inquiry, automation consultation"
         canonical="https://auctolabs.com/contact"
+        jsonLd={seoSchemas}
       />
       
       {/* Plain-text summary for AI search engines */}

@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckLg, Calendar3 } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { PageSummary } from '@/components/PageSummary';
+import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
@@ -11,7 +13,7 @@ const industries = [
     label: 'Law Firms',
     overline: 'Legal Services',
     tagline: 'Speed-to-lead wins cases.',
-    pain: 'Every minute you wait to reach a potential client, your competitor is already on the phone. Most law firm inquiries come in after hours — and the first to respond gets the case.',
+    pain: 'Every minute you wait to reach a potential client, your competitor is already on the phone. Most law firm inquiries come in after hours — and the first firm to respond gets the case. Without automation, you\'re losing clients to slower competitors who picked up the call.',
     stats: [
       { value: '25%', label: 'increase in qualified leads' },
       { value: '2 min', label: 'average lead response time' },
@@ -24,13 +26,17 @@ const industries = [
       'After-hours automated lead capture',
       'Appointment booking and calendar sync',
     ],
+    answerBlock: {
+      q: 'Why do law firms lose leads without automation?',
+      a: 'Studies show that 78% of clients hire the first attorney who responds. Most inquiries arrive after hours or during client meetings — without an automated response system, those leads go cold before your team sees them.',
+    },
   },
   {
     id: 'real-estate',
     label: 'Real Estate',
     overline: 'Real Estate & Home Services',
     tagline: 'First to respond gets the listing.',
-    pain: '80% of buyers and sellers go with the first agent who responds. Most inquiries come outside business hours — without automation, you\'re handing leads to your competition.',
+    pain: '80% of buyers and sellers go with the first agent who responds. Most inquiries come outside business hours — without automation, you\'re handing leads to your competition every night and weekend. A single missed listing can cost $10,000+ in commissions.',
     stats: [
       { value: '2×', label: 'more website inquiries' },
       { value: '2 min', label: 'average first response time' },
@@ -43,13 +49,17 @@ const industries = [
       'Buyer and seller nurture sequences',
       'Lead scoring, routing, and follow-up',
     ],
+    answerBlock: {
+      q: 'How does automation help real estate agents respond faster?',
+      a: 'An automated lead response system sends a personalized message within seconds of a new inquiry, 24/7. It qualifies the buyer or seller based on your criteria, then routes qualified leads to you immediately — so no opportunity goes to a competitor.',
+    },
   },
   {
     id: 'health-wellness',
     label: 'Health & Wellness',
     overline: 'Healthcare & Wellness Practices',
     tagline: 'Patient acquisition on autopilot.',
-    pain: 'Patients research and book online — often at night or on weekends. If your intake process isn\'t automated, they\'ll book with a practice that is before you even see the request.',
+    pain: 'Patients research and book online — often at night or on weekends. If your intake process isn\'t automated, they\'ll book with a practice that responds before you even see the request. Manual follow-up means losing patients to more responsive competitors.',
     stats: [
       { value: '20%', label: 'increase in new patient inquiries' },
       { value: '15%', label: 'reduction in no-shows' },
@@ -62,13 +72,17 @@ const industries = [
       'Post-visit follow-up sequences',
       'Review and referral generation',
     ],
+    answerBlock: {
+      q: 'How can healthcare practices reduce no-shows with automation?',
+      a: 'Automated appointment reminders via SMS and email — sent 48 hours, 24 hours, and 2 hours before a visit — reduce no-show rates by 15–25%. Practices using our system also see higher patient satisfaction scores because follow-up care instructions are sent automatically after visits.',
+    },
   },
   {
     id: 'b2b',
     label: 'B2B & IT Services',
     overline: 'B2B & Technology Services',
     tagline: 'Systematic pipeline generation at scale.',
-    pain: 'B2B sales cycles are long and complex. Without automation, leads go cold before your team can reach them — and manual tasks eat up the hours your team should spend closing deals.',
+    pain: 'B2B sales cycles are long and complex. Without automation, leads go cold before your team can reach them — and manual tasks eat up the hours your team should spend closing deals. The businesses that win are the ones making consistent, timely touches across the entire pipeline.',
     stats: [
       { value: '25%', label: 'more demo or discovery calls' },
       { value: '30%', label: 'reduction in manual follow-up tasks' },
@@ -81,6 +95,57 @@ const industries = [
       'Slack and Teams notifications',
       'Custom dashboards and reporting',
     ],
+    answerBlock: {
+      q: 'What does AI automation actually do for B2B sales pipelines?',
+      a: 'AI automation handles the repeatable tasks: sending follow-up sequences, qualifying inbound leads, routing discovery calls to the right rep, and alerting your team when a hot prospect goes quiet. This means your sales team focuses exclusively on high-value conversations and closing — not admin.',
+    },
+  },
+];
+
+const industriesSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Industry-Specific Web Design and AI Automation',
+    provider: {
+      '@type': 'Organization',
+      name: 'AuctoLabs',
+      url: 'https://auctolabs.com',
+    },
+    areaServed: 'Worldwide',
+    description: 'AuctoLabs builds custom web design and AI automation systems for law firms, real estate agencies, healthcare practices, and B2B service companies — with speed-to-lead systems that respond in under 60 seconds.',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Industry-Specific Growth Systems',
+      itemListElement: industries.map((ind) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: `AI Automation and Web Design for ${ind.label}`,
+          description: ind.pain,
+        },
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://auctolabs.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://auctolabs.com/industries' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: industries.map((ind) => ({
+      '@type': 'Question',
+      name: ind.answerBlock.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: ind.answerBlock.a,
+      },
+    })),
   },
 ];
 
@@ -89,9 +154,35 @@ const Industries = () => {
     <Layout>
       <SEO
         title="Industries We Serve | AuctoLabs — Law Firms, Real Estate, Healthcare, B2B"
-        description="AuctoLabs builds AI automation and web systems for law firms, real estate, health & wellness, and B2B services. See how we solve industry-specific lead generation challenges."
+        description="AuctoLabs builds AI automation and web design systems for law firms, real estate, healthcare, and B2B services. Industry-specific speed-to-lead systems respond to leads in under 60 seconds, 24/7."
         keywords="law firm automation, real estate lead generation, healthcare patient acquisition, B2B automation, industry-specific web design, AI automation agency"
         canonical="https://auctolabs.com/industries"
+        jsonLd={industriesSchema}
+      />
+
+      <PageSummary
+        topic="AuctoLabs Industries — AI Automation for Law Firms, Real Estate, Healthcare, and B2B"
+        purpose="AuctoLabs builds industry-specific web design and AI automation systems for service businesses where speed-to-lead directly impacts revenue. This page explains how our systems work for law firms, real estate agents, healthcare practices, and B2B service providers."
+        audience="Law firm principals, real estate brokers, healthcare practice owners, and B2B sales managers looking for automated lead generation and response systems"
+        services={[
+          'Law Firms: AI case intake, instant response, after-hours lead capture, CRM integration (Clio, HubSpot)',
+          'Real Estate: After-hours AI qualification, MLS sync, automated showing scheduling, buyer/seller nurture sequences',
+          'Health & Wellness: Online booking integration, automated reminders, post-visit follow-up, review generation',
+          'B2B & IT Services: Multi-touch outreach, CRM pipeline automation, lead scoring, custom reporting',
+        ]}
+      />
+
+      <HiddenStructuredFacts
+        facts={{
+          'Industries served': 'Law firms, real estate, healthcare and wellness practices, B2B and IT services',
+          'Law firm result': '25% more qualified leads, 2-minute average response time, 35% more booked consultations',
+          'Real estate result': '2x more website inquiries, 2-minute first response, 30% more showing requests',
+          'Healthcare result': '20% more new patient inquiries, 15% reduction in no-shows, 40% web lead booking rate',
+          'B2B result': '25% more demo calls, 30% reduction in manual tasks, under 1 day pipeline follow-up',
+          'Key differentiator': 'Speed-to-lead — 78% of clients go with the first business to respond',
+          'CRM integrations': 'Clio, HubSpot, Salesforce, Pipedrive and more',
+          'Service availability': '24/7 automated, including after-hours and weekends',
+        }}
       />
 
       {/* Hero */}
@@ -153,9 +244,15 @@ const Industries = () => {
                   <p className="text-xl font-semibold text-primary mb-6 italic">
                     {industry.tagline}
                   </p>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-8">
+                  <p className="text-base text-muted-foreground leading-relaxed mb-6">
                     {industry.pain}
                   </p>
+
+                  {/* AEO answer block */}
+                  <div className="mb-8 p-5 rounded-xl bg-primary/5 border border-primary/15">
+                    <p className="text-sm font-bold text-primary mb-2">{industry.answerBlock.q}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{industry.answerBlock.a}</p>
+                  </div>
 
                   {/* Features */}
                   <ul className="space-y-3 mb-10">
@@ -179,7 +276,7 @@ const Industries = () => {
                 <AnimatedSection variant="fadeUp" delay={150}>
                   <div className="soft-card rounded-3xl p-8 border border-border/40">
                     <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-8">
-                      Results we've driven in this industry
+                      Results driven in this industry
                     </p>
                     <div className="space-y-8">
                       {industry.stats.map((stat) => (
@@ -252,6 +349,34 @@ const Industries = () => {
               </span>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom">
+          <AnimatedSection>
+            <div className="text-center max-w-xl mx-auto mb-12">
+              <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-4 block">FAQ</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Industry-Specific Questions</h2>
+            </div>
+          </AnimatedSection>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {industries.map((ind) => (
+              <AnimatedSection key={ind.id} delay={100}>
+                <div className="soft-card p-6">
+                  <h3 className="text-base font-bold text-foreground mb-2">{ind.answerBlock.q}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{ind.answerBlock.a}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+            <AnimatedSection delay={100}>
+              <div className="soft-card p-6">
+                <h3 className="text-base font-bold text-foreground mb-2">Do you work with industries not listed here?</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Yes. Any service business that generates revenue through leads can benefit from our systems. We work with consulting firms, financial advisors, home services companies, insurance agencies, dental practices, mortgage brokers, and many more. Book a free strategy call to discuss your specific needs.</p>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

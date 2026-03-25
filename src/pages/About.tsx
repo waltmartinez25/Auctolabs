@@ -66,21 +66,46 @@ const problemFlow = [
   { text: 'Missed opportunities', type: 'problem' as const },
 ];
 
-const aboutSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'AuctoLabs',
-  description:
-    'AuctoLabs builds automated client-generating systems — combining conversion-focused websites with AI automation to capture leads instantly, qualify prospects automatically, and book meetings 24/7.',
-  url: 'https://auctolabs.com',
-  knowsAbout: [
-    'Web Design',
-    'AI Automation',
-    'Lead Generation',
-    'CRM Integration',
-    'Conversion Rate Optimization',
-  ],
-};
+const aboutSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'AuctoLabs',
+    description:
+      'AuctoLabs is a web design and AI automation agency that builds complete growth systems for service businesses — combining conversion-focused websites with intelligent automation to capture leads instantly, qualify prospects automatically, and book meetings 24/7.',
+    url: 'https://auctolabs.com',
+    email: 'contact@auctolabs.com',
+    foundingDate: '2024',
+    areaServed: 'Worldwide',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'contact@auctolabs.com',
+      contactType: 'customer service',
+      availableLanguage: 'English',
+    },
+    knowsAbout: [
+      'Web Design',
+      'AI Automation',
+      'Lead Generation',
+      'CRM Integration',
+      'Conversion Rate Optimization',
+      'Speed-to-Lead Systems',
+    ],
+    sameAs: [
+      'https://www.linkedin.com/company/auctolabs',
+      'https://x.com/AuctoLabs',
+      'https://www.instagram.com/auctolabs',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://auctolabs.com/' },
+      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://auctolabs.com/about' },
+    ],
+  },
+];
 
 const About = () => {
   return (

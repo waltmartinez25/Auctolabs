@@ -144,54 +144,113 @@ const whyItems = [
   'We improve systems continuously post-launch',
 ];
 
-const servicesSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: 'Web Design, AI Automation, and Lead Generation Services',
-  provider: {
-    '@type': 'Organization',
-    name: 'AuctoLabs',
+const servicesSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Web Design, AI Automation, and Lead Generation Services',
+    name: 'AuctoLabs Growth System',
+    provider: {
+      '@type': 'Organization',
+      name: 'AuctoLabs',
+      url: 'https://auctolabs.com',
+    },
+    areaServed: 'Worldwide',
+    description: 'AuctoLabs builds complete growth systems — conversion-focused websites combined with AI automation to capture leads, respond instantly, qualify prospects, and convert them into booked calls automatically.',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'AuctoLabs Growth Systems',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Web Design & Development',
+            description: 'Conversion-focused websites built to guide visitors and capture leads — mobile-first, SEO-ready, high-performance',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'AI Lead Automation Systems',
+            description: 'Instant lead response in under 60 seconds, qualification workflows, CRM integration, and automated follow-up via email and SMS',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Lead Generation Systems',
+            description: 'Complete lead generation infrastructure including landing pages, lead magnets, and multi-channel nurture sequences',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Performance & Analytics Systems',
+            description: 'Real-time dashboards, response time tracking, conversion rate optimization, and continuous system improvements',
+          },
+        },
+      ],
+    },
   },
-  areaServed: 'Worldwide',
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'AuctoLabs Growth Systems',
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
     itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://auctolabs.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://auctolabs.com/services' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
       {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Web Design & Development',
-          description: 'Conversion-focused websites built to guide visitors and capture leads',
+        '@type': 'Question',
+        name: 'What services does AuctoLabs offer?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'AuctoLabs builds complete growth systems for service businesses — including conversion-focused web design, AI-powered lead automation (responding in under 60 seconds), CRM integration, email and SMS follow-up sequences, automated appointment booking, and performance dashboards.',
         },
       },
       {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'AI Automation Systems',
-          description: 'Instant lead response, qualification workflows, and automated follow-up',
+        '@type': 'Question',
+        name: 'Who are AuctoLabs services designed for?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'AuctoLabs works with service businesses where speed-to-lead directly impacts revenue — including law firms, real estate agencies, healthcare practices, home service companies, B2B service providers, and any business that generates revenue through client leads.',
         },
       },
       {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Lead Generation Systems',
-          description: 'Complete lead generation infrastructure including landing pages and nurture sequences',
+        '@type': 'Question',
+        name: 'How is AuctoLabs different from a traditional web design agency?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A traditional agency builds a website. AuctoLabs builds a complete growth system. Every project includes speed-to-lead automation, CRM integration, and conversion optimization — not just design. The website is engineered to actively generate, respond to, and convert leads automatically.',
         },
       },
       {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Performance Systems',
-          description: 'Real-time dashboards, tracking, and conversion optimization',
+        '@type': 'Question',
+        name: 'What does the speed-to-lead automation include?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'When a lead submits a form, the AuctoLabs speed-to-lead system instantly: (1) qualifies them using AI based on your criteria, (2) routes them to the right team member, (3) sends a personalized SMS and email response — all within 60 seconds. It runs 24/7 including after-hours and weekends.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How long does an AuctoLabs growth system take to build?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most AuctoLabs systems launch within 4–6 weeks. The process follows four steps: Audit (Week 1), Build (Weeks 2–3), Automate (Weeks 3–4), and Optimize (Weeks 4–6+). Complex systems with advanced integrations may take slightly longer.',
         },
       },
     ],
   },
-};
+];
 
 const Services = () => {
   return (
@@ -674,6 +733,49 @@ const Services = () => {
                 ))}
               </ul>
             </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section className="section-padding bg-secondary/30">
+        <div className="container-custom">
+          <AnimatedSection>
+            <div className="text-center max-w-xl mx-auto mb-12">
+              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">FAQ</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Common Questions About Our Services</h2>
+            </div>
+          </AnimatedSection>
+          <div className="max-w-3xl mx-auto space-y-5">
+            {[
+              {
+                q: 'What services does AuctoLabs offer?',
+                a: 'AuctoLabs builds complete growth systems — including conversion-focused web design, AI-powered lead automation (responding in under 60 seconds), CRM integration (HubSpot, Salesforce, Pipedrive), email and SMS follow-up sequences, automated appointment booking, and performance dashboards.',
+              },
+              {
+                q: 'Who are AuctoLabs services designed for?',
+                a: 'We serve service businesses where speed-to-lead directly impacts revenue — law firms, real estate agencies, healthcare practices, home service companies, B2B providers, and any business that depends on converting leads into clients.',
+              },
+              {
+                q: 'How is AuctoLabs different from a regular web design agency?',
+                a: 'A typical agency builds a website. We build a complete growth system. Every project includes speed-to-lead automation, CRM integration, and conversion optimization — the website is engineered to actively capture, respond to, and convert leads automatically.',
+              },
+              {
+                q: 'What does the speed-to-lead automation include?',
+                a: 'When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS and email responses — all within 60 seconds. It runs 24/7 including after-hours and weekends.',
+              },
+              {
+                q: 'How long does a growth system take to build?',
+                a: 'Most systems launch in 4–6 weeks. We follow four steps: Audit (Week 1), Build (Weeks 2–3), Automate (Weeks 3–4), Optimize (Weeks 4–6+). Complex integrations may add 1–2 weeks.',
+              },
+            ].map((faq) => (
+              <AnimatedSection key={faq.q}>
+                <div className="soft-card p-6">
+                  <h3 className="text-base font-bold text-foreground mb-2">{faq.q}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>

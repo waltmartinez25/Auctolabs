@@ -115,18 +115,68 @@ const deliverables = [
   'Clear visibility into performance',
 ];
 
-const processSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'HowTo',
-  name: 'AuctoLabs Growth System Process',
-  description:
-    'A proven 4-step methodology: Audit, Build, Automate, Optimize — designed to turn traffic into clients predictably.',
-  step: steps.map((s) => ({
-    '@type': 'HowToStep',
-    name: s.title,
-    text: s.description,
-  })),
-};
+const processSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'AuctoLabs Growth System Process: Audit, Build, Automate, Optimize',
+    description:
+      'A proven 4-step methodology for service businesses: Audit your current setup to find gaps, Build a conversion-focused website, Automate lead response and follow-up, then Optimize performance over time. Most systems launch in 4–6 weeks.',
+    totalTime: 'P6W',
+    step: steps.map((s) => ({
+      '@type': 'HowToStep',
+      name: s.title,
+      text: `${s.description} Timeline: ${s.week}.`,
+      url: `https://auctolabs.com/process#step-${s.number}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://auctolabs.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Our Process', item: 'https://auctolabs.com/process' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How long does the AuctoLabs process take from start to finished website?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most AuctoLabs systems launch in 4–6 weeks. Week 1 is the Audit phase, Weeks 2–3 are Design and Build, Weeks 3–4 are Automation setup and integration, and Weeks 4–6+ are Optimization and launch. Complex systems with multiple CRM integrations may take slightly longer.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What do I need to have ready before starting with AuctoLabs?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'You need your brand assets (logo, colors), access to your current website or hosting account, and a clear idea of your ideal client. If you have an existing CRM, we will need admin access to set up integrations. Everything else — strategy, copywriting direction, and system design — is handled by AuctoLabs.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I start with just a website redesign and add automation later?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. The Launch package includes web design without automation. However, we strongly recommend including at least basic lead capture automation — because a new website without automation still means a manual response gap. Most clients find the Grow package delivers the most value.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What happens after the project launches?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'All packages include a post-launch support period (30 to 90 days depending on package). We provide team training, monitor system performance, and fix any issues. After the support period, we offer monthly retainer options starting at $1,500/month for ongoing optimization and improvements.',
+        },
+      },
+    ],
+  },
+];
 
 const Process = () => {
   return (
@@ -555,6 +605,45 @@ const Process = () => {
                 </div>
               </AnimatedSection>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <AnimatedSection>
+            <div className="text-center max-w-xl mx-auto mb-12">
+              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">FAQ</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold">Process Questions</h2>
+            </div>
+          </AnimatedSection>
+          <div className="max-w-3xl mx-auto space-y-5">
+            {[
+              {
+                q: 'How long does the process take from start to finished website?',
+                a: 'Most systems launch in 4–6 weeks. Week 1 is the Audit, Weeks 2–3 are Design and Build, Weeks 3–4 are Automation setup, and Weeks 4–6+ are Optimization and launch. Complex systems with multiple CRM integrations may take slightly longer.',
+              },
+              {
+                q: 'What do I need to have ready before starting?',
+                a: 'Your brand assets (logo, colors), access to your current website or hosting, and clarity on your ideal client. If you have a CRM, we will need admin access. Everything else — strategy, copy direction, and system design — is handled by us.',
+              },
+              {
+                q: 'Can I start with just a website and add automation later?',
+                a: 'Yes. The Launch package includes web design without automation. However, a website without at least basic lead capture automation still leaves a manual response gap. Most clients find the Grow package delivers the most value.',
+              },
+              {
+                q: 'What happens after the project launches?',
+                a: 'All packages include a post-launch support period (30–90 days depending on package). We provide team training, monitor performance, and fix issues. After the support period, monthly retainer options start at $1,500/month.',
+              },
+            ].map((faq) => (
+              <AnimatedSection key={faq.q}>
+                <div className="soft-card p-6">
+                  <h3 className="text-base font-bold text-foreground mb-2">{faq.q}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
