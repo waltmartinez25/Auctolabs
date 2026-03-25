@@ -73,92 +73,35 @@ const addOns = [
   { name: 'Custom Integration', price: 'From $1,000', description: 'Connect additional tools and platforms' },
 ];
 
-const pricingSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "AuctoLabs Web Design & Automation Services",
-    "description": "Web design and AI automation packages for service businesses. Starting at $3,500 one-time with no long-term contracts.",
-    "brand": { "@type": "Brand", "name": "AuctoLabs" },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Launch",
-        "price": "3500",
-        "priceCurrency": "USD",
-        "description": "Conversion-ready website with SEO, analytics, and 30-day support. Best for businesses starting fresh or refreshing their web presence."
-      },
-      {
-        "@type": "Offer",
-        "name": "Grow",
-        "price": "7500",
-        "priceCurrency": "USD",
-        "description": "Website + AI automation, CRM integration, speed-to-lead under 60 seconds, email/SMS sequences, 60-day support. Most popular."
-      },
-      {
-        "@type": "Offer",
-        "name": "Scale",
-        "price": "15000",
-        "priceCurrency": "USD",
-        "description": "Enterprise-grade automation with dedicated account manager, unlimited pages, advanced workflows, and 90-day support."
-      }
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://auctolabs.com/" },
-      { "@type": "ListItem", position: 2, name: "Pricing", item: "https://auctolabs.com/pricing" },
-    ],
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How much does AuctoLabs cost?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "AuctoLabs offers three packages: Launch at $3,500 (website only), Grow at $7,500 (website + AI automation), and Scale at $15,000 (enterprise growth system). All are one-time investments with no long-term contracts. Monthly retainer options start at $1,500/month for ongoing optimization."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "Is there a contract or ongoing monthly fee?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No long-term contracts. All three packages are one-time investments. Optional monthly retainer support starts at $1,500/month after the included support period ends, but this is not required."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "What is the difference between the Launch and Grow packages?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The Launch package ($3,500) delivers a conversion-focused website with SEO, contact forms, and analytics. The Grow package ($7,500) adds the full AI automation layer: speed-to-lead under 60 seconds, CRM integration, automated email/SMS follow-up sequences, and AI-assisted lead qualification."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "Do you offer refunds?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We work closely with clients throughout every project to ensure satisfaction. All packages include revision rounds and we do not consider a project complete until you are satisfied. Due to the custom nature of the work, refunds are handled case-by-case under the terms agreed at project start."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "Which package should I choose?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "If you need a great website to establish credibility, start with Launch. If you generate leads and want to respond faster and automate follow-up, choose Grow. If you need a complete enterprise-grade growth system with dedicated support, choose Scale. Book a free strategy call and we will recommend the right fit for your specific situation."
-        }
-      },
-    ]
-  }
-];
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "AuctoLabs Web Design & Automation Services",
+  "description": "Web design and AI automation packages for small businesses",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Launch",
+      "price": "3500",
+      "priceCurrency": "USD",
+      "description": "Conversion-ready website with SEO and analytics"
+    },
+    {
+      "@type": "Offer",
+      "name": "Grow",
+      "price": "7500",
+      "priceCurrency": "USD",
+      "description": "Website + AI automation, CRM integration, and speed-to-lead pipeline"
+    },
+    {
+      "@type": "Offer",
+      "name": "Scale",
+      "price": "15000",
+      "priceCurrency": "USD",
+      "description": "Enterprise-grade automation with dedicated support"
+    }
+  ]
+};
 
 const Pricing = () => {
   return (
@@ -443,49 +386,6 @@ const Pricing = () => {
             </div>
           </AnimatedSection>
 
-        </div>
-      </section>
-
-      {/* ─── FAQ ─── */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <AnimatedSection>
-            <div className="text-center max-w-xl mx-auto mb-12">
-              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">FAQ</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold">Pricing Questions</h2>
-            </div>
-          </AnimatedSection>
-          <div className="max-w-3xl mx-auto space-y-5">
-            {[
-              {
-                q: 'How much does AuctoLabs cost?',
-                a: 'Three packages: Launch at $3,500 (website only), Grow at $7,500 (website + AI automation), and Scale at $15,000 (enterprise growth system). All are one-time investments with no long-term contracts. Monthly retainer options start at $1,500/month.',
-              },
-              {
-                q: 'Is there a contract or ongoing monthly fee?',
-                a: 'No long-term contracts. All packages are one-time investments. An optional monthly retainer starts at $1,500/month after the included support period, but is not required.',
-              },
-              {
-                q: 'What is the difference between Launch and Grow?',
-                a: 'Launch ($3,500) delivers a conversion-focused website with SEO and analytics. Grow ($7,500) adds the full AI automation layer: speed-to-lead under 60 seconds, CRM integration, and automated email/SMS follow-up. Grow is the most popular choice for lead-dependent businesses.',
-              },
-              {
-                q: 'Do you offer payment plans?',
-                a: 'Yes. Standard terms are 50% upfront and 50% on delivery. We can discuss arrangements that fit your business. Reach out to talk through options before booking.',
-              },
-              {
-                q: 'Which package is right for my business?',
-                a: 'Start with Launch if you need a great website. Choose Grow if you want to automate lead response and follow-up. Choose Scale for an enterprise-grade system with dedicated support. Book a free strategy call and we will recommend the right fit for your situation.',
-              },
-            ].map((faq) => (
-              <AnimatedSection key={faq.q}>
-                <div className="soft-card p-6">
-                  <h3 className="text-base font-bold text-foreground mb-2">{faq.q}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </section>
     </Layout>

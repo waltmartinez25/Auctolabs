@@ -1,22 +1,8 @@
-# ─── AuctoLabs robots.txt ────────────────────────────────────────────────────
-# https://auctolabs.com/robots.txt
-# Updated: 2026-03-25
-
-# ─── Search Engine Bots ──────────────────────────────────────────────────────
-
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-# ─── Social & Preview Bots ───────────────────────────────────────────────────
 
 User-agent: Twitterbot
 Allow: /
@@ -24,42 +10,7 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: LinkedInBot
-Allow: /
-
-# ─── AI / Answer Engine Crawlers ─────────────────────────────────────────────
-# Explicitly welcoming AI crawlers for GEO (Generative Engine Optimization)
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-# ─── Default: All other crawlers ─────────────────────────────────────────────
-
 User-agent: *
 Allow: /
-Crawl-delay: 1
-
-# ─── Sitemap ─────────────────────────────────────────────────────────────────
 
 Sitemap: https://auctolabs.com/sitemap.xml
