@@ -1,9 +1,13 @@
 import * as React from 'react';
+import { Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'react-bootstrap-icons';
-import NumberFlow from '@number-flow/react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+
+// Lazy-loaded to keep @number-flow/react (browser-only custom element) out of
+// the SSR pre-render bundle. renderToString renders the Suspense fallback.
+const NumberFlow = lazy(() => import('@number-flow/react'));
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -127,11 +131,17 @@ export function PricingTable({
               )}
             </div>
             <div className="flex items-baseline gap-1">
-              <NumberFlow
-                format={{ style: 'currency', currency: 'USD', trailingZeroDisplay: 'stripIfInteger' }}
-                value={isRetainer ? plan.price.yearly : plan.price.monthly}
-                className="text-2xl font-black text-foreground"
-              />
+              <Suspense fallback={
+                <span className="text-2xl font-black text-foreground">
+                  {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(isRetainer ? plan.price.yearly : plan.price.monthly)}
+                </span>
+              }>
+                <NumberFlow
+                  format={{ style: 'currency', currency: 'USD', trailingZeroDisplay: 'stripIfInteger' }}
+                  value={isRetainer ? plan.price.yearly : plan.price.monthly}
+                  className="text-2xl font-black text-foreground"
+                />
+              </Suspense>
               <span className="text-sm text-muted-foreground font-medium">
                 {isRetainer ? '/mo' : ' one-time'}
               </span>

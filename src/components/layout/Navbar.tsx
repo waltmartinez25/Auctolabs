@@ -53,6 +53,8 @@ export const Navbar = () => {
           <img
             src={logo}
             alt="AuctoLabs"
+            width={160}
+            height={80}
             className={cn('w-auto transition-all duration-300', floated ? 'h-12' : 'h-20')}
             fetchPriority="high"
           />
@@ -65,8 +67,8 @@ export const Navbar = () => {
               key={link.name}
               to={link.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                location.pathname === link.href ? 'text-primary' : 'text-muted-foreground',
+                'text-sm font-medium transition-colors hover:text-primary-accessible',
+                location.pathname === link.href ? 'text-primary-accessible' : 'text-muted-foreground',
               )}
             >
               {link.name}
@@ -102,8 +104,8 @@ export const Navbar = () => {
                 key={link.name}
                 to={link.href}
                 className={cn(
-                  'flex py-4 text-lg font-medium transition-colors hover:text-primary border-b border-border/30',
-                  location.pathname === link.href ? 'text-primary' : 'text-muted-foreground',
+                  'flex py-4 text-lg font-medium transition-colors hover:text-primary-accessible border-b border-border/30',
+                  location.pathname === link.href ? 'text-primary-accessible' : 'text-muted-foreground',
                 )}
               >
                 {link.name}

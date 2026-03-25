@@ -43,7 +43,7 @@ export const Footer = () => {
           {/* Brand Column — spans 2 on lg */}
           <div className="md:col-span-2 lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="AuctoLabs" className="h-10 w-auto" />
+              <img src={logo} alt="AuctoLabs" width={120} height={40} className="h-10 w-auto" />
             </Link>
             <p className="text-muted-foreground mb-6 leading-relaxed max-w-sm">
               AuctoLabs builds intelligent websites and automation systems designed to attract the right people, convert them into clients, and scale with your business.
