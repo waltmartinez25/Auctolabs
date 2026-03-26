@@ -123,7 +123,12 @@ export const ServicesSection = () => {
 
           {/* ── LEFT COLUMN ── */}
           <div>
-            <span className="text-primary font-bold text-xs uppercase tracking-widest mb-8 block">Our Work</span>
+            <div className="flex items-center gap-3 mb-8">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest">Case Studies</span>
+              <span className="bg-foreground/90 text-background text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                Concept Builds
+              </span>
+            </div>
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -198,6 +203,9 @@ export const ServicesSection = () => {
                 transition={{ duration: 0.4, ease: EASE }}
               >
                 {/* Stat rows */}
+                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60 mb-3">
+                  Projected outcomes
+                </p>
                 <div className="space-y-0">
                   {activeEntry.stats.map((stat, i) => (
                     <div key={stat.label}>

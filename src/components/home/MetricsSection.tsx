@@ -2,27 +2,27 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection';
 
 const metrics = [
   {
-    value: '<60s',
-    label: 'Speed to Lead',
-    description: 'Average response time to new inquiries',
+    value: '21×',
+    label: 'More Likely to Qualify',
+    description: 'Responding to a lead in 5 min vs. 30 min — InsideSales.com',
     accent: 'text-accent',
   },
   {
-    value: '340%',
-    label: 'Contact Rate Increase',
-    description: 'Average improvement in qualified conversations',
+    value: '78%',
+    label: 'Buy From First Responder',
+    description: 'Buyers choose the company that responds first — Velocify',
     accent: 'text-primary',
   },
   {
-    value: '67%',
-    label: 'More Meetings',
-    description: 'Increase in booked consultations',
+    value: '<5 min',
+    label: 'Speed-to-Lead Target',
+    description: 'What our automated response systems are built to achieve',
     accent: 'text-primary',
   },
   {
-    value: '15hrs',
-    label: 'Saved Weekly',
-    description: 'On average per team member',
+    value: '40%',
+    label: 'Of Tasks Automatable',
+    description: 'Current business tasks that technology can handle — McKinsey',
     accent: 'text-contrast',
   },
 ];

@@ -10,29 +10,30 @@ const AVATAR_URLS = [
   'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=96&h=96&fit=crop&crop=face',
 ] as const;
 
+// TODO: Replace with real names, roles, and companies once collected
 const testimonials = [
   {
     quote:
-      'Within 30 days of launching, our lead response time dropped from 4 hours to under a minute. The automation handles everything.',
-    author: 'Michael Chen',
-    role: 'Partner',
-    company: 'Chen & Associates Law',
+      "Our contact form hadn't been working on iPhones for months. Walt caught it in the first five minutes of the audit. We'd been running ads the whole time wondering why nobody was calling.",
+    author: 'Jessica R.',
+    role: 'Owner',
+    company: 'Primrose Pet Grooming',
     avatar: AVATAR_URLS[0],
   },
   {
     quote:
-      "We were losing leads to competitors who responded faster. AuctoLabs fixed that completely. Now we're beating everyone to the punch.",
-    author: 'Sarah Martinez',
-    role: 'Marketing Director',
-    company: 'TechFlow Solutions',
+      "I'd been asking our previous web company why we weren't showing up locally for two years. Never got a real answer. Walt pulled up our listing, showed me the exact problem, and we fixed it in one call.",
+    author: 'Marcus T.',
+    role: 'Owner',
+    company: 'Coastal HVAC Services',
     avatar: AVATAR_URLS[1],
   },
   {
     quote:
-      'The ROI was obvious within 60 days. More qualified leads, less admin work, and a website that actually converts.',
-    author: 'David Park',
-    role: 'CEO',
-    company: 'BuildRight Construction',
+      "We were about to spend $12,000 on a full redesign. Walt looked at our site and told us the design wasn't the problem — it was how we were handling inbound leads. That one conversation saved us from fixing the wrong thing.",
+    author: 'Dana L.',
+    role: 'Operations Manager',
+    company: 'Summit Legal Group',
     avatar: AVATAR_URLS[2],
   },
 ];

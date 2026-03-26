@@ -116,9 +116,9 @@ const Index = () => {
       {/* Structured facts for AI parsing */}
       <HiddenStructuredFacts
         facts={{
-          "Average response time": "Under 60 seconds",
-          "Average conversion lift": "340%",
-          "Systems deployed": "100+",
+          "Target speed to lead": "Under 5 minutes via automated systems",
+          "Industry stat — lead qualification": "21x more likely to qualify a lead responding in 5 min vs 30 min (InsideSales.com)",
+          "Industry stat — first responder": "78% of buyers go with the first company to respond (Velocify)",
           "System uptime": "24/7",
           "Typical project timeline": "4-6 weeks",
           "Starter package price": "$3,500 one-time",
@@ -141,7 +141,7 @@ const Index = () => {
       {/* 5. The path — now they want results, show them how */}
       <ProcessSection />
 
-      {/* 6. Emotional proof — fast, human, scannable */}
+      {/* 6. Emotional proof */}
       <TestimonialsSection />
 
 

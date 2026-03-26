@@ -11,16 +11,18 @@ interface Integration { name: string; slug: string; color: string; bg: string; m
 
 const statSets: Stat[][] = [
   [
-    { value: '<60s',   label: 'Speed to Lead'             },
-    { value: '340%',   label: 'Contact Rate Increase'     },
-    { value: '67%',    label: 'More Meetings Booked'      },
-    { value: '15hrs',  label: 'Saved Weekly Per Team'     },
+    // Industry research stats — cited sources
+    { value: '21×',    label: 'More Likely to Qualify'    }, // InsideSales.com: 5 min vs 30 min response
+    { value: '78%',    label: 'Buy From First Responder'  }, // Velocify research
+    { value: '<5 min', label: 'Target Speed to Lead'      }, // achievable with automated systems
+    { value: '40%',    label: 'Of Work Tasks Automatable' }, // McKinsey Global Institute
   ],
   [
-    { value: '12 wks', label: 'Avg. Time To Value'         },
-    { value: '<6 wks', label: 'Avg. First Deployment'      },
-    { value: '82%',    label: 'Avg. Manual Task Reduction' },
-    { value: '2.5×',   label: 'Faster Team Output'         },
+    // AuctoLabs delivery targets — realistic estimates
+    { value: '12 wks', label: 'Avg. Time To Value'        },
+    { value: '<6 wks', label: 'Avg. First Deployment'     },
+    { value: '30%',    label: 'Avg. Admin Time Reduction' }, // Deloitte automation study (conservative)
+    { value: '3×',     label: 'ROI on Automation'         }, // Deloitte: avg 3.5× ROI on automation
   ],
 ];
 
