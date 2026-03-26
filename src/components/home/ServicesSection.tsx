@@ -123,12 +123,7 @@ export const ServicesSection = () => {
 
           {/* ── LEFT COLUMN ── */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest">Case Studies</span>
-              <span className="bg-foreground/90 text-background text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
-                Concept Builds
-              </span>
-            </div>
+            <span className="text-primary font-bold text-xs uppercase tracking-widest mb-8 block">Case Studies</span>
 
             <AnimatePresence mode="wait">
               <motion.div
