@@ -40,11 +40,11 @@ export const HiddenStructuredFacts = ({ facts }: { facts: Record<string, string>
       className="sr-only" 
       aria-hidden="false"
       itemScope 
-      itemType="https://schema.org/Dataset"
+      itemType="https://schema.org/WebPageElement"
     >
       <dl>
         {Object.entries(facts).map(([key, value]) => (
-          <div key={key} itemProp="datasetProperty">
+          <div key={key}>
             <dt>{key}</dt>
             <dd>{value}</dd>
           </div>
