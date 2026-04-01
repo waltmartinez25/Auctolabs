@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Envelope, GeoAlt, Calendar3, Send, CheckCircle, ArrowClockwise } from 'react-bootstrap-icons';
+import { Envelope, GeoAlt, Telephone, Calendar3, Send, CheckCircle, ArrowClockwise } from 'react-bootstrap-icons';
 import { z } from 'zod';
 import { supabase } from '@/integrations/supabase/client';
 import { Layout } from '@/components/layout/Layout';
@@ -319,6 +319,10 @@ const Contact = () => {
                 <div className="soft-card p-8">
                   <h3 className="text-lg font-serif font-bold mb-6">Contact Information</h3>
                   <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <Telephone className="w-5 h-5 text-primary" />
+                      <a href="tel:+18327438104" className="hover:text-primary transition-colors">(832) 743-8104</a>
+                    </div>
                     <div className="flex items-center gap-4">
                       <Envelope className="w-5 h-5 text-primary" />
                       <a href="mailto:contact@auctolabs.com" className="hover:text-primary transition-colors">contact@auctolabs.com</a>

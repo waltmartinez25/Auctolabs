@@ -13,7 +13,7 @@ const entries = [
       'For law firms, your website is the first conversation with a potential client. We build digital experiences that establish credibility instantly and convert visitors into qualified leads.',
     stats: [
       { value: '35%', label: 'Increase in qualified leads' },
-      { value: '15 min', label: 'Avg lead response time' },
+      { value: '< 2m', label: 'Speed to first lead response' },
     ],
     mockUrl: 'pinnaclelawgroup.com',
     preview: '/mockups/mock-ai-automations.jpg',

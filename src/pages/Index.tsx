@@ -123,7 +123,7 @@ const Index = () => {
           "Typical project timeline": "4-6 weeks",
           "Starter package price": "$3,500 one-time",
           "Growth package price": "$7,500 one-time",
-          "Scale package price": "$15,000 one-time",
+          "Scale package price": "$12,000 one-time",
           "Target industries": "Law firms, home services, healthcare, B2B services",
           "Service area": "Remote-first, serving clients globally"
         }}

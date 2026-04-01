@@ -9,9 +9,9 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { PricingTable, type PricingFeature, type PricingPlan } from '@/components/ui/pricing-table';
 
 const tablePlans: PricingPlan[] = [
-  { name: 'Launch', level: 'starter', price: { monthly: 3500, yearly: 1500 }, tagline: 'A conversion-ready website that gets your business found and generates inquiries.' },
-  { name: 'Grow',   level: 'pro',     price: { monthly: 7500, yearly: 2500 }, popular: true, tagline: 'Automate your entire lead pipeline — respond in under 60 seconds, 24/7.' },
-  { name: 'Scale',  level: 'all',     price: { monthly: 15000, yearly: 4000 }, tagline: 'Full-stack growth infrastructure with dedicated strategy and unlimited customization.' },
+  { name: 'Starter', level: 'starter', price: { monthly: 3500, yearly: 500 }, tagline: 'A conversion-ready website that gets your business found and generates inquiries.' },
+  { name: 'Growth',  level: 'pro',     price: { monthly: 7500, yearly: 1000 }, popular: true, tagline: 'Automate your entire lead pipeline — respond in under 60 seconds, 24/7.' },
+  { name: 'Scale',   level: 'all',     price: { monthly: 12000, yearly: 2500 }, tagline: 'Full-stack growth infrastructure with dedicated strategy and unlimited customization.' },
 ];
 
 const tableFeatures: PricingFeature[] = [
@@ -67,7 +67,7 @@ const comparisonRows: { feature: string; auctolabs: string; aval: ComparisonValu
 ];
 
 const addOns = [
-  { name: 'Monthly Retainer', price: 'From $1,500/mo', description: 'Ongoing optimization, support, and system improvements' },
+  { name: 'Monthly Retainer', price: 'From $500/mo', description: 'Ongoing optimization, support, and system improvements' },
   { name: 'Additional Pages', price: '$300/page', description: 'Extra pages beyond package limits' },
   { name: 'Content Writing', price: '$500/page', description: 'Professional copywriting for your pages' },
   { name: 'Custom Integration', price: 'From $1,000', description: 'Connect additional tools and platforms' },
@@ -81,14 +81,14 @@ const pricingSchema = {
   "offers": [
     {
       "@type": "Offer",
-      "name": "Launch",
+      "name": "Starter",
       "price": "3500",
       "priceCurrency": "USD",
       "description": "Conversion-ready website with SEO and analytics"
     },
     {
       "@type": "Offer",
-      "name": "Grow",
+      "name": "Growth",
       "price": "7500",
       "priceCurrency": "USD",
       "description": "Website + AI automation, CRM integration, and speed-to-lead pipeline"
@@ -96,7 +96,7 @@ const pricingSchema = {
     {
       "@type": "Offer",
       "name": "Scale",
-      "price": "15000",
+      "price": "12000",
       "priceCurrency": "USD",
       "description": "Enterprise-grade automation with dedicated support"
     }
@@ -108,7 +108,7 @@ const Pricing = () => {
     <Layout>
       <SEO
         title="AuctoLabs Pricing — Web Design & Automation Packages"
-        description="AuctoLabs pricing: Starter from $3,500, Growth from $7,500, Scale from $15,000. No hidden fees, no long-term contracts. Book a free strategy call today."
+        description="AuctoLabs pricing: Starter from $3,500, Growth from $7,500, Scale from $12,000. No hidden fees, no long-term contracts. Book a free strategy call today."
         keywords="web design pricing, automation pricing, lead generation cost, website development prices, AI automation packages"
         canonical="https://auctolabs.com/pricing"
         jsonLd={pricingSchema}
@@ -117,24 +117,24 @@ const Pricing = () => {
       {/* Plain-text summary for AI search engines */}
       <PageSummary
         topic="AuctoLabs Pricing - Web Design and Automation Packages"
-        purpose="This page shows transparent pricing for AuctoLabs web design and AI automation services. Three packages available: Starter ($3,500), Growth ($7,500), and Scale ($15,000). All packages are one-time payments with no long-term contracts."
+        purpose="This page shows transparent pricing for AuctoLabs web design and AI automation services. Three packages available: Starter ($3,500), Growth ($7,500), and Scale ($12,000). All packages are one-time payments with no long-term contracts."
         audience="Small business owners, marketing managers, and decision-makers comparing web design and automation service pricing"
         services={[
-          "Launch Package: $3,500 one-time - 5-page custom website, mobile-responsive, basic SEO, 30-day support",
-          "Grow Package: $7,500 one-time - 10 pages, AI lead qualification, CRM integration, speed-to-lead system, 60-day support",
-          "Scale Package: $15,000 one-time - Unlimited pages, advanced automation, dedicated account manager, 90-day support"
+          "Starter Package: $3,500 one-time - 5-page custom website, mobile-responsive, basic SEO, 30-day support",
+          "Growth Package: $7,500 one-time - 10 pages, AI lead qualification, CRM integration, speed-to-lead system, 60-day support",
+          "Scale Package: $12,000 one-time - Unlimited pages, advanced automation, dedicated account manager, 90-day support"
         ]}
       />
       
       <HiddenStructuredFacts
         facts={{
-          "Launch Package price": "$3,500 one-time",
-          "Launch Package includes": "5-page custom website, mobile-responsive design, basic SEO, contact form, Google Analytics, 30-day support",
-          "Grow Package price": "$7,500 one-time (Most Popular)",
-          "Grow Package includes": "10 pages, AI lead qualification, CRM integration, email/SMS automation, speed-to-lead under 60 seconds, 60-day support",
-          "Scale Package price": "$15,000 one-time",
+          "Starter Package price": "$3,500 one-time",
+          "Starter Package includes": "5-page custom website, mobile-responsive design, basic SEO, contact form, Google Analytics, 30-day support",
+          "Growth Package price": "$7,500 one-time (Most Popular)",
+          "Growth Package includes": "10 pages, AI lead qualification, CRM integration, email/SMS automation, speed-to-lead under 60 seconds, 60-day support",
+          "Scale Package price": "$12,000 one-time",
           "Scale Package includes": "Unlimited pages, advanced automation workflows, multi-channel attribution, dedicated account manager, 90-day support, quarterly strategy reviews",
-          "Monthly Retainer add-on": "From $1,500/month for ongoing optimization",
+          "Monthly Retainer add-on": "From $500/month for ongoing optimization",
           "Additional Pages add-on": "$300 per page",
           "Content Writing add-on": "$500 per page",
           "Custom Integration add-on": "From $1,000",
@@ -186,8 +186,8 @@ const Pricing = () => {
             <div className="rounded-xl bg-primary/5 border border-primary/20 px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <CheckLg className="w-4 h-4 text-primary shrink-0 mt-0.5 sm:mt-0" />
               <p className="text-sm text-foreground leading-relaxed">
-                <span className="font-semibold">Built to perform, not just deliver.</span>{' '}
-                Every system we build is tested against real outcomes. If something doesn't work as designed, we fix it — at no extra charge.
+                <span className="font-semibold">Our guarantee:</span>{' '}
+                If we don't deliver qualified leads within 60 days of your website launch, you don't pay the final invoice until we do.
               </p>
             </div>
           </div>
