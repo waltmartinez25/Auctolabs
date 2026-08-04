@@ -23,66 +23,102 @@ All colors MUST be HSL.
   }
 
   :root {
-    /* Neutral Off-White Background */
-    --background: 210 40% 98%;
-    /* #F8FAFC */
-    --foreground: 181 83% 9%;
-    /* #042A2B (Evergreen) */
+    /* ─── AZURE MONO (LIGHT) ─── white canvas, vivid azure primary
+       Surface ramp runs light→dark as elevation increases in *contrast*,
+       not in darkness: background (pure white) → card (white) →
+       secondary/muted (cool near-white tints). Ink is near-black, not
+       pure black, so large serif headings don't vibrate. */
 
+    /* White canvas */
+    --background: 0 0% 100%;
+    /* #FFFFFF */
+    --foreground: 0 0% 7%;
+    /* #121212 — near-black ink */
+
+    /* Card sits on the canvas, separated by border + shadow, not fill */
     --card: 0 0% 100%;
-    /* Pure White for Cards */
-    --card-foreground: 181 83% 9%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 181 83% 9%;
+    --popover-foreground: 0 0% 7%;
 
-    /* Pacific Blue Primary */
-    --primary: 189 45% 56%;
-    /* #5EB1BF */
-    --primary-foreground: 210 40% 98%;
+    /* Azure Blue Primary */
+    --primary: 223 100% 55%;
+    /* #1A56FF */
+    --primary-foreground: 0 0% 100%;
 
-    /* Light Cyan repurposed for secondary/soft accents */
-    --secondary: 193 64% 88%;
-    /* #CDEDF6 */
-    --secondary-foreground: 181 83% 9%;
+    /* Cool near-white section tint — the site-wide alternate band */
+    --secondary: 220 20% 97%;
+    /* #F6F7F9 */
+    --secondary-foreground: 0 0% 7%;
 
-    /* Balanced muted tones */
-    --muted: 210 20% 90%;
-    --muted-foreground: 210 10% 40%;
+    /* Inverted (near-black) secondary button reads as premium on white */
+    --button-secondary: 0 0% 9%;
+    --button-secondary-foreground: 0 0% 98%;
 
-    --accent: 19 84% 60%;
-    /* #EF7B45 */
-    --accent-foreground: 210 40% 98%;
+    /* Muted greys tuned for light — 4.6:1 on white */
+    --muted: 220 16% 96%;
+    --muted-foreground: 220 9% 42%;
 
-    /* Electric Violet Contrast */
-    --contrast: 258 90% 66%;
-    /* #8B5CF6 */
-    --contrast-foreground: 210 40% 98%;
+    /* Soft azure wash accent (was deep navy) */
+    --accent: 223 88% 96%;
+    /* #EFF3FE */
+    --accent-foreground: 226 70% 20%;
 
-    /* Sharp and clean borders */
-    --border: 210 30% 90%;
-    --input: 210 30% 90%;
-    --ring: 189 45% 56%;
+    /* Azure used as the contrast/highlight tone — darkened for white bg */
+    --contrast: 223 100% 48%;
+    --contrast-foreground: 0 0% 100%;
 
-    --radius: 0.75rem;
+    /* Vivid orange destructive — darkened to hold AA on white */
+    --destructive: 18 88% 46%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* Design tokens with brand-focused values */
-    --warm-glow: 189 45% 56%;
-    --warm-secondary: 19 84% 60%;
-    --warm-contrast: 258 90% 66%;
-    --surface-soft: 193 64% 94%;
-    --gradient-warm-start: 189 45% 56%;
-    --gradient-warm-end: 19 84% 60%;
-    --shadow-warm: 181 83% 4%;
+    /* Subtle cool borders */
+    --border: 220 16% 89%;
+    --input: 220 16% 86%;
+    --ring: 223 100% 55%;
 
-    /* Clean Sidebar */
-    --sidebar-background: 210 40% 96%;
-    --sidebar-foreground: 181 83% 9%;
-    --sidebar-primary: 189 45% 56%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 193 64% 88%;
-    --sidebar-accent-foreground: 181 83% 9%;
-    --sidebar-ring: 189 45% 56%;
+    --radius: 1.3rem;
+
+    /* Design tokens remapped to the azure system */
+    --warm-glow: 223 100% 55%;
+    --warm-secondary: 18 88% 46%;
+    --warm-contrast: 223 100% 48%;
+    --surface-soft: 220 20% 97%;
+    --gradient-warm-start: 223 100% 55%;
+    /* 72% ended at 2.66:1 on white — below the 3:1 floor for large text, so
+       gradient headings faded into failing contrast at their tail. 62% keeps a
+       visible sweep and lands at 3.95:1. */
+    --gradient-warm-end: 223 88% 62%;
+    /* Shadows are cool navy on light, never pure black */
+    --shadow-warm: 223 40% 24%;
+
+    /* Success. The emerald already used for "booked" on the hero cards and in
+       AutomationFlow, darkened from 39% to 27% so white icons on top of it
+       clear AA (5.01:1 either direction; 39% was only 2.59:1). */
+    --success: 160 84% 27%;
+    --success-foreground: 0 0% 100%;
+
+    /* Filled-failure variant. --destructive (46%) is tuned for text and icons
+       drawn *in* that colour; as a filled chip with a white glyph on top it is
+       only 4.11:1. 40% takes the same hue to 5.22:1. Keep --destructive as-is —
+       it is used for error text elsewhere and darkening it would shift those. */
+    --destructive-solid: 18 88% 40%;
+
+    /* Deep azure ink — for intentional dark bands (CTA, footer) */
+    --ink: 224 44% 9%;
+    /* #0D1220 */
+    --ink-foreground: 0 0% 98%;
+
+    /* Sidebar */
+    --sidebar-background: 220 20% 97%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 223 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 223 88% 96%;
+    --sidebar-accent-foreground: 226 70% 20%;
+    --sidebar-border: 220 16% 89%;
+    --sidebar-ring: 223 100% 55%;
 
     /* 8-Point Spacing System Tokens */
     --space-05: 0.125rem;
@@ -110,38 +146,40 @@ All colors MUST be HSL.
     --space-24: 6rem;
     /* 96px */
 
-    /* Advanced Glassmorphism */
-    --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 0 0% 100% / 0.12;
+    /* Advanced Glassmorphism — light-surface frosting */
+    --glass-bg: 0 0% 100% / 0.72;
+    --glass-border: 223 40% 24% / 0.10;
     --glass-blur: 16px;
 
-    /* Accessible primary text — 5.4:1 on white (WCAG AA) */
-    --primary-text: 189 55% 28%;
+    /* Accessible primary text — darkened azure, 5.6:1 on the white canvas */
+    --primary-text: 223 100% 42%;
   }
 
   .dark {
-    /* Keeping consistent for now as fallback */
-    --background: 210 40% 98%;
-    --foreground: 181 83% 9%;
+    /* Mirrors :root — the app is light-only (Azure Mono Light) */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
     --card: 0 0% 100%;
-    --card-foreground: 181 83% 9%;
+    --card-foreground: 0 0% 7%;
     --popover: 0 0% 100%;
-    --popover-foreground: 181 83% 9%;
-    --primary: 189 45% 56%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 193 64% 88%;
-    --secondary-foreground: 181 83% 9%;
-    --muted: 210 20% 90%;
-    --muted-foreground: 210 10% 40%;
-    --accent: 19 84% 60%;
-    --accent-foreground: 210 40% 98%;
-    --contrast: 258 90% 66%;
-    --contrast-foreground: 210 40% 98%;
-    --destructive: 11 70% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 210 30% 90%;
-    --input: 210 30% 90%;
-    --ring: 189 45% 56%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 223 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 97%;
+    --secondary-foreground: 0 0% 7%;
+    --button-secondary: 0 0% 9%;
+    --button-secondary-foreground: 0 0% 98%;
+    --muted: 220 16% 96%;
+    --muted-foreground: 220 9% 42%;
+    --accent: 223 88% 96%;
+    --accent-foreground: 226 70% 20%;
+    --contrast: 223 100% 48%;
+    --contrast-foreground: 0 0% 100%;
+    --destructive: 18 88% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 16% 89%;
+    --input: 220 16% 86%;
+    --ring: 223 100% 55%;
   }
 }
 
@@ -173,8 +211,9 @@ All colors MUST be HSL.
 
   /* Soft card effect - warm and inviting */
   .soft-card {
-    @apply bg-card rounded-2xl border border-border/50;
-    box-shadow: 0 4px 24px -8px hsl(var(--shadow-warm) / 0.08);
+    @apply bg-card rounded-2xl border border-border;
+    box-shadow: 0 1px 2px hsl(var(--shadow-warm) / 0.06),
+      0 8px 24px -12px hsl(var(--shadow-warm) / 0.10);
   }
 
   .soft-card-hover {
@@ -182,8 +221,9 @@ All colors MUST be HSL.
   }
 
   .soft-card-hover:hover {
-    @apply border-primary/30;
-    box-shadow: 0 8px 40px -8px hsl(var(--shadow-warm) / 0.12);
+    @apply border-primary/40;
+    box-shadow: 0 1px 2px hsl(var(--shadow-warm) / 0.08),
+      0 16px 40px -16px hsl(var(--shadow-warm) / 0.18);
     transform: translateY(-2px);
   }
 
@@ -221,6 +261,12 @@ All colors MUST be HSL.
   /* Container */
   .container-custom {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+    /* Scroll-reveal variants (fadeLeft/fadeRight) sit 32px off-axis while
+       hidden. Without clipping, that offset spills past the viewport on
+       narrow screens and produces a horizontal scrollbar. `clip` on the x
+       axis only — `hidden` would create a scroll container and break any
+       position: sticky descendant. */
+    overflow-x: clip;
   }
 
   /* Feature badge */
@@ -230,35 +276,148 @@ All colors MUST be HSL.
 
   /* Stat card */
   .stat-card {
-    @apply bg-gradient-to-br from-card to-secondary/30 rounded-2xl p-6 text-center border border-border/50;
+    @apply bg-gradient-to-br from-card to-accent/60 rounded-2xl p-6 text-center border border-border;
+  }
+
+  /* ─── Card glow ───
+     The four geometries laravel.com uses on its feature cells, verbatim from
+     their build CSS with our azure in place of #F53003:
+
+       radial-gradient(45% 100% at 65% 80%,  rgba(245,48,3,0.20), transparent)
+       radial-gradient(70% 70%  at 50% 90%,  rgba(245,48,3,0.15), transparent)
+       radial-gradient(80% 50%  at 50% 80%,  rgba(245,48,3,0.20), transparent)
+       radial-gradient(60% 50%  at 40% 100%, rgba(245,48,3,0.20), transparent)
+
+     Two details carry the effect. The opacity is 15–20% — a 3–5% tint is
+     invisible on white. And the anchor sits low in the box and *differs per
+     card*, so a row reads as several lit surfaces rather than one repeated
+     swatch. Cycle glow-1..4 across a grid to get that variation.
+
+     `background-image` only, so it composes with whatever `bg-*` the card
+     already has. Desktop-only, like theirs, since stacked cards make the
+     positional variation meaningless.
+
+     Vertical radii are pulled in from Laravel's numbers on purpose. Theirs sit
+     on short cells; several of ours are 500px+, and a 100%-height ellipse over
+     a box that tall floods it — put four side by side and the glows merge into
+     one wash instead of reading as separately-lit cards. Opacities and the
+     horizontal anchors are theirs, unchanged.
+
+     Radii satisfy `rx <= min(cx, 100-cx)` and `ry <= min(cy, 100-cy)`. Exceed
+     that and the ellipse runs past the element box, which clips it into a hard
+     straight edge instead of a fade. Laravel's raw numbers overflow, but their
+     cells are wide and short so it never shows; ours are tall, so it does. */
+  /* Active-element bloom, verbatim from laravel.com's toggle switch:
+       box-shadow: 0 0 44px 0 rgba(245,48,3,0.50),
+                   0 0 8px  0 rgba(245,48,3,0.50);
+     A wide 44px halo plus a tight 8px core, both at 50% — far more assertive
+     than a background wash, which is why their "on" state actually reads as
+     lit. Used on whichever step of an animation is currently firing. */
+  .lit-node {
+    box-shadow:
+      0 0 44px 0 hsl(var(--primary) / 0.50),
+      0 0 8px 0 hsl(var(--primary) / 0.50);
+  }
+
+  /* Half-strength bloom. Not every animated tile is equally important — the
+     lead-generation feed is the core pitch and earns the full 50%; a portfolio
+     rotating on its own is the least meaningful movement on the page, so it
+     gets this. Same shape, less shout, so the eye still has a hierarchy. */
+  .lit-node-soft {
+    box-shadow:
+      0 0 30px 0 hsl(var(--primary) / 0.25),
+      0 0 6px 0 hsl(var(--primary) / 0.25);
+  }
+
+  /* The final step of a sequence — booked, connected, done. Green carries the
+     "this completed" meaning that azure cannot, since azure is already every
+     other state in the animation. */
+  .lit-node-success {
+    box-shadow:
+      0 0 44px 0 hsl(var(--success) / 0.45),
+      0 0 8px 0 hsl(var(--success) / 0.45);
+  }
+
+  @media (min-width: 768px) {
+    .glow-1 { background-image: radial-gradient(42% 34% at 58% 64%, hsl(var(--primary) / 0.20), transparent); }
+    .glow-2 { background-image: radial-gradient(46% 32% at 50% 68%, hsl(var(--primary) / 0.15), transparent); }
+    .glow-3 { background-image: radial-gradient(44% 34% at 52% 64%, hsl(var(--primary) / 0.20), transparent); }
+    .glow-4 { background-image: radial-gradient(40% 32% at 44% 66%, hsl(var(--primary) / 0.20), transparent); }
+  }
+
+  /* Intentional deep-azure band — CTA / footer / any inverted section.
+     Re-points the token set so nested children inherit correct contrast.
+
+     Two gradients, both lifted from real reference CSS rather than invented:
+
+     1. withsupafast.com gradients its dark cards instead of filling them flat:
+          linear-gradient(256deg, #1c1c19 0%, #0c0c0b 100%)
+        Two near-identical darks, ~6 points of lightness apart. That small
+        delta is what stops a black panel reading as a hole. Ours keeps the
+        256deg angle and the same ~9% -> ~4.5% drop on our own ink hue.
+
+     2. league.design bleeds brand colour up from the bottom of its dark
+        bands:  .cta_contact__mask {
+                  background: linear-gradient(180deg, #000 25%, #fd2590 100%);
+                  opacity: 25%; }
+        Ours is the same shape with azure, folded into one layer at an
+        equivalent strength. */
+  .ink-section {
+    background-color: hsl(var(--ink));
+    background-image:
+      linear-gradient(
+        180deg,
+        transparent 25%,
+        hsl(var(--primary) / 0.16) 100%
+      ),
+      linear-gradient(
+        256deg,
+        hsl(var(--ink)) 0%,
+        hsl(224 44% 4.5%) 100%
+      );
+    --foreground: var(--ink-foreground);
+    --card: 224 40% 13%;
+    --card-foreground: 0 0% 98%;
+    --muted-foreground: 220 16% 72%;
+    --border: 0 0% 100% / 0.12;
+    --secondary: 224 40% 13%;
+    --secondary-foreground: 0 0% 98%;
+    --primary-text: 223 100% 76%;
+    --glass-bg: 0 0% 100% / 0.07;
+    --glass-border: 0 0% 100% / 0.14;
+    color: hsl(var(--ink-foreground));
   }
 
   /* ELITE UI ADDITIONS */
+  /* Frosted white glass — visible on the light canvas via border + shadow */
   .glass-panel {
-    background-color: hsla(0, 0%, 100%, 0.75);
+    background-color: hsl(var(--glass-bg));
     backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid hsl(var(--border) / 0.5);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 1px 2px hsl(var(--shadow-warm) / 0.06),
+      0 12px 32px -12px hsl(var(--shadow-warm) / 0.14);
   }
 
   .glass-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
+    background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.86), hsla(220, 30%, 98%, 0.72));
     backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border) / 0.5);
-    box-shadow: 0 2px 16px -4px rgba(0, 0, 0, 0.07);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 1px 2px hsl(var(--shadow-warm) / 0.05),
+      0 10px 28px -14px hsl(var(--shadow-warm) / 0.14);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* On white, "glow" reads as a grounded colored shadow, not a neon halo */
   .primary-glow {
-    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.4);
+    box-shadow: 0 8px 24px -10px hsl(var(--primary) / 0.45);
   }
 
   .accent-glow {
-    box-shadow: 0 0 40px -10px hsl(var(--accent) / 0.4);
+    box-shadow: 0 8px 24px -10px hsl(var(--primary) / 0.22);
   }
 
   .contrast-glow {
-    box-shadow: 0 0 40px -10px hsl(var(--contrast) / 0.4);
+    box-shadow: 0 8px 24px -10px hsl(var(--contrast) / 0.40);
   }
 }
 
@@ -295,15 +454,18 @@ All colors MUST be HSL.
 
   /* Subtle shadow utilities */
   .shadow-soft-sm {
-    box-shadow: 0 2px 12px hsl(var(--shadow-warm) / 0.06);
+    box-shadow: 0 1px 2px hsl(var(--shadow-warm) / 0.06),
+      0 4px 12px -6px hsl(var(--shadow-warm) / 0.10);
   }
 
   .shadow-soft-md {
-    box-shadow: 0 4px 24px hsl(var(--shadow-warm) / 0.08);
+    box-shadow: 0 1px 2px hsl(var(--shadow-warm) / 0.06),
+      0 10px 28px -12px hsl(var(--shadow-warm) / 0.14);
   }
 
   .shadow-soft-lg {
-    box-shadow: 0 8px 40px hsl(var(--shadow-warm) / 0.12);
+    box-shadow: 0 2px 4px hsl(var(--shadow-warm) / 0.06),
+      0 20px 48px -20px hsl(var(--shadow-warm) / 0.20);
   }
 
   /* Hover lift */
@@ -317,7 +479,7 @@ All colors MUST be HSL.
 
   /* Dot pattern background */
   .dot-pattern {
-    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(220 14% 78%) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
@@ -411,9 +573,114 @@ All colors MUST be HSL.
     }
   }
 
+  /* 1 → 2 → 4 column grid with divider rules between cells */
+  .uxis-grid-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  /* Mobile: rule under every cell but the last */
+  .uxis-grid-4>*:not(:last-child) {
+    border-bottom: 1px solid hsl(var(--border));
+  }
+
+  @media (min-width: 640px) {
+    /* 2-col: rule under the top row only, plus a rule down the left column */
+    .uxis-grid-4>*:nth-child(-n+2) {
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .uxis-grid-4>*:nth-child(n+3) {
+      border-bottom: 0;
+    }
+
+    .uxis-grid-4>*:nth-child(odd) {
+      border-right: 1px solid hsl(var(--border));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    /* 4-col: a single row, rules between columns only */
+    .uxis-grid-4>* {
+      border-bottom: 0;
+      border-right: 0;
+    }
+
+    .uxis-grid-4>*:not(:last-child) {
+      border-right: 1px solid hsl(var(--border));
+    }
+  }
+
   /* Pill tag – small rounded bordered tag */
   .uxis-pill {
     @apply inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-border/60 text-foreground/80;
+  }
+
+  /* ─── SHARED TYPE SCALE ───
+     One eyebrow and one section-heading style, so the page reads as a single
+     system. Before this, eyebrows had drifted to ten distinct size/tracking/
+     weight combinations and section h2s to six sizes across two weights. */
+
+  .eyebrow {
+    @apply block text-[11px] font-bold uppercase tracking-[0.18em] text-primary;
+  }
+
+  .section-h2 {
+    @apply font-serif text-4xl md:text-5xl font-medium leading-[1.08] text-foreground;
+  }
+
+  /* Accent-on-emphasis.
+     Copied from league.design, which repeats this rule for every section:
+       .hero__title span, .hero__title i, .hero__title em { color:#fd2590;
+                                                            font-style:normal }
+     …and again for services__, team__, testimonials__, about_us__, steps_cta__.
+     Roughly 130 of their ~130 brand-colour uses are this pattern.
+
+     The payoff is that emphasis becomes semantic: wrap the word that carries
+     the sentence in <em> and it takes the accent, so colour tracks *meaning*
+     instead of being painted on by hand per heading. font-style is reset
+     because <em> should read as colour emphasis here, not italics.
+
+     Scoped to headings plus `.accent-em` rather than a bare `em`, so ordinary
+     italics in body copy keep their normal meaning and colour. */
+  h1 em,
+  h2 em,
+  h3 em,
+  .section-h2 em,
+  .accent-em em {
+    color: hsl(var(--primary));
+    font-style: normal;
+  }
+
+  /* The whole heading block — eyebrow, h2 and subcopy — as one unit, so
+     alignment, measure and spacing can't drift section to section. */
+  .section-head {
+    @apply mx-auto mb-12 max-w-xl text-center md:mb-14;
+  }
+
+  .section-head .eyebrow {
+    @apply mb-4;
+  }
+
+  .section-head h2 {
+    @apply section-h2 mb-5;
+  }
+
+  .section-head p {
+    @apply leading-relaxed text-muted-foreground;
+  }
+
+  /* Same type treatment, left-aligned.
+     Centre reads best over symmetric content and short statements; left wins
+     when the heading carries explanatory copy or introduces a sequence the eye
+     scans from a fixed left edge. */
+  .section-head-left {
+    @apply mx-0 max-w-2xl text-left;
+  }
+
+  /* Narrower still — for a heading sitting in a column beside its content
+     (the FAQ sidebar, the stats split) rather than above it. */
+  .section-head-aside {
+    @apply mx-0 max-w-md text-left;
   }
 
   /* Left-aligned section heading group */
@@ -421,12 +688,13 @@ All colors MUST be HSL.
     @apply mb-0;
   }
 
+  /* Legacy alias — same style as .eyebrow so nothing drifts apart again. */
   .section-heading-left .section-label {
-    @apply text-primary font-bold text-xs uppercase tracking-widest mb-4 block;
+    @apply eyebrow mb-4;
   }
 
   .section-heading-left h2 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-foreground leading-tight;
+    @apply section-h2 mb-6;
   }
 
   .section-heading-left p {
@@ -443,6 +711,119 @@ All colors MUST be HSL.
     @apply p-6 md:p-8 border border-border/30;
   }
 
+  /* ─── BLUEPRINT GRID SCAFFOLD ───
+     One continuous ruled grid whose cells share walls. Reads as a technical
+     drawing rather than a stack of separate cards. */
+
+  .grid-frame {
+    @apply relative border border-border rounded-2xl bg-card;
+  }
+
+  /* Outer container: rounding lives here, so interior cells stay square. */
+  .blueprint {
+    @apply relative border border-border rounded-2xl bg-card overflow-hidden;
+  }
+
+  /* A ruled divider between cells. Animated via scale (compositable) rather
+     than by animating the border itself, which is not. */
+  .bp-rule {
+    @apply absolute pointer-events-none z-10;
+    /* Darker than --border: these rules are the section's structure, not an
+       incidental card edge, and must stay legible on the white canvas. */
+    background-color: hsl(220 14% 82%);
+    transition: transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .bp-rule-h {
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .bp-rule-v {
+    width: 1px;
+    transform: scaleY(0);
+    transform-origin: top center;
+  }
+
+  /* Drawn state — applied once the section scrolls into view */
+  .bp-drawn .bp-rule-h {
+    transform: scaleX(1);
+  }
+
+  .bp-drawn .bp-rule-v {
+    transform: scaleY(1);
+  }
+
+  /* Crosshairs fade in after their rules land */
+  .bp-mark {
+    opacity: 0;
+    transition: opacity 400ms ease-out;
+  }
+
+  .bp-drawn .bp-mark {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .bp-rule,
+    .bp-mark {
+      transition: none !important;
+    }
+
+    .bp-rule-h {
+      transform: scaleX(1);
+    }
+
+    .bp-rule-v {
+      transform: scaleY(1);
+    }
+
+    .bp-mark {
+      opacity: 1;
+    }
+  }
+
+  /* Small azure "+" centred on a frame corner. Purely decorative. */
+  .crosshair {
+    @apply absolute pointer-events-none z-20;
+    width: 11px;
+    height: 11px;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 639px) {
+    .crosshair {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  /* The two bars of the plus sign */
+  .crosshair::before,
+  .crosshair::after {
+    content: '';
+    position: absolute;
+    background-color: hsl(var(--primary) / 0.85);
+  }
+
+  .crosshair::before {
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    transform: translateX(-50%);
+  }
+
+  .crosshair::after {
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    transform: translateY(-50%);
+  }
+
   /* Large decorative quote mark */
   .decorative-quote {
     @apply text-6xl leading-none font-serif text-primary/20 select-none;
@@ -457,13 +838,13 @@ All colors MUST be HSL.
 
   .card-hover:hover {
     transform: scale(1.02) translateY(-2px);
-    box-shadow: 0 20px 40px -12px hsl(var(--primary) / 0.08),
-      0 8px 16px -8px hsl(var(--foreground) / 0.06);
+    box-shadow: 0 20px 40px -20px hsl(var(--primary) / 0.28),
+      0 2px 6px -2px hsl(var(--shadow-warm) / 0.10);
   }
 
   .card-hover:active {
     transform: scale(0.98);
-    box-shadow: 0 4px 12px -4px hsl(var(--foreground) / 0.08);
+    box-shadow: 0 2px 8px -3px hsl(var(--shadow-warm) / 0.14);
   }
 
   /* Image zoom on card hover */

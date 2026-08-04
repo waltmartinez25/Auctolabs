@@ -4,6 +4,11 @@ import tailwindcssAnimate from "tailwindcss-animate";
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  // Card glows are applied as `glow-${(i % 4) + 1}` while mapping over a grid,
+  // so the literal class names never appear in source and the scanner drops
+  // them. They land in the HTML but their CSS is purged — silently, with no
+  // build error. Safelist keeps the four rules in the bundle.
+  safelist: ["glow-1", "glow-2", "glow-3", "glow-4"],
   prefix: "",
   theme: {
     container: {

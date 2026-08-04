@@ -4,7 +4,9 @@ import { Button } from '@/components/ui/button';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
 import { cn } from '@/lib/utils';
-import logo from '@/assets/AuctoLabs_Logo_transparent.png';
+import { CALENDLY_URL, CTA_BOOK } from '@/lib/constants';
+import { analytics } from '@/lib/analytics';
+import logo from '@/assets/AuctoLabs_Logo.svg';
 
 const navLinks = [
   { name: 'Services', href: '/services' },
@@ -53,10 +55,11 @@ export const Navbar = () => {
           <img
             src={logo}
             alt="AuctoLabs"
-            width={160}
+            width={80}
             height={80}
             className={cn('w-auto transition-all duration-300', floated ? 'h-12' : 'h-20')}
-            fetchPriority="high"
+            // React 18 doesn't map camelCase fetchPriority to the DOM attribute
+            {...{ fetchpriority: 'high' }}
           />
         </Link>
 
@@ -80,7 +83,14 @@ export const Navbar = () => {
         <div className="flex items-center gap-3">
           <div className="hidden lg:block">
             <Button asChild variant="glow">
-              <Link to="/contact">Book a Call</Link>
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => analytics.calendlyOpen('navbar')}
+              >
+                {CTA_BOOK.compact}
+              </a>
             </Button>
           </div>
           <Button
@@ -113,7 +123,14 @@ export const Navbar = () => {
             ))}
             <div className="pt-6">
               <Button asChild variant="glow" className="w-full">
-                <Link to="/contact">Book a Call</Link>
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => analytics.calendlyOpen('navbar_mobile')}
+                >
+                  {CTA_BOOK.compact}
+                </a>
               </Button>
             </div>
           </div>

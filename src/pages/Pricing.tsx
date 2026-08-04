@@ -6,28 +6,7 @@ import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
-import { PricingTable, type PricingFeature, type PricingPlan } from '@/components/ui/pricing-table';
-
-const tablePlans: PricingPlan[] = [
-  { name: 'Starter', level: 'starter', price: { monthly: 3500, yearly: 500 }, tagline: 'A conversion-ready website that gets your business found and generates inquiries.' },
-  { name: 'Growth',  level: 'pro',     price: { monthly: 7500, yearly: 1000 }, popular: true, tagline: 'Automate your entire lead pipeline — respond in under 60 seconds, 24/7.' },
-  { name: 'Scale',   level: 'all',     price: { monthly: 12000, yearly: 2500 }, tagline: 'Full-stack growth infrastructure with dedicated strategy and unlimited customization.' },
-];
-
-const tableFeatures: PricingFeature[] = [
-  { name: 'Pages Included',              included: 'starter' },
-  { name: 'Mobile-Responsive Design',    included: 'starter' },
-  { name: 'On-Page SEO Setup',           included: 'starter' },
-  { name: 'Contact Form + Analytics',    included: 'starter' },
-  { name: 'AI-Assisted Lead Qualification', included: 'pro' },
-  { name: 'CRM Integration',               included: 'pro' },
-  { name: 'Speed-to-Lead Automation',      included: 'pro' },
-  { name: 'Email & SMS Sequences',         included: 'pro' },
-  { name: 'Advanced Automation Workflows',  included: 'pro' },
-  { name: 'Custom Integrations',         included: 'all' },
-  { name: 'Dedicated Account Manager',   included: 'all' },
-  { name: 'Quarterly Strategy Reviews',  included: 'all' },
-];
+import { LaneCards } from '@/components/pricing/LaneCards';
 
 const capabilities = [
   'Custom lead routing and qualification logic',
@@ -57,7 +36,7 @@ const outcomes = [
 
 type ComparisonValue = 'yes' | 'no' | 'text';
 const comparisonRows: { feature: string; auctolabs: string; aval: ComparisonValue; freelancer: string; fval: ComparisonValue; inhouse: string; ival: ComparisonValue; diy: string; dval: ComparisonValue }[] = [
-  { feature: 'Launch timeline',        auctolabs: '4–8 weeks',     aval: 'yes', freelancer: '8–16 weeks',  fval: 'text', inhouse: '3–6 months',  ival: 'text', diy: '1–2 days',      dval: 'text' },
+  { feature: 'Launch timeline',        auctolabs: '4–6 weeks',     aval: 'yes', freelancer: '8–16 weeks',  fval: 'text', inhouse: '3–6 months',  ival: 'text', diy: '1–2 days',      dval: 'text' },
   { feature: 'Automation included',    auctolabs: 'Included',      aval: 'yes', freelancer: 'Extra cost',  fval: 'no',   inhouse: 'Extra hire',   ival: 'no',   diy: 'Not available', dval: 'no'   },
   { feature: 'CRM integration',        auctolabs: 'Included',      aval: 'yes', freelancer: 'Extra cost',  fval: 'no',   inhouse: 'Extra cost',   ival: 'no',   diy: 'Not available', dval: 'no'   },
   { feature: 'Speed-to-lead <60s',     auctolabs: 'Standard',      aval: 'yes', freelancer: 'Not offered', fval: 'no',   inhouse: 'Varies',       ival: 'text', diy: 'Not available', dval: 'no'   },
@@ -67,10 +46,10 @@ const comparisonRows: { feature: string; auctolabs: string; aval: ComparisonValu
 ];
 
 const addOns = [
-  { name: 'Monthly Retainer', price: 'From $500/mo', description: 'Ongoing optimization, support, and system improvements' },
-  { name: 'Additional Pages', price: '$300/page', description: 'Extra pages beyond package limits' },
-  { name: 'Content Writing', price: '$500/page', description: 'Professional copywriting for your pages' },
-  { name: 'Custom Integration', price: 'From $1,000', description: 'Connect additional tools and platforms' },
+  { name: 'Monthly Retainer', description: 'Ongoing optimization, support, and system improvements' },
+  { name: 'Additional Pages', description: 'Extra pages beyond the agreed scope' },
+  { name: 'Content Writing', description: 'Professional copywriting for your pages' },
+  { name: 'Custom Integration', description: 'Connect additional tools and platforms' },
 ];
 
 const pricingSchema = {
@@ -78,27 +57,21 @@ const pricingSchema = {
   "@type": "Product",
   "name": "AuctoLabs Web Design & Automation Services",
   "description": "Web design and AI automation packages for small businesses",
+  // No `price` / `priceCurrency`: scope is quoted per engagement, and a
+  // structured price here can surface in search results even though the page
+  // itself shows none. `Offer` stays valid without them.
   "offers": [
     {
       "@type": "Offer",
-      "name": "Starter",
-      "price": "3500",
-      "priceCurrency": "USD",
-      "description": "Conversion-ready website with SEO and analytics"
+      "name": "Launch",
+      "description": "Fixed-scope build: conversion-focused website plus lead automation, live in 4–6 weeks",
+      "availability": "https://schema.org/InStock"
     },
     {
       "@type": "Offer",
-      "name": "Growth",
-      "price": "7500",
-      "priceCurrency": "USD",
-      "description": "Website + AI automation, CRM integration, and speed-to-lead pipeline"
-    },
-    {
-      "@type": "Offer",
-      "name": "Scale",
-      "price": "12000",
-      "priceCurrency": "USD",
-      "description": "Enterprise-grade automation with dedicated support"
+      "name": "Partner",
+      "description": "Month-to-month partnership: ongoing optimization, new pages and campaign assets, automation tuning",
+      "availability": "https://schema.org/InStock"
     }
   ]
 };
@@ -108,38 +81,34 @@ const Pricing = () => {
     <Layout>
       <SEO
         title="AuctoLabs Pricing — Web Design & Automation Packages"
-        description="AuctoLabs pricing: Starter from $3,500, Growth from $7,500, Scale from $12,000. No hidden fees, no long-term contracts. Book a free strategy call today."
-        keywords="web design pricing, automation pricing, lead generation cost, website development prices, AI automation packages"
+        description="Two ways to work with AuctoLabs: Launch, a fixed-scope build live in 4–6 weeks, or Partner, month-to-month ongoing optimization. No long-term contracts. Book a free strategy call."
+        keywords="web design pricing, automation pricing, lead generation, website development, AI automation packages"
         canonical="https://auctolabs.com/pricing"
         jsonLd={pricingSchema}
       />
       
       {/* Plain-text summary for AI search engines */}
       <PageSummary
-        topic="AuctoLabs Pricing - Web Design and Automation Packages"
-        purpose="This page shows transparent pricing for AuctoLabs web design and AI automation services. Three packages available: Starter ($3,500), Growth ($7,500), and Scale ($12,000). All packages are one-time payments with no long-term contracts."
-        audience="Small business owners, marketing managers, and decision-makers comparing web design and automation service pricing"
+        topic="AuctoLabs — Two Ways to Work Together"
+        purpose="This page explains the two ways to engage AuctoLabs: Launch, a fixed-scope build that goes live in 4–6 weeks, and Partner, a month-to-month arrangement for ongoing optimization. Scope is quoted per engagement after a strategy call, so no package prices are listed."
+        audience="Small business owners, marketing managers, and decision-makers evaluating web design and automation partners"
         services={[
-          "Starter Package: $3,500 one-time - 5-page custom website, mobile-responsive, basic SEO, 30-day support",
-          "Growth Package: $7,500 one-time - 10 pages, AI lead qualification, CRM integration, speed-to-lead system, 60-day support",
-          "Scale Package: $12,000 one-time - Unlimited pages, advanced automation, dedicated account manager, 90-day support"
+          "Launch: fixed-scope build — audit, conversion-focused website, lead automation, CRM and calendar integration, full handover. Live in 4–6 weeks.",
+          "Partner: month-to-month — ongoing optimization and testing, new pages and campaign assets, automation tuning, direct access with no account managers.",
+          "Add-ons available: monthly retainer, additional pages, content writing, custom integrations."
         ]}
       />
-      
+
       <HiddenStructuredFacts
         facts={{
-          "Starter Package price": "$3,500 one-time",
-          "Starter Package includes": "5-page custom website, mobile-responsive design, basic SEO, contact form, Google Analytics, 30-day support",
-          "Growth Package price": "$7,500 one-time (Most Popular)",
-          "Growth Package includes": "10 pages, AI lead qualification, CRM integration, email/SMS automation, speed-to-lead under 60 seconds, 60-day support",
-          "Scale Package price": "$12,000 one-time",
-          "Scale Package includes": "Unlimited pages, advanced automation workflows, multi-channel attribution, dedicated account manager, 90-day support, quarterly strategy reviews",
-          "Monthly Retainer add-on": "From $500/month for ongoing optimization",
-          "Additional Pages add-on": "$300 per page",
-          "Content Writing add-on": "$500 per page",
-          "Custom Integration add-on": "From $1,000",
-          "Payment terms": "No long-term contracts, one-time payment",
-          "Custom pricing": "Available for enterprise requirements"
+          "Engagement models": "Two options — Launch (fixed-scope build) and Partner (month-to-month ongoing work)",
+          "Launch includes": "Audit, conversion-focused website, lead automation, speed-to-lead under 60 seconds, CRM and calendar integration, full handover",
+          "Launch timeline": "Live in 4–6 weeks",
+          "Partner includes": "Ongoing optimization and testing, new pages and campaign assets, automation tuning, direct access without account managers",
+          "Partner terms": "Month-to-month, no long-term contracts",
+          "How pricing works": "Scope is quoted per engagement after a free strategy call — no fixed package prices",
+          "Add-ons available": "Monthly retainer, additional pages, content writing, custom integrations",
+          "Guarantee": "If we don't deliver qualified leads within 60 days of launch, the final invoice waits until we do"
         }}
       />
       
@@ -148,33 +117,28 @@ const Pricing = () => {
         <div className="container-custom">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">Pricing</span>
+              <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">Working Together</span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
-                Transparent Investment.{' '}
-                <span className="gradient-text-warm">Measurable Returns.</span>
+                Pick your <em>lane.</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
-                No hidden fees. No long-term contracts. Just clear pricing for
-                systems designed to generate consistent leads and measurable growth.
+                No packages to squeeze into and no long-term contracts. Every build is
+                scoped to the business it serves, so the honest answer to &ldquo;what
+                does it cost?&rdquo; starts with a conversation.
               </p>
               <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
-                Every plan is fully customized to your business — pick your starting point and we'll build the rest around you.
+                Choose how you want to work with us — we&apos;ll shape the rest around your business.
               </p>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Pricing Table */}
+      {/* The two lanes */}
       <section className="section-padding pt-0">
         <div className="container-custom">
           <AnimatedSection variant="fadeUp" delay={100}>
-            <PricingTable
-              plans={tablePlans}
-              features={tableFeatures}
-              defaultPlan="pro"
-              defaultInterval="monthly"
-            />
+            <LaneCards source="pricing" />
           </AnimatedSection>
         </div>
       </section>
@@ -208,10 +172,9 @@ const Pricing = () => {
 
           <AnimatedSection delay={100}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {addOns.map((addon) => (
-                <div key={addon.name} className="soft-card p-6">
+              {addOns.map((addon, i) => (
+                <div key={addon.name} className={`soft-card p-6 glow-${(i % 4) + 1}`}>
                   <h3 className="text-sm font-serif font-semibold mb-2">{addon.name}</h3>
-                  <p className="text-primary font-bold mb-2">{addon.price}</p>
                   <p className="text-sm text-muted-foreground">{addon.description}</p>
                 </div>
               ))}
@@ -228,7 +191,7 @@ const Pricing = () => {
               <span className="text-primary font-bold text-xs uppercase tracking-widest mb-5 block">Why AuctoLabs</span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
                 One investment.<br />
-                <span className="gradient-text-warm">The complete growth infrastructure.</span>
+                <em>The complete growth infrastructure.</em>
               </h2>
               <p className="text-muted-foreground">
                 Most businesses pay more for less. Here's why our clients switch — and stay.

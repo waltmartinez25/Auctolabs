@@ -3,6 +3,7 @@ import { Envelope, GeoAlt, Telephone, Calendar3, Send, CheckCircle, ArrowClockwi
 import { z } from 'zod';
 import { supabase } from '@/integrations/supabase/client';
 import { Layout } from '@/components/layout/Layout';
+import { CALENDLY_URL, CTA_BOOK } from '@/lib/constants';
 import { SEO } from '@/components/SEO';
 import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
@@ -139,7 +140,7 @@ const Contact = () => {
               <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">Contact</span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
                 Let's Build Your{' '}
-                <span className="gradient-text-warm">Growth Machine</span>
+                <em>Growth Machine</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 Ready to turn your website into a client-generating system?
@@ -180,12 +181,12 @@ const Contact = () => {
                       </p>
                       <Button asChild variant="hero" className="w-full">
                         <a
-                          href="https://calendly.com/waltermartinez-auctolabs/30min"
+                          href={CALENDLY_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <Calendar3 className="mr-2 h-4 w-4" />
-                          Schedule a Strategy Call
+                          {CTA_BOOK.primary}
                         </a>
                       </Button>
                     </div>
@@ -311,7 +312,7 @@ const Contact = () => {
                     could work for your business.
                   </p>
                   <Button variant="outline" className="w-full" asChild>
-                    <a href="https://calendly.com/waltermartinez-auctolabs/30min" target="_blank" rel="noopener noreferrer">Schedule Now</a>
+                    <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">{CTA_BOOK.primary}</a>
                   </Button>
                 </div>
 

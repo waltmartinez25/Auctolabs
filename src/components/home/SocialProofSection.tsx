@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
+import { ToolLogo } from '@/components/ui/tool-logo';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -49,7 +50,7 @@ const integrationSets: Integration[][] = [
     { name: 'Stripe',        slug: 'stripe',       color: '#635BFF', bg: '#EEEEFE' },
     { name: 'Twilio',        slug: 'twilio',       color: '#F22F46', bg: '#FEE6E9' },
     { name: 'Typeform',      slug: 'typeform',     color: '#262627', bg: '#F3F4F6' },
-    { name: 'Many More',     slug: 'many-more',    color: '#5EB1BF', bg: '#EDF9FB', manyMore: true },
+    { name: 'Many More',     slug: 'many-more',    color: '#1A56FF', bg: '#0C1445', manyMore: true },
   ],
 ];
 
@@ -84,27 +85,27 @@ export const SocialProofSection = () => {
   }, [active]);
 
   return (
-    <section className="py-20 md:py-28 bg-white border-t border-border/30">
+    <section className="py-20 md:py-28 bg-secondary border-t border-border/30">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
           {/* ── Left: Headline + Cycling Stats ─────────────────────────────── */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-5">
-              By the Numbers
-            </p>
+            <div className="section-head section-head-aside mb-10">
+              <span className="eyebrow">By the Numbers</span>
 
-            <h2 className="font-serif text-4xl md:text-[2.75rem] font-bold text-foreground leading-[1.1] mb-4">
-              Built for outcomes,<br />
-              <span className="italic text-primary">not just output.</span>
-            </h2>
+              <h2>
+                Built for outcomes,{' '}
+                <em>not just output.</em>
+              </h2>
 
-            <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-[26rem]">
-              A great website means nothing if it doesn't grow your business.
-              Every decision we make is grounded in performance, user behavior,
-              and long-term results — because the best websites don't just look
-              good. They work.
-            </p>
+              <p>
+                A great website means nothing if it doesn&apos;t grow your business.
+                Every decision we make is grounded in performance, user behavior,
+                and long-term results — because the best websites don&apos;t just look
+                good. They work.
+              </p>
+            </div>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <AnimatePresence mode="popLayout">
@@ -115,9 +116,9 @@ export const SocialProofSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -16 }}
                     transition={{ duration: 0.32, delay: i * 0.06, ease: STAT_EASE }}
-                    className="rounded-2xl border border-border/50 bg-[#F8FAFC] px-3 py-4 sm:px-5 sm:py-5 hover:border-primary/30 hover:bg-white hover:shadow-sm transition-all duration-200 cursor-default"
+                    className="rounded-2xl border border-border/50 bg-background px-3 py-4 sm:px-5 sm:py-5 hover:border-primary/30 hover:bg-muted hover:shadow-sm transition-all duration-200 cursor-default"
                   >
-                    <p className="text-[2rem] sm:text-[2.75rem] md:text-[3rem] font-black leading-none tracking-tight text-foreground/[0.13] mb-1.5 select-none">
+                    <p className="text-[2rem] sm:text-[2.75rem] md:text-[3rem] font-serif font-black leading-none tracking-tight text-primary mb-1.5 select-none">
                       {stat.value}
                     </p>
                     <p className="text-[0.8125rem] font-bold text-foreground leading-snug">
@@ -144,9 +145,7 @@ export const SocialProofSection = () => {
 
           {/* ── Right: Browser Integration Widget ──────────────────────────── */}
           <div ref={widgetRef} className="lg:pt-[4.5rem]">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-5">
-              Seamless Integrations
-            </p>
+            <span className="eyebrow mb-5">Seamless Integrations</span>
 
             <div className="rounded-2xl border border-border/50 overflow-hidden shadow-md">
 
@@ -168,7 +167,7 @@ export const SocialProofSection = () => {
                 On scroll: logos slide in from the right, one by one (cascading "connecting" effect).
                 Every 7 s: old logos fade out, new set slides in the same way.
               */}
-              <div className="p-5 grid grid-cols-3 gap-3 bg-white">
+              <div className="p-5 grid grid-cols-3 gap-3 bg-card">
                 {Array.from({ length: 9 }, (_, i) => {
                   const intg = integrationSets[integSet][i];
                   return (
@@ -204,11 +203,9 @@ export const SocialProofSection = () => {
                                 className="w-10 h-10 rounded-lg flex items-center justify-center shadow-sm flex-shrink-0"
                                 style={{ backgroundColor: intg.color }}
                               >
-                                <img
-                                  src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${intg.slug}.svg`}
-                                  alt={intg.name}
+                                <ToolLogo
+                                  slug={intg.slug}
                                   className="w-6 h-6"
-                                  draggable={false}
                                   style={{ filter: 'brightness(0) invert(1)' }}
                                 />
                               </div>

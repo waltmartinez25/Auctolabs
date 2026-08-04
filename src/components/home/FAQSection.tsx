@@ -6,12 +6,13 @@ import {
 } from '@/components/ui/accordion';
 import { Link } from 'react-router-dom';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { CTA_FORM } from '@/lib/constants';
 
 const faqs = [
   {
     question: 'How long does a typical project take?',
     answer:
-      'Most websites launch within 4–8 weeks depending on the scope of the project. This includes design, development, automation setup, and integration testing.',
+      'Most websites launch within 4–6 weeks depending on the scope of the project. This includes design, development, automation setup, and integration testing.',
   },
   {
     question: 'What makes an AuctoLabs website different?',
@@ -42,7 +43,7 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <section className="section-padding border-t border-border/40">
+    <section className="section-padding border-t border-border/40 bg-secondary">
       <div className="container-custom">
         {/* REVERSED split — accordion LEFT, heading RIGHT */}
         <div className="grid gap-16 lg:gap-24 grid-cols-1 lg:grid-cols-[3fr_2fr]">
@@ -79,18 +80,17 @@ export const FAQSection = () => {
           <AnimatedSection delay={100} variant="fadeLeft" className="lg:block">
             <div className="lg:sticky lg:top-32 relative">
               <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -z-10" />
-              <span className="text-primary font-bold text-xs uppercase tracking-widest mb-6 block accent-glow">
-                Knowledge Base
-              </span>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground leading-none mb-8 tracking-tightest">
-                Common
-                <br />
-                <span className="text-primary italic accent-glow">Questions</span>
-              </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg font-medium max-w-md">
-                Everything you need to know about our high-performance systems,
-                our precise timeline, and how we scale your operations.
-              </p>
+              <div className="section-head section-head-aside mb-0">
+                <span className="eyebrow">Knowledge Base</span>
+                <h2>
+                  Common{' '}
+                  <em>Questions</em>
+                </h2>
+                <p>
+                  Everything you need to know about our high-performance systems,
+                  our precise timeline, and how we scale your operations.
+                </p>
+              </div>
 
               <div className="mt-12 p-8 glass-card rounded-2xl border-primary/20">
                 <p className="text-sm font-bold text-foreground mb-2">Still have questions?</p>
@@ -99,7 +99,7 @@ export const FAQSection = () => {
                   to="/contact"
                   className="block w-full py-4 bg-primary text-primary-foreground rounded-xl font-bold text-sm text-center primary-glow hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
-                  Book a Call
+                  {CTA_FORM.question}
                 </Link>
               </div>
             </div>

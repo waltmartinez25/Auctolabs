@@ -27,8 +27,13 @@ export function trackEvent(name: string, params?: Record<string, unknown>) {
 
 // Pre-built event helpers for key conversion actions
 export const analytics = {
-  bookCallClick: (source: string) =>
-    trackEvent('book_call_click', { source }),
+  /**
+   * A CTA that leads to the contact form. Distinct from calendlyOpen so the
+   * funnel can tell "wants to write to us" apart from "wants to book now" —
+   * they convert at different rates and want different follow-up.
+   */
+  contactFormClick: (source: string) =>
+    trackEvent('contact_form_click', { source }),
 
   calendlyOpen: (source: string) =>
     trackEvent('calendly_open', { source }),

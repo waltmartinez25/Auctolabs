@@ -31,13 +31,28 @@ import NotFound from './pages/NotFound';
 type AttrMap = Record<string, string>;
 type HeadElement = { type: string; props: AttrMap };
 
+/**
+ * Undo HTML entity escaping. Helmet emits an escaped title, and the prerender
+ * plugin escapes whatever it is handed again — without this, "Web Design &
+ * AI" ships as "Web Design &amp;amp; AI" in the browser tab.
+ */
+function decodeEntities(s: string): string {
+  return s
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&amp;/g, '&');
+}
+
 /** Parse key="value" attribute pairs from an HTML attribute string */
 function parseAttrs(attrsStr: string): AttrMap {
   const props: AttrMap = {};
   const re = /([\w:-]+)="([^"]*)"/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(attrsStr)) !== null) {
-    props[m[1]] = m[2];
+    // Decoded because the plugin re-escapes every attribute value on output.
+    props[m[1]] = decodeEntities(m[2]);
   }
   return props;
 }
@@ -52,23 +67,39 @@ function parseElements(html: string, tag: 'meta' | 'link' | 'script'): HeadEleme
     let m: RegExpExecArray | null;
     while ((m = re.exec(html)) !== null) {
       const props = parseAttrs(m[1]);
+      delete props['data-rh'];
+      // JSON-LD body is passed through as `children`, which the plugin
+      // serializes verbatim — correct, since escaping it would break the JSON.
       const content = m[2].trim();
       if (content) props.children = content;
       elements.push({ type: 'script', props });
     }
   } else {
-    const re = new RegExp(`<${tag}\\s+([^>]+?)\\s*/?>`, 'gi');
+    // Match everything up to the closing bracket, then strip any trailing
+    // self-closing slash. A lazy `([^>]+?)\s*/?>` fails on Helmet's output
+    // because the slash gets swallowed into the attribute capture.
+    const re = new RegExp(`<${tag}\\s+([^>]+)>`, 'gi');
     let m: RegExpExecArray | null;
     while ((m = re.exec(html)) !== null) {
-      const props = parseAttrs(m[1]);
+      const props = parseAttrs(m[1].replace(/\/$/, ''));
+      // Helmet's bookkeeping attribute has no meaning in static output.
+      delete props['data-rh'];
       if (Object.keys(props).length > 0) elements.push({ type: tag, props });
     }
   }
   return elements;
 }
 
+/** The subset of Helmet's server output this script consumes. */
+interface HelmetServerState {
+  title?: { toString(): string };
+  meta?: { toString(): string };
+  link?: { toString(): string };
+  script?: { toString(): string };
+}
+
 export async function prerender({ url }: { url: string }) {
-  const helmetContext: { helmet?: any } = {};
+  const helmetContext: { helmet?: HelmetServerState } = {};
   const queryClient = new QueryClient();
 
   const html = renderToString(
@@ -97,10 +128,12 @@ export async function prerender({ url }: { url: string }) {
 
   const helmet = helmetContext.helmet;
 
-  // Extract plain-text title from <title>...</title>
+  // Extract plain-text title. react-helmet-async emits `<title data-rh="true">`,
+  // so the opening tag must tolerate attributes — matching a bare `<title>`
+  // silently yields '' and every page inherits index.html's static title.
   const titleStr: string = helmet?.title?.toString() ?? '';
-  const titleMatch = titleStr.match(/<title>(.*?)<\/title>/s);
-  const title = titleMatch?.[1] ?? '';
+  const titleMatch = titleStr.match(/<title[^>]*>([\s\S]*?)<\/title>/);
+  const title = decodeEntities(titleMatch?.[1] ?? '');
 
   // Collect meta, link, and script (JSON-LD) elements from Helmet
   const allElements: HeadElement[] = [

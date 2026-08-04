@@ -3,8 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="color-scheme" content="dark" />
+    <style>html,body{background:#0A0A0A;}</style>
+    <!--
+      Fallback title only — every route overrides it via the SEO component.
+      A page description is deliberately NOT declared here: the prerenderer
+      appends Helmet's tags instead of replacing existing ones, so a static
+      one would sit *above* the per-page tag and become the copy crawlers
+      actually use for all ten routes.
+    -->
     <title>AuctoLabs | Web Design &amp; AI Automations for Small Business Growth</title>
-    <meta name="description" content="AuctoLabs helps small businesses grow with high-converting websites, AI-powered automations, and lead generation systems. Book a free strategy call today.">
     <meta name="author" content="AuctoLabs" />
     <meta name="keywords" content="web design, AI automations, lead generation, small business, automation, websites, CRM integration" />
 
@@ -15,17 +24,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=DM+Serif+Display:ital@0;1&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=DM+Serif+Display:ital@0;1&display=swap" /></noscript>
 
-    <!-- Preload LCP logo asset -->
-    <link rel="preload" as="image" href="/AuctoLabs_Logo_transparent.png" />
+    <!-- Preload the hero's LCP image (stable public/ path, no build hash) -->
+    <link rel="preload" as="image" href="/mockups/mock-penn-turf.jpg" />
+
 
     
     
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://auctolabs.com/og-image.jpg">
-
-    <meta name="twitter:card" content="summary_large_image" />
+    <!--
+      og:type and og:image are emitted per page by <SEO>, and the prerenderer
+      appends rather than replaces — declaring them here too shipped each one
+      twice. Only tags <SEO> does NOT emit belong in this file.
+    -->
     <meta name="twitter:site" content="@AuctoLabs" />
-    <meta name="twitter:image" content="https://auctolabs.com/og-image.jpg">
     
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
@@ -39,11 +49,15 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/logo.png">
-    <meta property="og:title" content="AuctoLabs | Web Design &amp; AI Automations for Small Business Growth">
-  <meta name="twitter:title" content="AuctoLabs | Web Design &amp; AI Automations for Small Business Growth">
-  <meta property="og:description" content="AuctoLabs helps small businesses grow with high-converting websites, AI-powered automations, and lead generation systems. Book a free strategy call today.">
-  <meta name="twitter:description" content="AuctoLabs helps small businesses grow with high-converting websites, AI-powered automations, and lead generation systems. Book a free strategy call today.">
-</head>
+
+    <!--
+      og:title / og:description / twitter:title / twitter:description are set
+      per page by <SEO> (react-helmet-async) and injected at prerender time.
+      Do not add them here: the prerenderer appends rather than replaces, and
+      crawlers read the first occurrence — a static copy here wins over the
+      real page's tag and every route ends up sharing the homepage's preview.
+    -->
+  </head>
 
   <body>
     <div id="root"></div>

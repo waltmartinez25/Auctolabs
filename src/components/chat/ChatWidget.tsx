@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { chatSteps, getTierRecommendation, type TierResult } from './chatFlow';
 import { analytics, trackEvent } from '@/lib/analytics';
+import { CALENDLY_URL, CTA_BOOK } from '@/lib/constants';
 
 interface Message {
   id: string;
@@ -16,10 +17,9 @@ interface Answers {
   industry: string;
   challenge: string;
   volume: string;
-  budget: string;
+  goal: string;
 }
 
-const CALENDLY_URL = 'https://calendly.com/waltermartinez-auctolabs/30min';
 
 export const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,7 @@ export const ChatWidget = () => {
   };
 
   const handleSelect = (optionLabel: string, optionValue: string) => {
-    const answerKeys: (keyof Answers)[] = ['industry', 'challenge', 'volume', 'budget'];
+    const answerKeys: (keyof Answers)[] = ['industry', 'challenge', 'volume', 'goal'];
     const key = answerKeys[step];
     const newAnswers = { ...answers, [key]: optionValue };
     setAnswers(newAnswers);
@@ -69,7 +69,7 @@ export const ChatWidget = () => {
       // Final step — compute recommendation
       const result = getTierRecommendation(
         newAnswers.volume ?? '',
-        newAnswers.budget ?? ''
+        newAnswers.goal ?? ''
       );
       setIsTyping(true);
       setTimeout(() => {
@@ -98,7 +98,7 @@ export const ChatWidget = () => {
         first_name: 'Chat Lead',
         last_name: '',
         email: '',
-        message: `Industry: ${a.industry} | Challenge: ${a.challenge} | Volume: ${a.volume} | Budget: ${a.budget} | Recommended: ${tierName}`,
+        message: `Industry: ${a.industry} | Challenge: ${a.challenge} | Volume: ${a.volume} | Looking for: ${a.goal} | Recommended lane: ${tierName}`,
       });
     } catch {
       // Silent fail — lead capture is secondary to UX
@@ -117,8 +117,11 @@ export const ChatWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed bottom-24 right-4 lg:bottom-28 lg:right-8 z-40 w-80 max-h-[520px] flex flex-col rounded-2xl shadow-2xl border border-border/60 bg-background/98 backdrop-blur-sm overflow-hidden"
-            style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08)' }}
+            className="fixed bottom-24 right-4 lg:bottom-28 lg:right-8 z-40 w-80 max-h-[520px] flex flex-col rounded-2xl border border-border bg-background/98 backdrop-blur-sm overflow-hidden"
+            style={{
+              boxShadow:
+                '0 2px 4px hsl(var(--shadow-warm) / 0.08), 0 24px 56px -20px hsl(var(--shadow-warm) / 0.28)',
+            }}
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3.5 bg-primary/5 border-b border-border/40 shrink-0">
@@ -203,7 +206,7 @@ export const ChatWidget = () => {
               {isDone && tier && !isTyping && (
                 <div className="space-y-2">
                   <div className="rounded-xl bg-primary/5 border border-primary/20 px-3 py-2.5">
-                    <p className="text-xs font-bold text-primary mb-0.5">{tier.name} — {tier.price}</p>
+                    <p className="text-xs font-bold text-primary mb-0.5">Recommended: {tier.name}</p>
                     <p className="text-xs text-muted-foreground leading-snug">{tier.description}</p>
                   </div>
                   <Button asChild variant="hero" size="sm" className="w-full">
@@ -214,7 +217,7 @@ export const ChatWidget = () => {
                       onClick={() => analytics.calendlyOpen('chatbot')}
                     >
                       <Calendar3 className="mr-1.5 w-3.5 h-3.5" />
-                      Book a Free Strategy Call
+                      {CTA_BOOK.primary}
                     </a>
                   </Button>
                 </div>

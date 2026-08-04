@@ -13,6 +13,8 @@ import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { CALENDLY_URL, CTA_BOOK, CTA_FORM } from '@/lib/constants';
+import { analytics } from '@/lib/analytics';
 
 type IconComponent = React.ComponentType<{ className?: string }>;
 
@@ -132,7 +134,7 @@ const About = () => {
               </span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
                 We Build Automated{' '}
-                <span className="gradient-text-warm">Client-Generating Systems</span>
+                <em>Client-Generating Systems</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 Most businesses don't struggle because of demand. They struggle because their
@@ -149,7 +151,7 @@ const About = () => {
               </p>
               <Button asChild variant="hero" size="lg">
                 <Link to="/contact">
-                  Book a Free Strategy Call
+                  {CTA_FORM.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -161,9 +163,9 @@ const About = () => {
       {/* ─── Positioning Strip ─── */}
       <section className="py-6 bg-primary/5 border-y border-primary/10">
         <div className="container-custom">
-          <p className="text-center text-base md:text-lg font-semibold text-foreground">
+          <p className="accent-em text-center text-base md:text-lg font-semibold text-foreground">
             This isn't just marketing —{' '}
-            <span className="text-primary">it's infrastructure for growth.</span>
+            <em>it's infrastructure for growth.</em>
           </p>
         </div>
       </section>
@@ -409,7 +411,9 @@ const About = () => {
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-10">
             {industries.map((industry, i) => (
               <AnimatedSection key={industry.name} delay={i * 60}>
-                <div className="soft-card p-6 h-full">
+                {/* Cycling glow-1..4 so adjacent cards are lit from different
+                    points — see the .glow-* comment in index.css. */}
+                <div className={`soft-card p-6 h-full glow-${(i % 4) + 1}`}>
                   <h3 className="font-serif font-bold mb-2">{industry.name}</h3>
                   <p className="text-sm text-muted-foreground">{industry.description}</p>
                 </div>
@@ -473,7 +477,7 @@ const About = () => {
             <AnimatedSection delay={100}>
               <div className="hidden md:flex flex-col items-center justify-center gap-3 py-8 self-center">
                 <div className="h-12 w-px bg-primary/20" />
-                <div className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap">
+                <div className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap">
                   We don't
                 </div>
                 <div className="h-12 w-px bg-primary/20" />
@@ -528,11 +532,17 @@ const About = () => {
                 more opportunities — let's talk. We'll break down exactly what your business needs
                 and where your biggest opportunities are.
               </p>
+              {/* "Let's talk" — open the calendar, not a form. */}
               <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  Book a Free Strategy Call
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => analytics.calendlyOpen('about_footer')}
+                >
+                  {CTA_BOOK.primary}
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </Button>
             </div>
           </AnimatedSection>

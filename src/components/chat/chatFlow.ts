@@ -36,40 +36,40 @@ export const chatSteps: FlowStep[] = [
     ],
   },
   {
+    // Asks about scope/timing rather than budget — we quote per engagement,
+    // so anchoring on a number here would work against that.
     id: 3,
-    botMessage: "Almost there — what's your budget range for this project?",
+    botMessage: 'Almost there — what are you looking for right now?',
     options: [
-      { label: 'Under $3,500', value: 'under-3500' },
-      { label: '$3,500–$8,000', value: '3500-8000' },
-      { label: '$8,000+', value: '8000-plus' },
+      { label: 'A new site, launched fast', value: 'new-build' },
+      { label: 'Automation on my current site', value: 'automation-only' },
+      { label: 'Ongoing help as we grow', value: 'ongoing' },
+      { label: 'Still figuring it out', value: 'exploring' },
     ],
   },
 ];
 
 export interface TierResult {
   name: string;
-  price: string;
   description: string;
 }
 
-export function getTierRecommendation(volume: string, budget: string): TierResult {
-  if (budget === '8000-plus' || volume === '100-plus') {
+/**
+ * Recommends a lane, not a price. Scope is quoted per engagement after a
+ * strategy call, so the widget points at the right conversation instead of
+ * naming a figure.
+ */
+export function getTierRecommendation(volume: string, goal: string): TierResult {
+  if (goal === 'ongoing' || volume === '100-plus') {
     return {
-      name: 'Scale System',
-      price: '$15,000',
-      description: 'Unlimited pages, advanced automation workflows, dedicated account manager, and quarterly strategy reviews.',
-    };
-  }
-  if (budget === 'under-3500' || volume === 'under-20') {
-    return {
-      name: 'Starter System',
-      price: '$3,500',
-      description: '5-page website, lead capture form, contact automation, and on-page SEO setup.',
+      name: 'Partner',
+      description:
+        'Month-to-month: ongoing optimization, new pages and campaign assets, and automation tuning as you grow.',
     };
   }
   return {
-    name: 'Growth System',
-    price: '$7,500',
-    description: 'Website + AI automation, CRM integration, speed-to-lead <60s, and email & SMS sequences.',
+    name: 'Launch',
+    description:
+      'A fixed-scope build — site and automation from one team, live in 4–6 weeks, then handed over to you.',
   };
 }

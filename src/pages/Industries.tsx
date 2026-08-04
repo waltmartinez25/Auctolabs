@@ -4,6 +4,7 @@ import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { CALENDLY_URL, CTA_BOOK } from '@/lib/constants';
 
 const industries = [
   {
@@ -104,7 +105,7 @@ const Industries = () => {
               </span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
                 Built for businesses that{' '}
-                <span className="gradient-text-warm">can't afford to lose leads.</span>
+                <em>can't afford to lose leads.</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 Every industry has a different growth bottleneck. We've built systems for four of the most lead-sensitive service businesses — and we know exactly what moves the needle in each.
@@ -218,7 +219,7 @@ const Industries = () => {
               </span>
               <h2 className="text-4xl md:text-5xl font-serif font-bold mb-5 leading-tight">
                 We work with any service business{' '}
-                <span className="gradient-text-warm">that depends on leads.</span>
+                <em>that depends on leads.</em>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
                 The systems we build — automated lead capture, qualification, follow-up, and CRM sync — work for any business that generates revenue through client relationships. If your business lives and dies by leads, we can build the infrastructure.
@@ -265,16 +266,16 @@ const Industries = () => {
               </span>
               <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">
                 Which industry are{' '}
-                <span className="gradient-text-warm">you growing?</span>
+                <em>you growing?</em>
               </h2>
               <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
                 Book a free 30-minute strategy call. We'll audit your current setup and show you exactly what a system built for your industry would look like.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button asChild variant="hero" size="lg">
-                  <a href="https://calendly.com/waltermartinez-auctolabs/30min" target="_blank" rel="noopener noreferrer">
+                  <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                     <Calendar3 className="mr-2 w-4 h-4" />
-                    Book a Free Strategy Call
+                    {CTA_BOOK.primary}
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg">

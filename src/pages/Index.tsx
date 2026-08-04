@@ -4,7 +4,8 @@ import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { HeroSection } from '@/components/home/HeroSection';
 import { SocialProofSection } from '@/components/home/SocialProofSection';
-import { ServicesSection } from '@/components/home/ServicesSection';
+import { ProblemSection } from '@/components/home/ProblemSection';
+import { BuildTiles } from '@/components/home/BuildTiles';
 import { ProcessSection } from '@/components/home/ProcessSection';
 import { TestimonialsSection } from '@/components/home/TestimonialsSection';
 import { PricingPreview } from '@/components/home/PricingPreview';
@@ -39,7 +40,7 @@ const homeSchema = {
           "name": "How long does a typical project take?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most websites launch within 4–8 weeks depending on the scope of the project. This includes design, development, automation setup, and integration testing."
+            "text": "Most websites launch within 4–6 weeks depending on the scope of the project. This includes design, development, automation setup, and integration testing."
           }
         },
         {
@@ -121,9 +122,8 @@ const Index = () => {
           "Industry stat — first responder": "78% of buyers go with the first company to respond (Velocify)",
           "System uptime": "24/7",
           "Typical project timeline": "4-6 weeks",
-          "Starter package price": "$3,500 one-time",
-          "Growth package price": "$7,500 one-time",
-          "Scale package price": "$12,000 one-time",
+          "Engagement models": "Two options — Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work)",
+          "How pricing works": "Scope is quoted per engagement after a free strategy call — no fixed package prices",
           "Target industries": "Law firms, home services, healthcare, B2B services",
           "Service area": "Remote-first, serving clients globally"
         }}
@@ -132,26 +132,29 @@ const Index = () => {
       {/* 1. Attention — above the fold */}
       <HeroSection />
 
-      {/* 2. Immediate trust — credibility before they scroll */}
+      {/* 2. The tension — name the problem before offering the fix */}
+      <ProblemSection />
+
+      {/* 3. The offer — what we build, as bento tiles. Carries its own
+             closing CTA so the middle of the page isn't a dead zone. */}
+      <BuildTiles />
+
+      {/* 4. Proof — the numbers land after the offer has been made */}
       <SocialProofSection />
 
-      {/* 3. The offer — what we do */}
-      <ServicesSection />
-
-      {/* 5. The path — now they want results, show them how */}
+      {/* 5. The path — how it happens, ending in a booking link */}
       <ProcessSection />
 
-      {/* 6. Emotional proof */}
-      <TestimonialsSection />
-
-
-      {/* 8. Investment — after full value has been demonstrated */}
+      {/* 6. The decision */}
       <PricingPreview />
 
-      {/* 9. Objection handling — clear doubts before final decision */}
+      {/* 7. Emotional proof, sitting right beside the decision it supports */}
+      <TestimonialsSection />
+
+      {/* 8. Objection handling — clear doubts before final decision */}
       <FAQSection />
 
-      {/* 10. Final conversion push */}
+      {/* 9. Final conversion push */}
       <CTASection />
     </Layout>
   );

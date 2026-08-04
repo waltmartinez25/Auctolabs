@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Envelope } from 'react-bootstrap-icons';
-import logo from '@/assets/AuctoLabs_Logo_transparent.png';
+import logo from '@/assets/AuctoLabs_Logo.svg';
 
 const footerLinks = {
   services: [
@@ -43,7 +43,7 @@ export const Footer = () => {
           {/* Brand Column — spans 2 on lg */}
           <div className="md:col-span-2 lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="AuctoLabs" width={120} height={40} className="h-10 w-auto" />
+              <img src={logo} alt="AuctoLabs" width={40} height={40} className="h-10 w-auto" />
             </Link>
             <p className="text-muted-foreground mb-6 leading-relaxed max-w-sm">
               AuctoLabs builds intelligent websites and automation systems designed to attract the right people, convert them into clients, and scale with your business.
@@ -118,7 +118,7 @@ export const Footer = () => {
         </div>
 
         {/* SEO paragraph — read by search engines */}
-        <p className="mt-12 text-xs text-muted-foreground/60 leading-relaxed max-w-3xl">
+        <p className="mt-12 text-xs text-muted-foreground/85 leading-relaxed max-w-3xl">
           AuctoLabs specializes in AI-powered website development, automated lead generation systems,
           and automation infrastructure designed to help service businesses convert more visitors
           into clients. From conversion-focused websites to AI automation systems — we build

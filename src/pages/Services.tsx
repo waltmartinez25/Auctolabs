@@ -14,6 +14,9 @@ import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { LaneCards } from '@/components/pricing/LaneCards';
+import { CALENDLY_URL, CTA_BOOK } from '@/lib/constants';
+import { analytics } from '@/lib/analytics';
 
 type IconComponent = React.ComponentType<{ className?: string }>;
 
@@ -88,51 +91,6 @@ const systemFlow = [
   "They're qualified based on your criteria",
   "They're automatically booked into your calendar",
   'Follow-ups continue until they convert',
-];
-
-const pricingTiers = [
-  {
-    name: 'Starter System',
-    price: '$3,500',
-    description: 'For businesses needing a strong conversion foundation',
-    highlight: false,
-    features: [
-      'Conversion-focused website design',
-      'Mobile-first responsive development',
-      'SEO-ready architecture',
-      'Basic lead capture setup',
-      'Contact & inquiry automation',
-    ],
-  },
-  {
-    name: 'Growth System',
-    price: '$7,500',
-    description: 'Full website + automation + lead flow system',
-    highlight: true,
-    features: [
-      'Everything in Starter',
-      'AI-powered lead response automation',
-      'CRM integration setup',
-      'Email & SMS follow-up sequences',
-      'Automated appointment booking',
-      'Lead scoring and qualification',
-      'Performance dashboard',
-    ],
-  },
-  {
-    name: 'Advanced System',
-    price: '$12,000',
-    description: 'Complete infrastructure + optimization + scaling',
-    highlight: false,
-    features: [
-      'Everything in Growth',
-      'Multi-channel lead generation',
-      'Advanced analytics & attribution',
-      'A/B testing and CRO',
-      'Dedicated optimization support',
-      'Quarterly strategy reviews',
-    ],
-  },
 ];
 
 const whyItems = [
@@ -224,7 +182,7 @@ const Services = () => {
           'AI Automation features': 'Automated lead capture and qualification, instant response systems, CRM integration (HubSpot, Salesforce, Pipedrive), email and SMS follow-up, automated appointment booking, intelligent lead routing',
           'Lead Generation features': 'High-converting landing pages, lead magnet strategy and funnel setup, multi-channel lead capture, automated nurture sequences, lead scoring and qualification, analytics and attribution tracking',
           'Performance System features': 'Real-time performance dashboards, lead response time tracking, automated alerts and escalation workflows, conversion rate optimization, continuous system improvements',
-          'Investment range': 'Starter $3,500, Growth $7,500, Scale $12,000',
+          'How engagements work': 'Two options — Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work). Scope is quoted per engagement after a free strategy call.',
           'Supported CRMs': 'HubSpot, Salesforce, Pipedrive',
         }}
       />
@@ -239,7 +197,7 @@ const Services = () => {
               </span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
                 We Build Systems That Turn{' '}
-                <span className="gradient-text-warm">Traffic Into Clients</span>
+                <em>Traffic Into Clients</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 AuctoLabs designs and builds complete growth systems that capture leads, respond
@@ -250,7 +208,7 @@ const Services = () => {
               </p>
               <Button asChild variant="hero" size="lg">
                 <Link to="/contact">
-                  Book a Free Strategy Call
+                  Tell Us About Your Project
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -262,11 +220,11 @@ const Services = () => {
       {/* ─── Positioning Strip ─── */}
       <section className="py-6 bg-primary/5 border-y border-primary/10">
         <div className="container-custom">
-          <p className="text-center text-base md:text-lg font-semibold text-foreground">
+          <p className="accent-em text-center text-base md:text-lg font-semibold text-foreground">
             Not just web design —{' '}
-            <span className="text-primary">
+            <em>
               a complete growth system that captures, converts, and scales.
-            </span>
+            </em>
           </p>
         </div>
       </section>
@@ -310,7 +268,7 @@ const Services = () => {
               {/* Desktop */}
               <div className="hidden md:flex flex-col items-center justify-center gap-3 py-8 self-center">
                 <div className="h-12 w-px bg-primary/20" />
-                <div className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap">
+                <div className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap">
                   We fix that
                 </div>
                 <div className="h-12 w-px bg-primary/20" />
@@ -372,10 +330,10 @@ const Services = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {systemSteps.map((step, i) => (
               <AnimatedSection key={step.number} delay={i * 80}>
-                <div className="soft-card p-8 h-full relative overflow-hidden">
+                <div className={`soft-card p-8 h-full relative overflow-hidden glow-${(i % 4) + 1}`}>
                   {/* Watermark number */}
                   <span
-                    className="absolute -top-3 -right-1 text-9xl font-serif font-bold text-primary/5 select-none pointer-events-none leading-none"
+                    className="absolute -top-3 -right-1 text-9xl font-serif font-bold text-primary/[0.11] select-none pointer-events-none leading-none"
                     aria-hidden="true"
                   >
                     {step.number}
@@ -386,7 +344,7 @@ const Services = () => {
                       <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                         <step.icon className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-2xl font-serif font-bold text-primary/30" aria-hidden="true">
+                      <span className="text-2xl font-serif font-bold text-primary/60" aria-hidden="true">
                         {step.number}
                       </span>
                     </div>
@@ -411,7 +369,7 @@ const Services = () => {
             <div className="text-center mt-12">
               <Button asChild variant="hero" size="lg">
                 <Link to="/contact">
-                  Book a Free Strategy Call
+                  Tell Us About Your Project
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -469,7 +427,7 @@ const Services = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button asChild variant="hero" size="lg">
                   <Link to="/contact">
-                    Book a Free Strategy Call
+                    Tell Us About Your Project
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -513,7 +471,7 @@ const Services = () => {
                 {systemFlow.map((step, i) => (
                   <AnimatedSection key={step} delay={i * 60}>
                     <li className="relative flex items-start gap-5 pb-7 last:pb-0">
-                      <div className="relative z-10 w-10 h-10 rounded-full bg-white border-2 border-primary/25 flex items-center justify-center shrink-0 shadow-sm">
+                      <div className="relative z-10 w-10 h-10 rounded-full bg-card border-2 border-primary/25 flex items-center justify-center shrink-0 shadow-sm">
                         <span className="text-xs font-bold text-primary">{i + 1}</span>
                       </div>
                       <div className="pt-2.5">
@@ -579,52 +537,21 @@ const Services = () => {
           <AnimatedSection>
             <div className="text-center max-w-xl mx-auto mb-16">
               <span className="text-primary font-semibold mb-4 block text-sm uppercase tracking-widest">
-                Investment
+                Working Together
               </span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-                Investment Levels
+                Pick your lane
               </h2>
               <p className="text-muted-foreground">
-                Every system is customized based on your business. Most clients fall into one of
-                these ranges.
+                Every system is scoped to the business it serves. Choose how you want to
+                work with us and we&apos;ll shape the rest around you.
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {pricingTiers.map((tier, i) => (
-              <AnimatedSection key={tier.name} delay={i * 100}>
-                <div
-                  className={`soft-card p-8 h-full flex flex-col ${
-                    tier.highlight ? 'ring-2 ring-primary' : ''
-                  }`}
-                >
-                  {tier.highlight && (
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary mb-4 block">
-                      Most Popular
-                    </span>
-                  )}
-                  <h3 className="text-xl font-serif font-bold mb-2">{tier.name}</h3>
-                  <p className="text-3xl font-serif font-bold text-primary mb-2">{tier.price}</p>
-                  <p className="text-sm text-muted-foreground mb-8">{tier.description}</p>
-                  <ul className="space-y-3 flex-1 mb-8">
-                    {tier.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <CheckLg className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild variant={tier.highlight ? 'hero' : 'outline'} className="w-full">
-                    <Link to="/contact">
-                      Get Started
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+          <AnimatedSection delay={100}>
+            <LaneCards source="services" />
+          </AnimatedSection>
 
           <AnimatedSection delay={400}>
             <p className="text-center text-sm text-muted-foreground mt-8">
@@ -653,7 +580,7 @@ const Services = () => {
               </p>
               <Button asChild variant="hero" size="lg">
                 <Link to="/contact">
-                  Book a Free Strategy Call
+                  Tell Us About Your Project
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -693,11 +620,18 @@ const Services = () => {
                 Book a free strategy call and we'll break down exactly what your business needs to
                 capture, convert, and scale.
               </p>
+              {/* Copy above promises a call, so this goes straight to the
+                  calendar rather than to the contact form. */}
               <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  Book a Free Strategy Call
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => analytics.calendlyOpen('services_footer')}
+                >
+                  {CTA_BOOK.primary}
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </Button>
             </div>
           </AnimatedSection>

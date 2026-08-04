@@ -13,6 +13,10 @@ const Blog = () => {
         description="Practical guides on AI automation, speed-to-lead systems, web design, and lead generation for small businesses. Real strategies from the AuctoLabs team."
         keywords="AI automation blog, lead generation tips, web design insights, speed to lead, CRM automation, small business growth"
         canonical="https://auctolabs.com/blog"
+        // No posts yet — indexing a "Coming Soon" page earns a thin-content
+        // impression against the domain. Lift this with the first real post
+        // and add /blog back to public/sitemap.xml at the same time.
+        noindex
       />
 
       <section className="section-padding pt-32">
@@ -25,7 +29,7 @@ const Blog = () => {
               </span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
                 Growth{' '}
-                <span className="gradient-text-warm">Playbook</span>
+                <em>Playbook</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 Practical guides on AI automation, speed-to-lead systems, and web design built for real business results — no fluff.

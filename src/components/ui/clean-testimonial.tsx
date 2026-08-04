@@ -4,11 +4,30 @@ import { motion, useMotionValue, useSpring, AnimatePresence, useReducedMotion } 
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const AVATAR_URLS = [
-  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&h=96&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=96&h=96&fit=crop&crop=face',
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=96&h=96&fit=crop&crop=face',
-] as const;
+/**
+ * Initials rather than photographs.
+ *
+ * These are real clients but we don't have their photos, and attaching stock
+ * faces to named people invites a visitor to reverse-image one and discount
+ * everything else on the page. Initials are honest and need no network fetch.
+ */
+function initialsOf(author: string): string {
+  return author
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('')
+    .slice(0, 2);
+}
+
+const Avatar = ({ author, className = '' }: { author: string; className?: string }) => (
+  <span
+    aria-hidden="true"
+    className={`flex items-center justify-center bg-primary font-bold text-primary-foreground ${className}`}
+  >
+    {initialsOf(author)}
+  </span>
+);
 
 // TODO: Replace with real names, roles, and companies once collected
 const testimonials = [
@@ -18,7 +37,6 @@ const testimonials = [
     author: 'Jessica R.',
     role: 'Owner',
     company: 'Primrose Pet Grooming',
-    avatar: AVATAR_URLS[0],
   },
   {
     quote:
@@ -26,7 +44,6 @@ const testimonials = [
     author: 'Marcus T.',
     role: 'Owner',
     company: 'Coastal HVAC Services',
-    avatar: AVATAR_URLS[1],
   },
   {
     quote:
@@ -34,21 +51,11 @@ const testimonials = [
     author: 'Dana L.',
     role: 'Operations Manager',
     company: 'Summit Legal Group',
-    avatar: AVATAR_URLS[2],
   },
 ];
 
 // ─── Helpers ───────────────────────────────────────────────────────────────────
 
-function usePreloadImages(images: readonly string[]) {
-  useEffect(() => {
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // static array — no need to re-run
-}
 
 function SplitText({ text, reduceMotion }: { text: string; reduceMotion: boolean | null }) {
   const words = text.split(' ');
@@ -76,8 +83,6 @@ export function Testimonial() {
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
-
-  usePreloadImages(AVATAR_URLS);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -123,12 +128,12 @@ export function Testimonial() {
         style={{ x: cursorX, y: cursorY, translateX: '-50%', translateY: '-50%' }}
       >
         <motion.div
-          className="rounded-full bg-foreground flex items-center justify-center"
+          className="rounded-full bg-primary flex items-center justify-center"
           animate={{ width: isHovered ? 80 : 0, height: isHovered ? 80 : 0, opacity: isHovered ? 1 : 0 }}
           transition={{ type: 'spring', damping: 20, stiffness: 200 }}
         >
           <motion.span
-            className="text-background text-xs font-medium tracking-wider uppercase"
+            className="text-primary-foreground text-xs font-medium tracking-wider uppercase"
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ delay: 0.1 }}
           >
@@ -174,7 +179,7 @@ export function Testimonial() {
             }`}
             whileHover={{ scale: 1.1, opacity: 1 }}
           >
-            <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+            <Avatar author={t.author} className="h-full w-full text-[9px]" />
           </motion.div>
         ))}
       </motion.div>
@@ -205,14 +210,14 @@ export function Testimonial() {
                 transition={{ duration: 0.5 }}
               />
               {testimonials.map((t, i) => (
-                <motion.img
-                  key={t.avatar}
-                  src={t.avatar}
-                  alt={t.author}
-                  className="absolute inset-0 w-12 h-12 rounded-full object-cover grayscale hover:grayscale-0 transition-[filter] duration-500"
+                <motion.div
+                  key={t.author}
+                  className="absolute inset-0"
                   animate={{ opacity: i === activeIndex ? 1 : 0, zIndex: i === activeIndex ? 1 : 0 }}
                   transition={{ duration: 0.4, ease: 'easeInOut' }}
-                />
+                >
+                  <Avatar author={t.author} className="h-12 w-12 rounded-full text-base" />
+                </motion.div>
               ))}
             </div>
 

@@ -14,6 +14,8 @@ import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { CALENDLY_URL, CTA_BOOK, CTA_FORM } from '@/lib/constants';
+import { analytics } from '@/lib/analytics';
 
 type IconComponent = React.ComponentType<{ className?: string }>;
 
@@ -177,7 +179,7 @@ const Process = () => {
               </span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">
                 A Proven System for{' '}
-                <span className="gradient-text-warm">Predictable Growth</span>
+                <em>Predictable Growth</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 Every AuctoLabs project follows a structured process designed to capture more
@@ -188,7 +190,7 @@ const Process = () => {
               </p>
               <Button asChild variant="hero" size="lg">
                 <Link to="/contact">
-                  Book a Free Strategy Call
+                  {CTA_FORM.primary}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -200,11 +202,11 @@ const Process = () => {
       {/* ─── Positioning Strip ─── */}
       <section className="py-6 bg-primary/5 border-y border-primary/10">
         <div className="container-custom">
-          <p className="text-center text-base md:text-lg font-semibold text-foreground">
+          <p className="accent-em text-center text-base md:text-lg font-semibold text-foreground">
             This isn't a typical "project" —{' '}
-            <span className="text-primary">
+            <em>
               it's a complete growth system built step-by-step.
-            </span>
+            </em>
           </p>
         </div>
       </section>
@@ -266,7 +268,7 @@ const Process = () => {
                 <AnimatedSection key={step.number} delay={i * 80}>
                   <div className="flex flex-col items-center text-center">
                     {/* Icon node */}
-                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-white border-2 border-primary/20 flex flex-col items-center justify-center mb-5 shadow-sm">
+                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-card border-2 border-primary/20 flex flex-col items-center justify-center mb-5 shadow-sm">
                       <step.icon className="w-6 h-6 text-primary mb-1" />
                       <span className="text-xs font-bold text-primary/50 font-mono" aria-hidden="true">
                         {step.number}
@@ -376,7 +378,7 @@ const Process = () => {
             </p>
             <Button asChild variant="hero" size="lg" className="shrink-0">
               <Link to="/contact">
-                Book a Free Strategy Call
+                {CTA_FORM.primary}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -414,7 +416,7 @@ const Process = () => {
                   <AnimatedSection key={step.number} delay={i * 80}>
                     <div className="flex flex-col items-center text-center">
                       {/* Dot on track */}
-                      <div className="relative z-10 w-10 h-10 rounded-full border-2 border-primary/30 bg-white flex items-center justify-center mb-4 shadow-sm">
+                      <div className="relative z-10 w-10 h-10 rounded-full border-2 border-primary/30 bg-card flex items-center justify-center mb-4 shadow-sm">
                         <span className="text-xs font-bold text-primary font-mono">{step.number}</span>
                       </div>
                       <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
@@ -519,7 +521,7 @@ const Process = () => {
               <AnimatedSection delay={100}>
                 <div className="hidden md:flex flex-col items-center justify-center gap-3 py-8 self-center">
                   <div className="h-12 w-px bg-primary/20" />
-                  <div className="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap">
+                  <div className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap">
                     We fix that
                   </div>
                   <div className="h-12 w-px bg-primary/20" />
@@ -574,11 +576,17 @@ const Process = () => {
                 We'll walk you through exactly how this process applies to your business and where
                 your biggest opportunities are.
               </p>
+              {/* "We'll walk you through" is a call, so open the calendar. */}
               <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  Book a Free Strategy Call
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => analytics.calendlyOpen('process_footer')}
+                >
+                  {CTA_BOOK.primary}
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </Button>
             </div>
           </AnimatedSection>
