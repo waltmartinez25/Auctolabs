@@ -151,15 +151,48 @@ const servicesSchema = {
   },
 };
 
+// Page schema plus FAQs. Answers are written to stand alone in the
+// first 30-50 words, which is the span answer engines extract.
+const servicesSchemaFaq = {
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you build the website, or just the automation?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Both, as one system. The site is designed around how visitors decide, and the automation behind it answers, qualifies, and books every inquiry. Buying them separately is where most businesses lose leads in the handoff." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from buying speed-to-lead software?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Software gives you a tool to configure. We design the workflow, connect it to your CRM and calendar, write the qualification logic, and hand over a system that already works. There is nothing for you to set up." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which CRMs do you integrate with?",
+      "acceptedAnswer": { "@type": "Answer", "text": "HubSpot, Salesforce and Pipedrive most often, plus Clio for law firms. Anything with an API can be connected, including Zapier and Make for tools without a direct integration." }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast does the automated response actually go out?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Under 60 seconds from form submission. The lead is qualified against your criteria, routed to the right person, and sent a reply by SMS or email before a competitor has opened their inbox." }
+    }
+  ]
+};
+
+const servicesSchemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [servicesSchema, servicesSchemaFaq]
+};
+
 const Services = () => {
   return (
     <Layout>
       <SEO
-        title="AuctoLabs Services — Growth Systems That Turn Traffic Into Clients"
-        description="AuctoLabs builds conversion-focused websites, AI automation systems, and lead generation infrastructure for businesses looking to increase leads, improve response time, and scale efficiently."
+        title="Done-For-You Lead Response & Web Design | AuctoLabs"
+        description="Conversion-focused websites, AI lead response, and CRM automation — built as one system so every inquiry gets answered, qualified, and booked."
         keywords="web design services, AI automation systems, lead generation, CRM integration, automated follow-up, conversion optimization, lead capture, performance systems, growth systems"
         canonical="https://auctolabs.com/services"
-        jsonLd={servicesSchema}
+        jsonLd={servicesSchemaGraph}
       />
 
       <PageSummary

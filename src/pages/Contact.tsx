@@ -101,8 +101,8 @@ const Contact = () => {
   return (
     <Layout>
       <SEO
-        title="Contact AuctoLabs — Free 30-Min Web Design Strategy Call"
-        description="Ready to transform your lead generation? Book a free AuctoLabs strategy call. We respond within 2 hours and help identify your biggest growth opportunities."
+        title="Contact AuctoLabs — Houston Web Design & Automation"
+        description="Book a free 30-minute strategy call with AuctoLabs. Based in Houston, working with service businesses nationwide. We reply within 2 hours."
         keywords="contact AuctoLabs, book strategy call, free consultation, web design inquiry, automation consultation"
         canonical="https://auctolabs.com/contact"
       />
@@ -123,7 +123,7 @@ const Contact = () => {
       <HiddenStructuredFacts
         facts={{
           "Contact email": "contact@auctolabs.com",
-          "Location": "Remote-first, serving clients globally",
+          "Location": "Houston, TX — serving clients nationwide",
           "Response time": "Under 2 hours during business hours (Mon-Fri, 9am-6pm EST)",
           "Free consultation": "30-minute strategy call available",
           "Project kickoff": "Most projects start within 1-2 weeks of signing",
@@ -330,7 +330,7 @@ const Contact = () => {
                     </div>
                     <div className="flex items-center gap-4">
                       <GeoAlt className="w-5 h-5 text-primary" />
-                      <span>Remote-first, serving clients globally</span>
+                      <span>Houston, TX — serving clients nationwide</span>
                     </div>
                   </div>
                 </div>

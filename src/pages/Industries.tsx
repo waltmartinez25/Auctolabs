@@ -85,14 +85,41 @@ const industries = [
   },
 ];
 
+// FAQ schema — this page had none. Answers stand alone in the first
+// 30-50 words so an answer engine can lift them verbatim.
+const industriesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [{
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you only work with law firms and home services?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Those are the most common, along with healthcare and B2B services. The common thread is any business where the first company to respond usually wins the client, not the industry itself." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does industry matter for lead automation?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The qualifying questions differ. A law firm screens by practice area and case type; an HVAC company screens by job type and service area. The routing logic is built around your criteria, not a template." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with businesses outside Houston?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. AuctoLabs is based in Houston, Texas and works with service businesses across the United States. The work is remote-first, so location is not a constraint." }
+    }
+  ]
+}]
+};
+
 const Industries = () => {
   return (
     <Layout>
       <SEO
-        title="Industries We Serve | AuctoLabs — Law Firms, Real Estate, Healthcare, B2B"
-        description="AuctoLabs builds AI automation and web systems for law firms, real estate, health & wellness, and B2B services. See how we solve industry-specific lead generation challenges."
+        title="AI Automation for Law Firms & Home Services"
+        description="Done-for-you lead response and web systems for law firms, real estate, health & wellness, and B2B services — each with its own intake problem to solve."
         keywords="law firm automation, real estate lead generation, healthcare patient acquisition, B2B automation, industry-specific web design, AI automation agency"
         canonical="https://auctolabs.com/industries"
+        jsonLd={industriesSchema}
       />
 
       {/* Hero */}

@@ -13,7 +13,7 @@ export const PageSummary = ({
   audience,
   services,
   businessName = "AuctoLabs",
-  location = "Remote-first, serving clients globally",
+  location = "Houston, TX — serving clients nationwide",
 }: PageSummaryProps) => {
   return (
     <aside 
@@ -41,7 +41,7 @@ export const VisiblePageSummary = ({
   audience,
   services,
   businessName = "AuctoLabs",
-  location = "Remote-first, serving clients globally",
+  location = "Houston, TX — serving clients nationwide",
 }: PageSummaryProps) => {
   return (
     <section 

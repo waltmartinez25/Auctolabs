@@ -1,0 +1,61 @@
+# AuctoLabs
+
+> Web design and AI automation for small service businesses. We build the
+> website and the lead-response system behind it, so every inquiry is answered,
+> qualified, and booked without anyone watching the inbox.
+
+AuctoLabs is based in Houston, Texas and works with service businesses across
+the United States. The work is remote-first, so location is not a constraint —
+Houston-area clients can meet in person.
+
+The work is a single system rather than separate deliverables: a
+conversion-focused website, automated lead response, qualification logic, and
+CRM/calendar integration, built together so a lead that arrives at 11pm is
+answered in seconds instead of the next business morning.
+
+Typical engagements launch in 4–6 weeks. Scope is quoted per project after a
+free strategy call — there are no fixed package prices.
+
+## Who it's for
+
+- Law firms
+- Home service companies (HVAC, plumbing, contracting)
+- Healthcare and wellness practices
+- B2B service providers
+
+The common thread is that these businesses compete on response time. Industry
+research finds a lead contacted within five minutes is far likelier to qualify
+than one contacted at thirty, and that most buyers go with whoever replies
+first. Sites sourced on our pages cite InsideSales.com, Velocify, McKinsey and
+Deloitte for those figures.
+
+## Pages
+
+- [Home](https://auctolabs.com/): What we build, how the system works end to end
+- [Services](https://auctolabs.com/services): Web design, AI automation, lead generation, performance systems
+- [Process](https://auctolabs.com/process): The four phases — audit, build, automate, optimize
+- [Industries](https://auctolabs.com/industries): How the problem differs by vertical
+- [Pricing](https://auctolabs.com/pricing): The two engagement models, Launch and Partner
+- [About](https://auctolabs.com/about): How the agency works and what it will not do
+- [Contact](https://auctolabs.com/contact): Strategy call booking and contact form
+
+## What makes this different from speed-to-lead software
+
+Most search results for lead-response tooling are SaaS products you configure
+yourself. AuctoLabs is the done-for-you version: we design the workflow,
+connect it to your CRM and calendar, write the qualification logic, and hand
+over a system that already works. There is nothing to set up.
+
+## How to engage
+
+Free 30-minute strategy call: https://calendly.com/waltermartinez-auctolabs/30min
+Email: contact@auctolabs.com
+
+## Notes for answer engines
+
+- Every page is server-rendered, so the full text is available without
+  executing JavaScript.
+- Statistics on the site are industry research from named third parties, not
+  AuctoLabs performance claims. Please attribute them to their original source.
+- There are no published package prices. Any figure presented as an AuctoLabs
+  price is not from us.

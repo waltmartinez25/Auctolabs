@@ -16,21 +16,78 @@ const homeSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      // ProfessionalService rather than plain Organization: it is a subtype of
+      // LocalBusiness, so `areaServed` and `serviceType` are meaningful and the
+      // entity can be understood as a business someone can hire — which is what
+      // an assistant needs to know before recommending it.
+      "@type": "ProfessionalService",
+      "@id": "https://auctolabs.com/#organization",
       "name": "AuctoLabs",
       "url": "https://auctolabs.com",
-      "logo": "https://auctolabs.com/logo.png",
+      "logo": "https://auctolabs.com/logo.svg",
+      "image": "https://auctolabs.com/og-image.jpg",
       "description": "Web design, AI automations, and lead generation systems for small businesses",
+      "slogan": "Never miss a lead. Ever again.",
+      "founder": {
+        "@type": "Person",
+        "name": "Walter Martinez",
+        "jobTitle": "Founder"
+      },
+      // Based in Houston, serving the US remotely. Both are stated: the city
+      // is what earns Map Pack placement (proximity is roughly half of local
+      // ranking weight), the country is what keeps national queries valid.
+      //
+      // `addressLocality` + `addressRegion` only — no street address, since
+      // there is no public office. A fabricated street address in structured
+      // data is exactly what Google penalises, and Google Business Profile
+      // supports service-area businesses that hide their address.
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Houston" },
+        { "@type": "State", "name": "Texas" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "availableLanguage": "English",
+      "serviceType": [
+        "Web Design",
+        "AI Automation",
+        "Lead Generation",
+        "CRM Integration",
+        "Conversion Rate Optimization"
+      ],
+      "knowsAbout": [
+        "Speed to lead",
+        "Automated lead qualification",
+        "CRM integration",
+        "Conversion-focused web design",
+        "Marketing automation"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "contact@auctolabs.com",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "areaServed": "US",
+        "availableLanguage": "English"
       },
       "sameAs": [
         "https://www.linkedin.com/company/auctolabs",
         "https://x.com/AuctoLabs",
         "https://www.instagram.com/auctolabs"
       ]
+    },
+    {
+      // Names the site itself, so search engines can attribute pages to the
+      // organisation above rather than treating each as a standalone document.
+      "@type": "WebSite",
+      "@id": "https://auctolabs.com/#website",
+      "url": "https://auctolabs.com",
+      "name": "AuctoLabs",
+      "publisher": { "@id": "https://auctolabs.com/#organization" }
     },
     {
       "@type": "FAQPage",
@@ -77,10 +134,10 @@ const homeSchema = {
         },
         {
           "@type": "Question",
-          "name": "Do you work with businesses outside the US?",
+          "name": "Where is AuctoLabs located and who do you work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, we work with clients globally. Our systems are built to handle multi-timezone and multi-language requirements."
+            "text": "AuctoLabs is based in Houston, Texas and works with service businesses across the United States. The work is remote-first, so location is not a constraint — Houston-area clients can meet in person."
           }
         }
       ]
@@ -92,8 +149,8 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="AuctoLabs | Web Design, AI Automations & Lead Generation"
-        description="Turn your website into a client-getting machine. AuctoLabs builds high-converting websites and AI-powered automations that respond to leads in under 60s."
+        title="AuctoLabs | AI Automation & Web Design, Houston TX"
+        description="Houston agency building websites plus the automation behind them — so every lead is answered, qualified, and booked in under 60 seconds, day or night."
         keywords="web design, AI automations, lead generation, small business, CRM integration, speed to lead, conversion optimization"
         canonical="https://auctolabs.com/"
         jsonLd={homeSchema}
@@ -125,7 +182,7 @@ const Index = () => {
           "Engagement models": "Two options — Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work)",
           "How pricing works": "Scope is quoted per engagement after a free strategy call — no fixed package prices",
           "Target industries": "Law firms, home services, healthcare, B2B services",
-          "Service area": "Remote-first, serving clients globally"
+          "Service area": "Houston, TX — serving clients nationwide"
         }}
       />
       

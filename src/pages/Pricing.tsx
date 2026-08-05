@@ -76,15 +76,48 @@ const pricingSchema = {
   ]
 };
 
+// Page schema plus FAQs. Answers are written to stand alone in the
+// first 30-50 words, which is the span answer engines extract.
+const pricingSchemaFaq = {
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does an AuctoLabs project cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Scope is quoted per engagement after a free strategy call, so there are no fixed package prices. Cost depends on how many pages, integrations and automation workflows the build needs." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Launch and Partner?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Launch is a fixed-scope build that goes live in 4 to 6 weeks and is handed over complete. Partner is month to month for ongoing optimisation, new pages and automation tuning after launch." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a long-term contract?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Launch is a one-time fixed scope. Partner is month to month and can be stopped at any time — the system stays yours either way." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long until the system is live?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most builds launch in 4 to 6 weeks, covering audit, design, development, automation setup and integration testing. Lead response is running from the day the site goes live." }
+    }
+  ]
+};
+
+const pricingSchemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [pricingSchema, pricingSchemaFaq]
+};
+
 const Pricing = () => {
   return (
     <Layout>
       <SEO
         title="AuctoLabs Pricing — Web Design & Automation Packages"
-        description="Two ways to work with AuctoLabs: Launch, a fixed-scope build live in 4–6 weeks, or Partner, month-to-month ongoing optimization. No long-term contracts. Book a free strategy call."
+        description="Two ways to work together: Launch, a fixed-scope build live in 4–6 weeks, or Partner, month-to-month. No long-term contracts."
         keywords="web design pricing, automation pricing, lead generation, website development, AI automation packages"
         canonical="https://auctolabs.com/pricing"
-        jsonLd={pricingSchema}
+        jsonLd={pricingSchemaGraph}
       />
       
       {/* Plain-text summary for AI search engines */}

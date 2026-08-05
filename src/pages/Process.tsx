@@ -130,15 +130,43 @@ const processSchema = {
   })),
 };
 
+// Page schema plus FAQs. Answers are written to stand alone in the
+// first 30-50 words, which is the span answer engines extract.
+const processSchemaFaq = {
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does the whole process take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Four to six weeks end to end. Week one is the audit, weeks two and three are the build, weeks three and four bring the automation online, and optimisation continues from week four." }
+    },
+    {
+      "@type": "Question",
+      "name": "What do you need from me during the build?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A kickoff call, access to your existing tools, and feedback at two review points. Most clients spend two to three hours total across the entire project." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after launch?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You get the system and training on it. If you take the Partner option we keep testing and tuning it; if not, everything is handed over and it is yours to run." }
+    }
+  ]
+};
+
+const processSchemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [processSchema, processSchemaFaq]
+};
+
 const Process = () => {
   return (
     <Layout>
       <SEO
         title="Our Process — Audit, Build, Automate, Optimize | AuctoLabs"
-        description="AuctoLabs follows a proven 4-step growth system: Audit your current setup, Build a conversion-focused website, Automate lead response, and Optimize performance over time. Most systems launch in 4–6 weeks."
+        description="A four-step system — audit, build, automate, optimize. Most AuctoLabs builds launch in 4–6 weeks with lead response running from day one."
         keywords="web development process, automation workflow, lead generation methodology, business growth system, audit build automate optimize, AuctoLabs process"
         canonical="https://auctolabs.com/process"
-        jsonLd={processSchema}
+        jsonLd={processSchemaGraph}
       />
 
       <PageSummary

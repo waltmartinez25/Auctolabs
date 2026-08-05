@@ -88,8 +88,8 @@ const About = () => {
   return (
     <Layout>
       <SEO
-        title="About AuctoLabs — We Build Automated Client-Generating Systems"
-        description="AuctoLabs builds conversion-focused websites and AI automation systems that capture leads instantly, qualify prospects automatically, and book meetings while you sleep. Infrastructure for growth."
+        title="About AuctoLabs — Web Design & AI Automation"
+        description="We build the website and the automation behind it, so every lead is answered, qualified, and booked — not just a site that looks good."
         keywords="about AuctoLabs, AI automation agency, automated lead generation, conversion-focused websites, growth systems, speed-to-lead, service business automation"
         canonical="https://auctolabs.com/about"
         jsonLd={aboutSchema}
