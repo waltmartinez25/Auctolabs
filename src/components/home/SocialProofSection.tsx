@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
 import { ToolLogo } from '@/components/ui/tool-logo';
 
@@ -50,7 +50,9 @@ const integrationSets: Integration[][] = [
     { name: 'Stripe',        slug: 'stripe',       color: '#635BFF', bg: '#EEEEFE' },
     { name: 'Twilio',        slug: 'twilio',       color: '#F22F46', bg: '#FEE6E9' },
     { name: 'Typeform',      slug: 'typeform',     color: '#262627', bg: '#F3F4F6' },
-    { name: 'Many More',     slug: 'many-more',    color: '#1A56FF', bg: '#0C1445', manyMore: true },
+    // Pale azure, not the near-black #0C1445 it used to be — one dark tile
+    // among eight pastels read as an error rather than a nineth option.
+    { name: 'Many More',     slug: 'many-more',    color: '#1A56FF', bg: '#E8EEFF', manyMore: true },
   ],
 ];
 
@@ -60,6 +62,7 @@ const STAT_EASE: [number, number, number, number] = [0.4, 0, 0.6, 1];
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export const SocialProofSection = () => {
+  const reduceMotion = useReducedMotion();
   const [statSet,  setStatSet]  = useState(0);
   const [integSet, setIntegSet] = useState(0);
   const [active,   setActive]   = useState(false);
@@ -147,15 +150,23 @@ export const SocialProofSection = () => {
           <div ref={widgetRef} className="lg:pt-[4.5rem]">
             <span className="eyebrow mb-5">Seamless Integrations</span>
 
-            <div className="rounded-2xl border border-border/50 overflow-hidden shadow-md">
+            <div className="rounded-3xl border border-border/50 overflow-hidden shadow-soft-lg">
 
-              {/* Chrome-style title bar */}
-              <div className="flex items-center gap-1.5 px-4 py-3 bg-[#F3F4F6] border-b border-border/40">
-                <span className="w-3 h-3 rounded-full bg-[#FF5F57]" aria-hidden="true" />
-                <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" aria-hidden="true" />
-                <span className="w-3 h-3 rounded-full bg-[#28C840]" aria-hidden="true" />
-                <div className="ml-3 flex-1 bg-white rounded-md px-3 py-[3px] border border-border/40">
-                  <span className="text-xs text-muted-foreground/50 font-medium select-none">
+              {/* Title bar.
+                  The macOS traffic lights are gone — three saturated dots are a
+                  skeuomorphic tell, and they were the only red and amber in a
+                  section built from white, azure and the tools' own brand
+                  colours. A single live dot says the same "this is a running
+                  surface" without borrowing another OS's furniture.
+                  Greys come from tokens now; this was hard-coded #F3F4F6 and
+                  #FFFFFF, which ignored the palette entirely. */}
+              <div className="flex items-center gap-2.5 px-4 py-3 bg-secondary border-b border-border/40">
+                <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+                  <span className="absolute inset-0 rounded-full bg-primary/40 animate-pulse-soft" />
+                  <span className="relative m-auto h-1.5 w-1.5 rounded-full bg-primary" />
+                </span>
+                <div className="flex-1 rounded-lg bg-card px-3 py-1 border border-border/40">
+                  <span className="text-[11px] text-muted-foreground/60 font-medium select-none">
                     AuctoLabs Integration Hub
                   </span>
                 </div>
@@ -178,21 +189,33 @@ export const SocialProofSection = () => {
                           initial={{ opacity: 0, x: 24 }}
                           animate={active ? { opacity: 1, x: 0 } : { opacity: 0, x: 24 }}
                           exit={{ opacity: 0, transition: { duration: 0.15, ease: EASE } }}
+                          // Snappier than the original 0.32s / 0.08s stagger,
+                          // which took ~0.96s to fill the grid — long enough
+                          // that the cascade was over before the eye found it.
+                          // Now ~0.58s: still reads tile-by-tile, but lands.
                           transition={{
-                            duration: 0.32,
-                            delay: active ? i * 0.08 : 0,
+                            duration: 0.24,
+                            delay: active ? i * 0.045 : 0,
                             ease: EASE,
                           }}
-                          className="absolute inset-0 rounded-xl p-3 flex flex-col items-center justify-center gap-2 cursor-default"
+                          // Hover lift + a hairline inset border. The tiles were
+                          // flat fills with no depth and no response to the
+                          // pointer; this gives them a surface without touching
+                          // the brand colour, which stays the tile's own.
+                          whileHover={reduceMotion ? undefined : { y: -3, scale: 1.03 }}
+                          className="group/tile absolute inset-0 rounded-2xl p-3 flex flex-col items-center justify-center gap-2 cursor-default shadow-[inset_0_0_0_1px_rgba(255,255,255,0.5)] transition-shadow duration-300 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.9),0_8px_20px_-8px_rgba(37,51,86,0.25)]"
                           style={{ backgroundColor: intg.bg }}
                         >
                           {intg.manyMore ? (
                             /* "Many More" variant */
                             <>
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 border border-dashed border-primary/30 bg-primary/10">
+                              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-dashed border-primary/30 bg-primary/10">
                                 <span className="text-primary text-xl font-black leading-none select-none">+</span>
                               </div>
-                              <span className="text-[10px] font-semibold text-center leading-tight text-primary/70">
+                              {/* Full opacity, not /70 — on the old near-black
+                                  tile the label needed dimming; on pale azure
+                                  70% dropped it to ~3.4:1. */}
+                              <span className="text-[10px] font-semibold text-center leading-tight text-primary">
                                 Many More
                               </span>
                             </>
@@ -200,7 +223,7 @@ export const SocialProofSection = () => {
                             /* Brand logo from Simple Icons CDN — white on brand color */
                             <>
                               <div
-                                className="w-10 h-10 rounded-lg flex items-center justify-center shadow-sm flex-shrink-0"
+                                className="w-10 h-10 rounded-xl flex items-center justify-center shadow-sm flex-shrink-0"
                                 style={{ backgroundColor: intg.color }}
                               >
                                 <ToolLogo

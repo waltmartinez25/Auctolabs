@@ -12,8 +12,25 @@ const NODES = [
   { name: 'Google Calendar', slug: 'googlecalendar', label: 'Book' },
 ] as const;
 
-const STEP_MS = 900;
-const HOLD_MS = 1800;
+/**
+ * Cycle length is deliberately 7000ms against the Lead Generation feed's
+ * 5500ms. At the previous 900/1800 the two cycles were 5400 and 5500 — only
+ * 100ms apart, so side by side they slid slowly in and out of phase and read
+ * as a drifting near-miss rather than two independent systems. A 1500ms gap
+ * keeps them visibly separate, and they only realign every ~77 seconds.
+ */
+const STEP_MS = 1000;
+const HOLD_MS = 3000;
+
+/**
+ * Delay before the chain starts, once the tile is in view.
+ *
+ * This tile sits beside the Lead Generation feed, and both used to begin the
+ * instant they scrolled in — two animations firing on the same frame, then
+ * drifting against each other unpredictably. Letting the feed go first also
+ * matches the story: a lead arrives, *then* the workflow fires.
+ */
+const START_DELAY_MS = 1400;
 
 /**
  * Four tools in a chain with a pulse traveling left to right; each node ticks
@@ -47,12 +64,22 @@ export const WorkflowRelay = () => {
     const CYCLE = NODES.length + Math.round(HOLD_MS / STEP_MS);
     setDone(0);
     let tick = 0;
-    const id = setInterval(() => {
-      tick = (tick + 1) % CYCLE;
-      setDone(Math.min(tick, NODES.length));
-    }, STEP_MS);
+    let interval: ReturnType<typeof setInterval>;
 
-    return () => clearInterval(id);
+    // Hold at zero for START_DELAY_MS, then run. Both timers are cleaned up:
+    // if the tile scrolls away mid-delay the timeout is cancelled before the
+    // interval is ever created.
+    const kickoff = setTimeout(() => {
+      interval = setInterval(() => {
+        tick = (tick + 1) % CYCLE;
+        setDone(Math.min(tick, NODES.length));
+      }, STEP_MS);
+    }, START_DELAY_MS);
+
+    return () => {
+      clearTimeout(kickoff);
+      if (interval) clearInterval(interval);
+    };
   }, [animate, reduceMotion]);
 
   return (

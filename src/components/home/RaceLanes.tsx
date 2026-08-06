@@ -85,6 +85,13 @@ const Lane = ({ title, caption, stops, step, tone, reduceMotion }: LaneProps) =>
           // the diverging outcomes below it land as a race rather than two
           // unrelated timelines.
           const isStart = i === 0 && on;
+          // A slow-lane stop that has been reached but is not the start or the
+          // verdict — "nobody sees it", "first opened". These are events that
+          // happened without anything being achieved, so they get a hollow
+          // dashed node rather than a filled one. Previously they used the same
+          // treatment as an un-reached stop, which made elapsed-but-idle look
+          // identical to not-yet-happened and lost the point of the lane.
+          const idle = on && !isFast && !isStart && !lost;
 
           return (
             <li key={`${stop.label}-${i}`} className="relative flex min-h-[68px] gap-3 pb-7 last:min-h-0 last:pb-0">
@@ -92,6 +99,10 @@ const Lane = ({ title, caption, stops, step, tone, reduceMotion }: LaneProps) =>
               <div className="relative flex flex-col items-center">
                 <motion.span
                   initial={false}
+                  // Full opacity once reached, including idle stops — the grey
+                  // fill is what signals "nothing achieved", so dimming it as
+                  // well just made the node hard to see rather than clearly
+                  // inert.
                   animate={{ scale: on ? 1 : 0.75, opacity: on ? 1 : 0.45 }}
                   transition={{ duration: reduceMotion ? 0 : 0.35 }}
                   className={`z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-300 ${
@@ -101,10 +112,25 @@ const Lane = ({ title, caption, stops, step, tone, reduceMotion }: LaneProps) =>
                         ? 'border-[hsl(var(--success))] bg-[hsl(var(--success))] text-[hsl(var(--success-foreground))]'
                         : isStart || (on && isFast)
                           ? 'border-primary bg-primary text-primary-foreground'
-                          : 'border-border bg-card text-muted-foreground'
+                          : idle
+                            ? // Filled, but grey — the shape matches the azure
+                              // and green nodes so it reads as "this happened",
+                              // while the colour says nothing was achieved.
+                              // A hollow ring was too close to an un-reached
+                              // node to tell the two apart at 24px.
+                              'border-muted-foreground/50 bg-muted-foreground/45 text-white'
+                            : 'border-border bg-card text-muted-foreground'
                   }`}
                 >
-                  {last && (failed ? <XLg className="h-2.5 w-2.5" /> : <CheckLg className="h-3 w-3" />)}
+                  {last
+                    ? failed
+                      ? <XLg className="h-2.5 w-2.5" />
+                      : <CheckLg className="h-3 w-3" />
+                    : idle
+                      // A dash where the other nodes carry a tick: the step
+                      // registered, nothing came of it.
+                      ? <span aria-hidden="true" className="block h-0.5 w-2 rounded-full bg-white/90" />
+                      : null}
                 </motion.span>
 
                 {/* Connector down to the next stop. -mb-7 cancels the row's
@@ -119,7 +145,13 @@ const Lane = ({ title, caption, stops, step, tone, reduceMotion }: LaneProps) =>
                         ease: 'easeOut',
                       }}
                       style={{ transformOrigin: 'top center' }}
-                      className={`absolute inset-0 block ${isFast ? 'bg-primary' : 'bg-border'}`}
+                      // The slow lane's fill was bg-border on a bg-border
+                      // track — invisible, so the rail never read as moving.
+                      // A faint grey advances just enough to show time passing
+                      // without implying progress the way the azure fill does.
+                      className={`absolute inset-0 block ${
+                        isFast ? 'bg-primary' : 'bg-muted-foreground/25'
+                      }`}
                     />
                   </span>
                 )}

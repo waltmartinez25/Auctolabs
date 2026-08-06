@@ -3,6 +3,7 @@ import { ArrowRight, LightningCharge } from 'react-bootstrap-icons';
 import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { LeadTrail } from '@/components/home/LeadTrail';
+import { MobileJourney } from '@/components/home/MobileJourney';
 
 const EASE = [0.2, 0.8, 0.2, 1] as const;
 
@@ -394,6 +395,13 @@ export const HeroSection = () => {
 
         {/* ── 3 Hero Cards Stage ── */}
         <div className="relative mt-10 md:mt-14 max-w-5xl mx-auto">
+          {/* Below lg the outer cards and the LeadTrail are hidden, leaving the
+              automation card with no before or after. This states the same
+              three beats compactly, off the same clock. */}
+          <div className="mb-6 lg:mb-0">
+            <MobileJourney activeStep={shownStep} />
+          </div>
+
           <div className="relative flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10">
 
             {/* Card 1 — Website (left) */}
