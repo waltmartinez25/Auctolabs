@@ -58,7 +58,7 @@ const systemSteps: {
     number: '03',
     title: 'Automate',
     subtitle: 'Respond before competitors.',
-    description: 'We install systems that capture, qualify, and respond to leads instantly — without manual intervention.',
+    description: 'We install systems that capture, qualify, and respond to leads instantly, without manual intervention.',
     icon: Robot,
     features: [
       'AI-powered lead response systems',
@@ -189,33 +189,33 @@ const Services = () => {
     <Layout>
       <SEO
         title="Done-For-You Lead Response & Web Design | AuctoLabs"
-        description="Conversion-focused websites, AI lead response, and CRM automation — built as one system so every inquiry gets answered, qualified, and booked."
+        description="A website built to convert, plus the automation behind it. Every inquiry gets answered, screened, and booked, day or night."
         keywords="web design services, AI automation systems, lead generation, CRM integration, automated follow-up, conversion optimization, lead capture, performance systems, growth systems"
         canonical="https://auctolabs.com/services"
         jsonLd={servicesSchemaGraph}
       />
 
       <PageSummary
-        topic="AuctoLabs Services — Growth Systems That Turn Traffic Into Clients"
+        topic="AuctoLabs Services: Turning Traffic Into Booked Calls"
         purpose="This page describes AuctoLabs' complete growth system: auditing current systems, building conversion-focused websites, installing AI automation, and optimizing performance over time."
         audience="Business owners and marketing leaders looking to increase leads, improve response time, and scale revenue with automated systems"
         services={[
-          'Web Design & Development — Conversion-focused, mobile-first websites built to guide visitors and capture leads',
-          'AI Automation Systems — Instant lead response, qualification workflows, CRM integration, and automated follow-up',
-          'Lead Generation Systems — Landing pages, lead magnets, multi-channel capture, and nurture sequences',
-          'Performance Systems — Real-time dashboards, response time tracking, and conversion rate optimization',
+          'Web Design & Development: Conversion-focused, mobile-first websites built to guide visitors and capture leads',
+          'AI Automation Systems: Instant lead response, qualification workflows, CRM integration, and automated follow-up',
+          'Lead Generation Systems: Landing pages, lead magnets, multi-channel capture, and nurture sequences',
+          'Performance Systems: Real-time dashboards, response time tracking, and conversion rate optimization',
         ]}
       />
 
       <HiddenStructuredFacts
         facts={{
-          'Value proposition': 'Complete growth systems that capture leads, respond instantly, qualify prospects, and convert them into booked calls — automatically',
+          'Value proposition': 'Complete growth systems that capture leads, respond instantly, qualify prospects, and convert them into booked calls, automatically',
           'Process': 'Audit → Build → Automate → Optimize',
           'Web Design features': 'Conversion-focused design, mobile-first responsive layouts, high-performance architecture, strategic CTA placement, SEO-ready structure, CMS integration',
           'AI Automation features': 'Automated lead capture and qualification, instant response systems, CRM integration (HubSpot, Salesforce, Pipedrive), email and SMS follow-up, automated appointment booking, intelligent lead routing',
           'Lead Generation features': 'High-converting landing pages, lead magnet strategy and funnel setup, multi-channel lead capture, automated nurture sequences, lead scoring and qualification, analytics and attribution tracking',
           'Performance System features': 'Real-time performance dashboards, lead response time tracking, automated alerts and escalation workflows, conversion rate optimization, continuous system improvements',
-          'How engagements work': 'Two options — Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work). Scope is quoted per engagement after a free strategy call.',
+          'How engagements work': 'Two options: Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work). Scope is quoted per engagement after a free strategy call.',
           'Supported CRMs': 'HubSpot, Salesforce, Pipedrive',
         }}
       />
@@ -234,7 +234,7 @@ const Services = () => {
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 AuctoLabs designs and builds complete growth systems that capture leads, respond
-                instantly, qualify prospects, and convert them into booked calls — automatically.
+                instantly, qualify prospects, and convert them into booked calls, automatically.
               </p>
               <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
                 This isn't just web design. This is infrastructure built to grow your business.
@@ -254,9 +254,9 @@ const Services = () => {
       <section className="py-6 bg-primary/5 border-y border-primary/10">
         <div className="container-custom">
           <p className="accent-em text-center text-base md:text-lg font-semibold text-foreground">
-            Not just web design —{' '}
+            Not just web design.{' '}
             <em>
-              a complete growth system that captures, converts, and scales.
+              A complete growth system that captures, converts, and scales.
             </em>
           </p>
         </div>

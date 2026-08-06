@@ -17,17 +17,17 @@ const faqs = [
   {
     question: 'What makes an AuctoLabs website different?',
     answer:
-      "We combine modern web design with automation and performance strategy to create websites that don't just look great — they actively help grow your business. Every build is engineered for speed, conversion, and long-term results.",
+      "We combine modern web design with automation and performance strategy to create websites that don't just look great. They actively help grow your business. Every build is engineered for speed, conversion, and long-term results.",
   },
   {
     question: 'Can my website integrate with my existing tools?',
     answer:
-      'Yes. AuctoLabs websites integrate with CRM systems, marketing platforms, analytics tools, and other essential software — including HubSpot, Salesforce, Pipedrive, and more.',
+      'Yes. AuctoLabs websites integrate with CRM systems, marketing platforms, analytics tools, and other essential software, including HubSpot, Salesforce, Pipedrive, and more.',
   },
   {
     question: 'How does the speed-to-lead automation work?',
     answer:
-      'When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses — all within seconds.',
+      'When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses, all within seconds.',
   },
   {
     question: 'What happens after the project is complete?',

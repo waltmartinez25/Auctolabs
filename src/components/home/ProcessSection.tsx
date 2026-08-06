@@ -48,7 +48,7 @@ const phases = [
     icon: Robot,
     title: 'Automate',
     week: 'Weeks 3–4',
-    summary: 'Respond, qualify, and book — automatically.',
+    summary: 'Respond, qualify, and book automatically.',
     activities: [
       'AI-powered lead response systems',
       'CRM integration and data flow setup',

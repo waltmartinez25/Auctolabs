@@ -29,21 +29,21 @@ const principles: {
     icon: Bullseye,
     title: 'Systems-First Thinking',
     description:
-      "We don't build one-off assets. We build complete systems where every component works together to generate and convert leads.",
+      "A site on its own is half the job. We build the whole path, from the first click to the booked call.",
   },
   {
     number: '02',
     icon: BarChartLine,
     title: 'Measurable Outcomes',
     description:
-      "If it doesn't improve response time, conversion rate, or pipeline performance — we don't build it.",
+      "If it doesn't improve response time, conversion rate, or pipeline performance, we don't build it.",
   },
   {
     number: '03',
     icon: LightningCharge,
     title: 'Automation as Leverage',
     description:
-      "Automation isn't about replacing people. It's about removing bottlenecks so your team can focus on high-value work.",
+      "Automation isn't about replacing anyone. It's about taking the repetitive part off your team's plate.",
   },
 ];
 
@@ -55,10 +55,10 @@ const metrics = [
 ];
 
 const industries = [
-  { name: 'Law Firms', description: 'Speed-to-lead wins cases before competitors respond' },
-  { name: 'Home Service Companies', description: 'First to respond gets the job — every time' },
-  { name: 'Healthcare Practices', description: 'Patient acquisition running around the clock' },
-  { name: 'B2B Service Providers', description: 'Systematic pipeline generation at scale' },
+  { name: 'Law Firms', description: 'The firm that calls back first usually gets the case' },
+  { name: 'Home Service Companies', description: 'First to respond gets the job. Every time.' },
+  { name: 'Healthcare Practices', description: 'People book at 10pm. Someone should answer at 10pm.' },
+  { name: 'B2B Service Providers', description: 'Long sales cycles, and leads that go cold in the gaps' },
 ];
 
 const problemFlow = [
@@ -73,7 +73,7 @@ const aboutSchema = {
   '@type': 'Organization',
   name: 'AuctoLabs',
   description:
-    'AuctoLabs builds automated client-generating systems — combining conversion-focused websites with AI automation to capture leads instantly, qualify prospects automatically, and book meetings 24/7.',
+    'AuctoLabs builds the website and the system behind it, so an inquiry gets answered, screened, and booked without anyone watching the inbox.',
   url: 'https://auctolabs.com',
   knowsAbout: [
     'Web Design',
@@ -88,16 +88,16 @@ const About = () => {
   return (
     <Layout>
       <SEO
-        title="About AuctoLabs — Web Design & AI Automation"
-        description="We build the website and the automation behind it, so every lead is answered, qualified, and booked — not just a site that looks good."
+        title="About AuctoLabs: Web Design & AI Automation"
+        description="We build the website and the system behind it, so every lead gets answered and booked. Not just a site that looks good."
         keywords="about AuctoLabs, AI automation agency, automated lead generation, conversion-focused websites, growth systems, speed-to-lead, service business automation"
         canonical="https://auctolabs.com/about"
         jsonLd={aboutSchema}
       />
 
       <PageSummary
-        topic="About AuctoLabs — Automated Client-Generating Systems"
-        purpose="AuctoLabs is a web design and AI automation agency that builds complete growth systems for service businesses — combining high-converting websites with intelligent automation to capture leads, qualify prospects, and book meetings automatically."
+        topic="About AuctoLabs: Automated Client-Generating Systems"
+        purpose="AuctoLabs builds websites for service businesses, plus the automation that answers and books the leads those websites bring in. One system, not two projects."
         audience="Service business owners, law firms, home service companies, healthcare practices, and B2B providers looking for automated lead generation and conversion systems"
         services={[
           'Conversion-focused web design and development',
@@ -111,14 +111,14 @@ const About = () => {
         facts={{
           'Company name': 'AuctoLabs',
           'Company type': 'Web design and AI automation agency',
-          'Mission': 'Give every business the infrastructure to compete — and win',
+          'Mission': 'Give every business the infrastructure to compete, and win',
           'Founded on':
-            'The observation that businesses lose revenue because their systems respond too slowly',
+            'Watching good businesses lose work simply because they answered too late',
           'Systems deployed': '100+',
           'Average response time achieved': 'Under 60 seconds',
           'Average conversion improvement': '340%+',
           'System uptime': '24/7 automated',
-          'Core principles': 'Systems-first thinking, measurable outcomes, automation as leverage',
+          'Core principles': 'Build the whole system, measure what it does, automate the bottlenecks',
           'Target industries': 'Law firms, home service companies, healthcare practices, B2B service providers',
           'Contact email': 'contact@auctolabs.com',
         }}
@@ -164,8 +164,8 @@ const About = () => {
       <section className="py-6 bg-primary/5 border-y border-primary/10">
         <div className="container-custom">
           <p className="accent-em text-center text-base md:text-lg font-semibold text-foreground">
-            This isn't just marketing —{' '}
-            <em>it's infrastructure for growth.</em>
+            This isn't just marketing.{' '}
+            <em>It's infrastructure for growth.</em>
           </p>
         </div>
       </section>
@@ -179,7 +179,7 @@ const About = () => {
                 The Problem
               </span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-                Most Businesses Lose Leads — Not Because of Traffic, But Because of Speed
+                Most Businesses Lose Leads on Speed, Not Traffic
               </h2>
               <p className="text-muted-foreground mb-8">
                 The difference between businesses that grow and those that don't often comes down
@@ -248,7 +248,7 @@ const About = () => {
                 What We Build
               </span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-                We Build Systems That Capture, Qualify, and Convert — Automatically
+                We Build Systems That Capture, Qualify, and Convert Automatically
               </h2>
               <p className="text-muted-foreground">
                 Every AuctoLabs system runs as a complete, connected infrastructure. No
@@ -298,13 +298,13 @@ const About = () => {
                 consistently, and never miss an opportunity.
               </p>
               <p className="text-muted-foreground mb-10">
-                Most businesses can't compete at that level — not because they lack skill, but
+                Most businesses can't compete at that level, not because they lack skill, but
                 because they lack systems.
               </p>
               <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/20">
                 <span className="w-2 h-2 rounded-full bg-primary shrink-0" />
                 <span className="text-sm font-bold text-primary">
-                  Our mission: give every business the infrastructure to compete — and win
+                  Our mission: give every business the infrastructure to compete, and win
                 </span>
               </div>
             </div>
@@ -423,7 +423,7 @@ const About = () => {
 
           <AnimatedSection delay={300}>
             <p className="text-center text-muted-foreground">
-              If you're losing deals because competitors respond faster —{' '}
+              If you're losing deals because competitors respond faster,{' '}
               <span className="font-semibold text-foreground">we fix that.</span>
             </p>
           </AnimatedSection>
@@ -450,7 +450,7 @@ const About = () => {
                 Why We Exist
               </span>
               <h2 className="text-3xl md:text-4xl font-serif font-bold">
-                Built for Businesses That Want Systems — Not Guesswork
+                Built for Businesses That Want Systems, Not Guesswork
               </h2>
             </div>
           </AnimatedSection>
@@ -529,7 +529,7 @@ const About = () => {
               </h2>
               <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
                 If you're serious about capturing more leads, responding faster, and converting
-                more opportunities — let's talk. We'll break down exactly what your business needs
+                more opportunities, let's talk. We'll break down exactly what your business needs
                 and where your biggest opportunities are.
               </p>
               {/* "Let's talk" — open the calendar, not a form. */}

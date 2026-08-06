@@ -105,7 +105,7 @@ const homeSchema = {
           "name": "What makes an AuctoLabs website different?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We combine modern web design with automation and performance strategy to create websites that don't just look great — they actively help grow your business. Every build is engineered for speed, conversion, and long-term results."
+            "text": "We combine modern web design with automation and performance strategy to create websites that don't just look great. They actively help grow your business. Every build is engineered for speed, conversion, and long-term results."
           }
         },
         {
@@ -113,7 +113,7 @@ const homeSchema = {
           "name": "Can my website integrate with my existing tools?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. AuctoLabs websites integrate with CRM systems, marketing platforms, analytics tools, and other essential software — including HubSpot, Salesforce, Pipedrive, and more."
+            "text": "Yes. AuctoLabs websites integrate with CRM systems, marketing platforms, analytics tools, and other essential software, including HubSpot, Salesforce, Pipedrive, and more."
           }
         },
         {
@@ -121,7 +121,7 @@ const homeSchema = {
           "name": "How does the speed-to-lead automation work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses — all within seconds."
+            "text": "When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses, all within seconds."
           }
         },
         {
@@ -137,7 +137,7 @@ const homeSchema = {
           "name": "Where is AuctoLabs located and who do you work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "AuctoLabs is based in Houston, Texas and works with service businesses across the United States. The work is remote-first, so location is not a constraint — Houston-area clients can meet in person."
+            "text": "AuctoLabs is based in Houston, Texas and works with service businesses across the United States. The work is remote-first, so location is not a constraint. Houston-area clients can meet in person."
           }
         }
       ]
@@ -150,7 +150,7 @@ const Index = () => {
     <Layout>
       <SEO
         title="AuctoLabs | AI Automation & Web Design, Houston TX"
-        description="Houston agency building websites plus the automation behind them — so every lead is answered, qualified, and booked in under 60 seconds, day or night."
+        description="Houston agency building websites plus the automation behind them, so every lead is answered, qualified, and booked in under 60 seconds, day or night."
         keywords="web design, AI automations, lead generation, small business, CRM integration, speed to lead, conversion optimization"
         canonical="https://auctolabs.com/"
         jsonLd={homeSchema}
@@ -175,14 +175,14 @@ const Index = () => {
       <HiddenStructuredFacts
         facts={{
           "Target speed to lead": "Under 5 minutes via automated systems",
-          "Industry stat — lead qualification": "21x more likely to qualify a lead responding in 5 min vs 30 min (InsideSales.com)",
-          "Industry stat — first responder": "78% of buyers go with the first company to respond (Velocify)",
+          "Industry stat, lead qualification": "21x more likely to qualify a lead responding in 5 min vs 30 min (InsideSales.com)",
+          "Industry stat, first responder": "78% of buyers go with the first company to respond (Velocify)",
           "System uptime": "24/7",
           "Typical project timeline": "4-6 weeks",
-          "Engagement models": "Two options — Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work)",
-          "How pricing works": "Scope is quoted per engagement after a free strategy call — no fixed package prices",
+          "Engagement models": "Two options: Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work)",
+          "How pricing works": "Scope is quoted per engagement after a free strategy call. No fixed package prices",
           "Target industries": "Law firms, home services, healthcare, B2B services",
-          "Service area": "Houston, TX — serving clients nationwide"
+          "Service area": "Houston, TX. Serving clients nationwide"
         }}
       />
       

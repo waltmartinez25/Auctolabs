@@ -13,7 +13,7 @@ export const PageSummary = ({
   audience,
   services,
   businessName = "AuctoLabs",
-  location = "Houston, TX — serving clients nationwide",
+  location = "Houston, TX. Serving clients nationwide",
 }: PageSummaryProps) => {
   return (
     <aside 
@@ -41,7 +41,7 @@ export const VisiblePageSummary = ({
   audience,
   services,
   businessName = "AuctoLabs",
-  location = "Houston, TX — serving clients nationwide",
+  location = "Houston, TX. Serving clients nationwide",
 }: PageSummaryProps) => {
   return (
     <section 
@@ -50,7 +50,7 @@ export const VisiblePageSummary = ({
     >
       <div className="container-custom">
         <p className="text-sm text-muted-foreground leading-relaxed max-w-4xl">
-          <span className="font-medium text-foreground">{topic}</span> — {purpose} Designed for {audience.toLowerCase()}. 
+          <span className="font-medium text-foreground">{topic}</span>. {purpose} Designed for {audience.toLowerCase()}. 
           {businessName} offers {services.join(", ").toLowerCase()}. Based {location.toLowerCase()}.
         </p>
       </div>

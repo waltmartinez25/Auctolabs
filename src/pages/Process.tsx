@@ -36,7 +36,7 @@ const steps: {
     icon: Search,
     title: 'Audit',
     heading: "Find Where You're Losing Leads",
-    intro: "Most businesses are already getting traffic — they're just losing it.",
+    intro: "Most businesses already get traffic. They just lose it.",
     description:
       "We analyze your current setup to identify exactly where leads are dropping off and what's holding your growth back.",
     listLabel: 'What We Look At',
@@ -73,7 +73,7 @@ const steps: {
     number: '03',
     icon: Robot,
     title: 'Automate',
-    heading: 'Respond, Qualify, and Book — Automatically',
+    heading: 'Respond, Qualify, and Book Automatically',
     intro: 'Speed is everything. Most businesses lose leads because they respond too late.',
     description:
       'We build automation systems that handle lead response, qualification, and follow-up instantly.',
@@ -122,7 +122,7 @@ const processSchema = {
   '@type': 'HowTo',
   name: 'AuctoLabs Growth System Process',
   description:
-    'A proven 4-step methodology: Audit, Build, Automate, Optimize — designed to turn traffic into clients predictably.',
+    'A proven four-step method: audit, build, automate, optimize. Built to turn traffic into clients predictably.',
   step: steps.map((s) => ({
     '@type': 'HowToStep',
     name: s.title,
@@ -162,22 +162,22 @@ const Process = () => {
   return (
     <Layout>
       <SEO
-        title="Our Process — Audit, Build, Automate, Optimize | AuctoLabs"
-        description="A four-step system — audit, build, automate, optimize. Most AuctoLabs builds launch in 4–6 weeks with lead response running from day one."
+        title="Our Process: Audit, Build, Automate, Optimize | AuctoLabs"
+        description="A four-step system: audit, build, automate, optimize. Most AuctoLabs builds launch in 4–6 weeks with lead response running from day one."
         keywords="web development process, automation workflow, lead generation methodology, business growth system, audit build automate optimize, AuctoLabs process"
         canonical="https://auctolabs.com/process"
         jsonLd={processSchemaGraph}
       />
 
       <PageSummary
-        topic="AuctoLabs Process — Audit, Build, Automate, Optimize"
+        topic="AuctoLabs Process: Audit, Build, Automate, Optimize"
         purpose="This page explains AuctoLabs' proven 4-step process: (1) Audit your current website and lead flow, (2) Build a conversion-focused website, (3) Automate lead response and follow-up, and (4) Optimize performance continuously. Most systems launch in 4–6 weeks."
         audience="Business owners evaluating agencies and looking for a structured, predictable approach to improving lead generation and conversion"
         services={[
-          'Audit (Week 1) — Website analysis, lead response review, opportunity mapping',
-          'Build (Weeks 2–3) — Conversion-focused design, mobile-first development, SEO architecture',
-          'Automate (Weeks 3–4) — AI lead response, CRM integration, email/SMS sequences, appointment booking',
-          'Optimize (Weeks 4–6+) — Performance dashboards, A/B testing, conversion optimization, ongoing improvements',
+          'Audit (Week 1): Website analysis, lead response review, opportunity mapping',
+          'Build (Weeks 2–3): Conversion-focused design, mobile-first development, SEO architecture',
+          'Automate (Weeks 3–4): AI lead response, CRM integration, email/SMS sequences, appointment booking',
+          'Optimize (Weeks 4–6+): Performance dashboards, A/B testing, conversion optimization, ongoing improvements',
         ]}
       />
 
@@ -185,13 +185,13 @@ const Process = () => {
         facts={{
           'Process name': 'Audit, Build, Automate, Optimize',
           'Typical timeline': '4–6 weeks',
-          'Step 1 — Audit (Week 1)':
+          'Step 1: Audit (Week 1)':
             'Website and conversion path review, lead response time analysis, tech stack mapping, opportunity identification',
-          'Step 2 — Build (Weeks 2–3)':
+          'Step 2: Build (Weeks 2–3)':
             'Conversion-focused website design, mobile-first development, SEO optimization, tool integrations',
-          'Step 3 — Automate (Weeks 3–4)':
+          'Step 3: Automate (Weeks 3–4)':
             'AI lead response systems, CRM integration, email/SMS automation, automated appointment booking, lead routing',
-          'Step 4 — Optimize (Weeks 4–6+)':
+          'Step 4: Optimize (Weeks 4–6+)':
             'Performance monitoring, A/B testing, conversion rate optimization, ongoing system improvements',
           'Methodology': 'Systematic, no-guesswork approach to predictable revenue growth',
         }}
@@ -231,9 +231,9 @@ const Process = () => {
       <section className="py-6 bg-primary/5 border-y border-primary/10">
         <div className="container-custom">
           <p className="accent-em text-center text-base md:text-lg font-semibold text-foreground">
-            This isn't a typical "project" —{' '}
+            This isn't a typical "project."{' '}
             <em>
-              it's a complete growth system built step-by-step.
+              It's a complete growth system built step-by-step.
             </em>
           </p>
         </div>
@@ -402,7 +402,7 @@ const Process = () => {
         <div className="container-custom">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
             <p className="font-semibold text-foreground text-center sm:text-left">
-              You get a complete system — not a dragged-out project.
+              You get a complete system, not a dragged-out project.
             </p>
             <Button asChild variant="hero" size="lg" className="shrink-0">
               <Link to="/contact">
@@ -463,7 +463,7 @@ const Process = () => {
             <AnimatedSection delay={400}>
               <div className="mt-12 p-6 rounded-xl bg-primary/5 border border-primary/15 text-center">
                 <p className="font-semibold text-foreground">
-                  From strategy to launch in as little as 4 weeks — without cutting corners.
+                  From strategy to launch in as little as 4 weeks, without cutting corners.
                 </p>
               </div>
             </AnimatedSection>
@@ -486,7 +486,7 @@ const Process = () => {
               </h2>
               <p className="text-muted-foreground">
                 By following this process, your business gets a complete, connected system that
-                runs around the clock — capturing leads, qualifying them, and booking calls
+                runs around the clock, capturing leads, qualifying them, and booking calls
                 automatically.
               </p>
             </AnimatedSection>

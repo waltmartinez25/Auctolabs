@@ -47,7 +47,7 @@ const testimonials = [
   },
   {
     quote:
-      "We were about to spend $12,000 on a full redesign. Walt looked at our site and told us the design wasn't the problem — it was how we were handling inbound leads. That one conversation saved us from fixing the wrong thing.",
+      "We were about to spend $12,000 on a full redesign. Walt looked at our site and told us the design wasn't the problem. It was how we were handling inbound leads. That one conversation saved us from fixing the wrong thing.",
     author: 'Dana L.',
     role: 'Operations Manager',
     company: 'Summit Legal Group',
@@ -242,7 +242,7 @@ export function Testimonial() {
                   {currentTestimonial.author}
                 </span>
                 <span className="block text-xs text-muted-foreground mt-0.5 font-mono uppercase tracking-widest">
-                  {currentTestimonial.role} — {currentTestimonial.company}
+                  {currentTestimonial.role}, {currentTestimonial.company}
                 </span>
               </motion.div>
             </AnimatePresence>

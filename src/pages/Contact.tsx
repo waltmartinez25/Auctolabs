@@ -101,7 +101,7 @@ const Contact = () => {
   return (
     <Layout>
       <SEO
-        title="Contact AuctoLabs — Houston Web Design & Automation"
+        title="Contact AuctoLabs: Houston Web Design & Automation"
         description="Book a free 30-minute strategy call with AuctoLabs. Based in Houston, working with service businesses nationwide. We reply within 2 hours."
         keywords="contact AuctoLabs, book strategy call, free consultation, web design inquiry, automation consultation"
         canonical="https://auctolabs.com/contact"
@@ -123,7 +123,7 @@ const Contact = () => {
       <HiddenStructuredFacts
         facts={{
           "Contact email": "contact@auctolabs.com",
-          "Location": "Houston, TX — serving clients nationwide",
+          "Location": "Houston, TX. Serving clients nationwide",
           "Response time": "Under 2 hours during business hours (Mon-Fri, 9am-6pm EST)",
           "Free consultation": "30-minute strategy call available",
           "Project kickoff": "Most projects start within 1-2 weeks of signing",
@@ -146,7 +146,7 @@ const Contact = () => {
                 Ready to turn your website into a client-generating system?
               </p>
               <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
-                Book a strategy call or send us a message — we'll show you exactly how it can work for your business.
+                Book a strategy call or send us a message. We'll show you exactly how it can work for your business.
               </p>
             </div>
           </AnimatedSection>
@@ -177,7 +177,7 @@ const Contact = () => {
                         Don't want to wait?
                       </p>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Skip the inbox — book a 30-minute strategy call directly on our calendar.
+                        Skip the inbox. Book a 30-minute strategy call directly on our calendar.
                       </p>
                       <Button asChild variant="hero" className="w-full">
                         <a
@@ -330,7 +330,7 @@ const Contact = () => {
                     </div>
                     <div className="flex items-center gap-4">
                       <GeoAlt className="w-5 h-5 text-primary" />
-                      <span>Houston, TX — serving clients nationwide</span>
+                      <span>Houston, TX. Serving clients nationwide</span>
                     </div>
                   </div>
                 </div>

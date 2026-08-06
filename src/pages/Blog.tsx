@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <Layout>
       <SEO
-        title="Blog | AuctoLabs — AI Automation & Web Design Insights"
+        title="Blog | AuctoLabs: AI Automation & Web Design"
         description="Practical guides on AI automation, speed-to-lead systems, web design, and lead generation for small businesses. Real strategies from the AuctoLabs team."
         keywords="AI automation blog, lead generation tips, web design insights, speed to lead, CRM automation, small business growth"
         canonical="https://auctolabs.com/blog"
@@ -32,7 +32,7 @@ const Blog = () => {
                 <em>Playbook</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
-                Practical guides on AI automation, speed-to-lead systems, and web design built for real business results — no fluff.
+                Practical guides on AI automation, speed-to-lead systems, and web design built for real business results. No fluff.
               </p>
               <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
                 Real strategies from the AuctoLabs team. Published when it's ready.

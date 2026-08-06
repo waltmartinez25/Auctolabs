@@ -12,7 +12,7 @@ const industries = [
     label: 'Law Firms',
     overline: 'Legal Services',
     tagline: 'Speed-to-lead wins cases.',
-    pain: 'Every minute you wait to reach a potential client, your competitor is already on the phone. Most law firm inquiries come in after hours — and the first to respond gets the case.',
+    pain: 'Every minute you wait to reach a potential client, your competitor is already on the phone. Most law firm inquiries come in after hours, and the first to respond gets the case.',
     stats: [
       { value: '25%', label: 'increase in qualified leads' },
       { value: '2 min', label: 'average lead response time' },
@@ -31,7 +31,7 @@ const industries = [
     label: 'Real Estate',
     overline: 'Real Estate & Home Services',
     tagline: 'First to respond gets the listing.',
-    pain: '80% of buyers and sellers go with the first agent who responds. Most inquiries come outside business hours — without automation, you\'re handing leads to your competition.',
+    pain: '80% of buyers and sellers go with the first agent who responds. Most inquiries come outside business hours, and without automation, you\'re handing leads to your competition.',
     stats: [
       { value: '2×', label: 'more website inquiries' },
       { value: '2 min', label: 'average first response time' },
@@ -49,8 +49,8 @@ const industries = [
     id: 'health-wellness',
     label: 'Health & Wellness',
     overline: 'Healthcare & Wellness Practices',
-    tagline: 'Patient acquisition on autopilot.',
-    pain: 'Patients research and book online — often at night or on weekends. If your intake process isn\'t automated, they\'ll book with a practice that is before you even see the request.',
+    tagline: 'Answer at 10pm without being awake.',
+    pain: 'Patients research and book online, often at night or on weekends. If your intake process isn\'t automated, they\'ll book with a practice that is before you even see the request.',
     stats: [
       { value: '20%', label: 'increase in new patient inquiries' },
       { value: '15%', label: 'reduction in no-shows' },
@@ -68,8 +68,8 @@ const industries = [
     id: 'b2b',
     label: 'B2B & IT Services',
     overline: 'B2B & Technology Services',
-    tagline: 'Systematic pipeline generation at scale.',
-    pain: 'B2B sales cycles are long and complex. Without automation, leads go cold before your team can reach them — and manual tasks eat up the hours your team should spend closing deals.',
+    tagline: 'Stop losing deals in the follow-up gaps.',
+    pain: 'B2B sales cycles are long and complex. Without automation, leads go cold before your team can reach them, and manual tasks eat up the hours your team should spend closing deals.',
     stats: [
       { value: '25%', label: 'more demo or discovery calls' },
       { value: '30%', label: 'reduction in manual follow-up tasks' },
@@ -116,7 +116,7 @@ const Industries = () => {
     <Layout>
       <SEO
         title="AI Automation for Law Firms & Home Services"
-        description="Done-for-you lead response and web systems for law firms, real estate, health & wellness, and B2B services — each with its own intake problem to solve."
+        description="Done-for-you lead response and web systems for law firms, real estate, health & wellness, and B2B services. Each with its own intake problem to solve."
         keywords="law firm automation, real estate lead generation, healthcare patient acquisition, B2B automation, industry-specific web design, AI automation agency"
         canonical="https://auctolabs.com/industries"
         jsonLd={industriesSchema}
@@ -135,7 +135,7 @@ const Industries = () => {
                 <em>can't afford to lose leads.</em>
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
-                Every industry has a different growth bottleneck. We've built systems for four of the most lead-sensitive service businesses — and we know exactly what moves the needle in each.
+                Every industry has a different growth bottleneck. We've built systems for four of the most lead-sensitive service businesses, and we know exactly what moves the needle in each.
               </p>
               <p className="text-base font-semibold text-foreground mb-10">
                 Jump to your industry, or keep scrolling to see them all.
@@ -249,7 +249,7 @@ const Industries = () => {
                 <em>that depends on leads.</em>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                The systems we build — automated lead capture, qualification, follow-up, and CRM sync — work for any business that generates revenue through client relationships. If your business lives and dies by leads, we can build the infrastructure.
+                The systems we build (automated lead capture, qualification, follow-up, and CRM sync) work for any business that generates revenue through client relationships. If your business lives and dies by leads, we can build the infrastructure.
               </p>
             </div>
 

@@ -16,7 +16,7 @@ export const TestimonialsSection = () => {
               <em>ready to grow.</em>
             </h2>
             <p>
-              Our clients don&apos;t just want a new website — they want a platform that
+              Our clients don&apos;t just want a new website. They want a platform that
               supports their next stage of growth. That&apos;s exactly what we build.
             </p>
           </div>

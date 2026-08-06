@@ -51,7 +51,7 @@ export const ProblemSection = () => (
             </p>
             <p>
               None of this is your fault. You paid for a website and you got one. But a
-              site that just sits there isn&apos;t a system — and{' '}
+              site that just sits there isn&apos;t a system, and{' '}
               <span className="font-semibold text-foreground">
                 78% of buyers go with whoever answers first
               </span>

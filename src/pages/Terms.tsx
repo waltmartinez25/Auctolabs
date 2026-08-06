@@ -6,8 +6,8 @@ const Terms = () => {
   return (
     <Layout>
       <SEO
-        title="AuctoLabs Terms of Service — Web & Automation Agreements"
-        description="AuctoLabs Terms of Service. Read our terms and conditions for web design, development, and AI automation services — covering payments, IP, and liability."
+        title="AuctoLabs Terms of Service: Web & Automation"
+        description="AuctoLabs Terms of Service. Read our terms and conditions for web design, development, and AI automation services, covering payments, IP, and liability."
         keywords="terms of service, terms and conditions, AuctoLabs terms, service agreement"
         canonical="https://auctolabs.com/terms"
       />

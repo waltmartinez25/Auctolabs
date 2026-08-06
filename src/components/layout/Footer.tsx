@@ -121,7 +121,7 @@ export const Footer = () => {
         <p className="mt-12 text-xs text-muted-foreground/85 leading-relaxed max-w-3xl">
           AuctoLabs specializes in AI-powered website development, automated lead generation systems,
           and automation infrastructure designed to help service businesses convert more visitors
-          into clients. From conversion-focused websites to AI automation systems — we build
+          into clients. From conversion-focused websites to AI automation systems, we build
           the complete growth infrastructure your business needs.
         </p>
 

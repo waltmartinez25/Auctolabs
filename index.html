@@ -7,7 +7,7 @@
     <meta name="color-scheme" content="dark" />
     <style>html,body{background:#0A0A0A;}</style>
     <!--
-      Fallback title only — every route overrides it via the SEO component.
+      Fallback title only. Every route overrides it via the SEO component.
       A page description is deliberately NOT declared here: the prerenderer
       appends Helmet's tags instead of replacing existing ones, so a static
       one would sit *above* the per-page tag and become the copy crawlers
@@ -32,7 +32,7 @@
     
     <!--
       og:type and og:image are emitted per page by <SEO>, and the prerenderer
-      appends rather than replaces — declaring them here too shipped each one
+      appends rather than replaces, so declaring them here too shipped each one
       twice. Only tags <SEO> does NOT emit belong in this file.
     -->
     <meta name="twitter:site" content="@AuctoLabs" />
@@ -54,7 +54,7 @@
       og:title / og:description / twitter:title / twitter:description are set
       per page by <SEO> (react-helmet-async) and injected at prerender time.
       Do not add them here: the prerenderer appends rather than replaces, and
-      crawlers read the first occurrence — a static copy here wins over the
+      crawlers read the first occurrence, so a static copy here wins over the
       real page's tag and every route ends up sharing the homepage's preview.
     -->
   </head>

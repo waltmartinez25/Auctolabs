@@ -15,7 +15,7 @@ import { WorkflowRelay } from '@/components/home/WorkflowRelay';
 const automationTile = {
   eyebrow: 'AI Automations',
   title: 'Systems that answer for you',
-  body: 'Inquiries get replied to, qualified, and routed the moment they arrive — day or night.',
+  body: 'Inquiries get replied to, qualified, and routed the moment they arrive, day or night.',
   bullets: ['Instant auto-response', 'AI-assisted qualification', 'Smart routing to your team'],
   href: '/services',
   linkText: 'Explore automations',
@@ -24,7 +24,7 @@ const automationTile = {
 const webDesignTile = {
   eyebrow: 'Web Design',
   title: 'Websites engineered to convert',
-  body: 'Every build starts with how your visitors actually decide — then we design the path that gets them to act.',
+  body: 'Every build starts with how your visitors actually decide, then we design the path that gets them to act.',
   bullets: ['Mobile-first and fast', 'SEO-ready structure', 'Built to convert'],
   href: '/services',
   linkText: 'Explore web design',

@@ -55,7 +55,7 @@ export const ProveIt = () => {
         first_name: 'Speed Test',
         last_name: '',
         email: parsed.data,
-        message: 'Prove-it widget — visitor asked to see the lead response in action',
+        message: 'Prove-it widget: visitor asked to see the lead response in action',
       });
       analytics.contactFormClick('prove_it');
     } catch {
@@ -93,7 +93,7 @@ export const ProveIt = () => {
             <CheckCircleFill aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <p className="text-sm leading-snug text-foreground">
               <span className="font-semibold">You&apos;re in the system.</span>{' '}
-              Walt picks these up personally and replies from here — usually
+              Walt picks these up personally and replies from here, usually
               within minutes, never longer than a few hours.
             </p>
           </motion.div>

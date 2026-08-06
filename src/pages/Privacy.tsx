@@ -6,7 +6,7 @@ const Privacy = () => {
   return (
     <Layout>
       <SEO
-        title="AuctoLabs Privacy Policy — How We Protect Your Data"
+        title="AuctoLabs Privacy Policy: How We Protect Your Data"
         description="AuctoLabs Privacy Policy. Learn how we collect, use, and protect your personal information when you use our web design and AI automation services worldwide."
         keywords="privacy policy, data protection, personal information, AuctoLabs privacy"
         canonical="https://auctolabs.com/privacy"

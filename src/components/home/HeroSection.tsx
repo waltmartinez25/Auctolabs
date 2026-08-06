@@ -360,7 +360,7 @@ export const HeroSection = () => {
 
           <FadeIn delay={0.45}>
             <p className="mt-4 mx-auto max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed font-medium">
-              We build the website and the automation behind it — so every lead is answered,
+              We build the website and the automation behind it, so every lead is answered,
               qualified, and booked the moment they arrive, while you run your business.
             </p>
           </FadeIn>
@@ -369,7 +369,7 @@ export const HeroSection = () => {
             <div className="glass-panel border-border/30 p-1.5 rounded-2xl inline-flex shadow-xl">
               <Link
                 to="/contact"
-                aria-label="Start building with AuctoLabs — opens the contact form"
+                aria-label="Start building with AuctoLabs. Opens the contact form"
                 className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground rounded-xl font-bold text-[15px] min-h-[48px] transition-all duration-300 overflow-hidden border border-primary/20 hover:scale-[1.02] active:scale-[0.98] primary-glow focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/50"
               >
                 <span

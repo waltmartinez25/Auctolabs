@@ -5,7 +5,7 @@ import { useInView } from '@/hooks/useInView';
 
 // Capability statements, not claimed metrics — no counts, names, or revenue.
 const NOTIFICATIONS = [
-  { icon: ChatDotsFill, title: 'New inquiry', meta: 'Contact form — website' },
+  { icon: ChatDotsFill, title: 'New inquiry', meta: 'Contact form, website' },
   { icon: CalendarCheckFill, title: 'Appointment booked', meta: 'Added to calendar' },
   { icon: SendFill, title: 'Follow-up sent', meta: 'Email + SMS' },
 ] as const;

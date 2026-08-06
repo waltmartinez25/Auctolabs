@@ -94,7 +94,7 @@ const pricingSchemaFaq = {
     {
       "@type": "Question",
       "name": "Is there a long-term contract?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Launch is a one-time fixed scope. Partner is month to month and can be stopped at any time — the system stays yours either way." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Launch is a one-time fixed scope. Partner is month to month and can be stopped at any time. The system stays yours either way." }
     },
     {
       "@type": "Question",
@@ -113,7 +113,7 @@ const Pricing = () => {
   return (
     <Layout>
       <SEO
-        title="AuctoLabs Pricing — Web Design & Automation Packages"
+        title="AuctoLabs Pricing: Web Design & Automation"
         description="Two ways to work together: Launch, a fixed-scope build live in 4–6 weeks, or Partner, month-to-month. No long-term contracts."
         keywords="web design pricing, automation pricing, lead generation, website development, AI automation packages"
         canonical="https://auctolabs.com/pricing"
@@ -122,24 +122,24 @@ const Pricing = () => {
       
       {/* Plain-text summary for AI search engines */}
       <PageSummary
-        topic="AuctoLabs — Two Ways to Work Together"
+        topic="AuctoLabs: Two Ways to Work Together"
         purpose="This page explains the two ways to engage AuctoLabs: Launch, a fixed-scope build that goes live in 4–6 weeks, and Partner, a month-to-month arrangement for ongoing optimization. Scope is quoted per engagement after a strategy call, so no package prices are listed."
         audience="Small business owners, marketing managers, and decision-makers evaluating web design and automation partners"
         services={[
-          "Launch: fixed-scope build — audit, conversion-focused website, lead automation, CRM and calendar integration, full handover. Live in 4–6 weeks.",
-          "Partner: month-to-month — ongoing optimization and testing, new pages and campaign assets, automation tuning, direct access with no account managers.",
+          "Launch: fixed-scope build. Audit, conversion-focused website, lead automation, CRM and calendar integration, full handover. Live in 4–6 weeks.",
+          "Partner: month-to-month. Ongoing optimization and testing, new pages and campaign assets, automation tuning, direct access with no account managers.",
           "Add-ons available: monthly retainer, additional pages, content writing, custom integrations."
         ]}
       />
 
       <HiddenStructuredFacts
         facts={{
-          "Engagement models": "Two options — Launch (fixed-scope build) and Partner (month-to-month ongoing work)",
+          "Engagement models": "Two options: Launch (fixed-scope build) and Partner (month-to-month ongoing work)",
           "Launch includes": "Audit, conversion-focused website, lead automation, speed-to-lead under 60 seconds, CRM and calendar integration, full handover",
           "Launch timeline": "Live in 4–6 weeks",
           "Partner includes": "Ongoing optimization and testing, new pages and campaign assets, automation tuning, direct access without account managers",
           "Partner terms": "Month-to-month, no long-term contracts",
-          "How pricing works": "Scope is quoted per engagement after a free strategy call — no fixed package prices",
+          "How pricing works": "Scope is quoted per engagement after a free strategy call. No fixed package prices",
           "Add-ons available": "Monthly retainer, additional pages, content writing, custom integrations",
           "Guarantee": "If we don't deliver qualified leads within 60 days of launch, the final invoice waits until we do"
         }}
@@ -160,7 +160,7 @@ const Pricing = () => {
                 does it cost?&rdquo; starts with a conversation.
               </p>
               <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
-                Choose how you want to work with us — we&apos;ll shape the rest around your business.
+                Choose how you want to work with us. We&apos;ll shape the rest around your business.
               </p>
             </div>
           </AnimatedSection>
@@ -198,7 +198,7 @@ const Pricing = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Add-Ons & Extras</h2>
               <p className="text-muted-foreground">
-                Every engagement starts with a plan and grows from there — add only what moves the needle for your business.
+                Every engagement starts with a plan and grows from there. Add only what moves the needle.
               </p>
             </div>
           </AnimatedSection>
@@ -227,7 +227,7 @@ const Pricing = () => {
                 <em>The complete growth infrastructure.</em>
               </h2>
               <p className="text-muted-foreground">
-                Most businesses pay more for less. Here's why our clients switch — and stay.
+                Most businesses pay more for less. Here's why our clients switch, and stay.
               </p>
             </div>
           </AnimatedSection>
@@ -298,13 +298,13 @@ const Pricing = () => {
                 Custom Systems
               </span>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground leading-tight mb-6">
-                Built Around Your Business —<br className="hidden sm:block" /> Not Templates
+                Built Around Your Business,<br className="hidden sm:block" /> Not Templates
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-3 max-w-2xl">
                 Every business runs differently. That's why we don't rely on rigid templates or one-size-fits-all setups.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
-                We design and build custom automation workflows and integrations tailored to how your business actually operates — so everything works together seamlessly.
+                We build the workflow around how your business actually runs, so everything works together seamlessly.
               </p>
             </div>
           </AnimatedSection>
@@ -359,7 +359,7 @@ const Pricing = () => {
                     Most businesses lose time and revenue because their systems don't talk to each other.
                   </p>
                   <p className="text-sm text-muted-foreground mb-7 max-w-xl leading-relaxed">
-                    We fix that by connecting everything into one streamlined system that:
+                    We connect it all into one system that:
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {outcomes.map((item) => (

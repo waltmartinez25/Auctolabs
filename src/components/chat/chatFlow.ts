@@ -39,7 +39,7 @@ export const chatSteps: FlowStep[] = [
     // Asks about scope/timing rather than budget — we quote per engagement,
     // so anchoring on a number here would work against that.
     id: 3,
-    botMessage: 'Almost there — what are you looking for right now?',
+    botMessage: 'Almost there. What are you looking for right now?',
     options: [
       { label: 'A new site, launched fast', value: 'new-build' },
       { label: 'Automation on my current site', value: 'automation-only' },
@@ -70,6 +70,6 @@ export function getTierRecommendation(volume: string, goal: string): TierResult 
   return {
     name: 'Launch',
     description:
-      'A fixed-scope build — site and automation from one team, live in 4–6 weeks, then handed over to you.',
+      'A fixed-scope build: site and automation from one team, live in 4–6 weeks, then handed over to you.',
   };
 }

@@ -105,7 +105,7 @@ export const SocialProofSection = () => {
               <p>
                 A great website means nothing if it doesn&apos;t grow your business.
                 Every decision we make is grounded in performance, user behavior,
-                and long-term results — because the best websites don&apos;t just look
+                and long-term results, because the best websites don&apos;t just look
                 good. They work.
               </p>
             </div>

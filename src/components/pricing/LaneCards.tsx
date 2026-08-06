@@ -21,7 +21,7 @@ const lanes = [
       'Site and automation from one team',
       'Speed-to-lead under 60 seconds',
       'CRM and calendar integration',
-      'Full handover — the system is yours',
+      'Full handover. The system is yours',
     ],
     featured: false,
   },
@@ -102,7 +102,7 @@ export const LaneCards = ({ source }: LaneCardsProps) => (
           <Link
             to="/contact"
             onClick={() => analytics.contactFormClick(`${source}_${lane.id}`)}
-            aria-label={`Start a ${lane.name} project — opens the contact form`}
+            aria-label={`Start a ${lane.name} project. Opens the contact form`}
             className={`mt-8 inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full px-6 py-3 text-sm font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 ${
               featured
                 ? 'bg-primary text-primary-foreground primary-glow'
