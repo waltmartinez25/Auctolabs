@@ -4,7 +4,7 @@
 
 /** Booking link. Single source of truth — it was previously copy-pasted into
  *  five components, so a calendar move meant five edits and a missed one. */
-export const CALENDLY_URL = 'https://calendly.com/waltermartinez-auctolabs/30min';
+export const CALENDLY_URL = 'https://calendly.com/waltmartinez25/new-meeting';
 
 /**
  * CTA labels, grouped by where the button actually goes.
