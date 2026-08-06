@@ -176,25 +176,51 @@ export const SocialProofSection = () => {
                 3×3 grid of stable cells.
                 Only cell content animates — the grid structure never collapses.
                 On scroll: logos slide in from the right, one by one (cascading "connecting" effect).
-                Every 7 s: old logos fade out, new set slides in the same way.
+                Every 7 s: the old set slides out to the left as the new set
+                slides in from the right — a continuous pass, not a fade swap.
               */}
               <div className="p-5 grid grid-cols-3 gap-3 bg-card">
                 {Array.from({ length: 9 }, (_, i) => {
                   const intg = integrationSets[integSet][i];
+                  // Under prefers-reduced-motion the tiles cross-fade in place
+                  // instead of travelling. The swap still reads, but nothing
+                  // slides across the viewport.
+                  const slideIn = reduceMotion ? 0 : 40;
+                  const slideOut = reduceMotion ? 0 : -40;
                   return (
                     <div key={i} className="relative h-[90px]">
-                      <AnimatePresence mode="wait">
+                      {/*
+                        `popLayout`, not `wait`. Under `wait` the outgoing tile
+                        had to finish before the incoming one mounted, which put
+                        a hole between the two — that gap is what made the swap
+                        read as "disappear, then reappear" rather than a slide.
+                        Here both tiles are in flight at once and the old one is
+                        popped out of layout flow, so they cross over in place.
+                      */}
+                      <AnimatePresence mode="popLayout" initial={false}>
                         <motion.div
                           key={`${integSet}-${intg.slug}`}
-                          initial={{ opacity: 0, x: 24 }}
-                          animate={active ? { opacity: 1, x: 0 } : { opacity: 0, x: 24 }}
-                          exit={{ opacity: 0, transition: { duration: 0.15, ease: EASE } }}
+                          initial={{ opacity: 0, x: slideIn }}
+                          animate={active ? { opacity: 1, x: 0 } : { opacity: 0, x: slideIn }}
+                          // Exit travels on through to the left instead of
+                          // fading in place. Same axis, same easing as the
+                          // entrance, so one tile hands off to the next along a
+                          // single line of motion. Slightly quicker than the
+                          // entrance so the outgoing tile clears the cell before
+                          // the incoming one settles.
+                          exit={{
+                            opacity: 0,
+                            x: slideOut,
+                            transition: { duration: 0.28, delay: i * 0.03, ease: EASE },
+                          }}
                           // Snappier than the original 0.32s / 0.08s stagger,
                           // which took ~0.96s to fill the grid — long enough
                           // that the cascade was over before the eye found it.
-                          // Now ~0.58s: still reads tile-by-tile, but lands.
+                          // Now ~0.72s: longer than the 0.24s fade it replaced,
+                          // because a slide needs travel time to read as travel
+                          // rather than a twitch. Still well inside the 7s dwell.
                           transition={{
-                            duration: 0.24,
+                            duration: 0.36,
                             delay: active ? i * 0.045 : 0,
                             ease: EASE,
                           }}
