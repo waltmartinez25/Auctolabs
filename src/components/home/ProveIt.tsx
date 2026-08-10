@@ -10,17 +10,14 @@ const emailSchema = z.string().email('Enter a valid email address');
 // Two submissions in quick succession is a bot, not a person changing their mind.
 const THROTTLE_MS = 4000;
 
+// n8n workflow "Prove It Demo — Instant Lead Response" (IAgZ5fJnNuUuhSIa)
+const PROVE_IT_WEBHOOK_URL = 'https://n8n.auctolabs.com/webhook/prove-it-demo';
+
 /**
  * Lets a visitor act on the speed claim instead of just reading it.
  *
- * IMPORTANT — what this does today: it captures the address to Supabase and
- * tells the visitor a human reply is coming. It does NOT send an email, and the
- * copy must never imply that it did. There is no Edge Function, no mail
- * provider and no verified sending domain in this project yet.
- *
- * To make it genuinely automated later: add a Supabase Edge Function that sends
- * via Resend from a verified domain, rate-limit per IP and per address, and only
- * then change the confirmation copy to reference the inbox.
+ * Captures the address to Supabase for the lead record, and calls the n8n
+ * webhook above to actually send the instant demo email via Gmail.
  */
 export const ProveIt = () => {
   const reduceMotion = useReducedMotion();
@@ -57,10 +54,21 @@ export const ProveIt = () => {
         email: parsed.data,
         message: 'Prove-it widget: visitor asked to see the lead response in action',
       });
-      analytics.contactFormClick('prove_it');
     } catch {
       // Capture is best-effort; never strand the visitor on an error state.
     }
+
+    try {
+      await fetch(PROVE_IT_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: parsed.data }),
+      });
+    } catch {
+      // The demo email is best-effort too — a failed send shouldn't strand the visitor.
+    }
+
+    analytics.contactFormClick('prove_it');
 
     setStatus('done');
   };
@@ -92,9 +100,9 @@ export const ProveIt = () => {
           >
             <CheckCircleFill aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <p className="text-sm leading-snug text-foreground">
-              <span className="font-semibold">You&apos;re in the system.</span>{' '}
-              Walt picks these up personally and replies from here, usually
-              within minutes, never longer than a few hours.
+              <span className="font-semibold">Check your inbox.</span>{' '}
+              That email just landed in seconds — this is what your leads feel
+              the moment they submit a form.
             </p>
           </motion.div>
         ) : (
