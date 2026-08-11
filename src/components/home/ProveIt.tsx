@@ -101,8 +101,8 @@ export const ProveIt = () => {
             <CheckCircleFill aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <p className="text-sm leading-snug text-foreground">
               <span className="font-semibold">Check your inbox.</span>{' '}
-              That email just landed in seconds — this is what your leads feel
-              the moment they submit a form.
+              That email just landed in under 2 minutes — this is what your leads
+              feel the moment they submit a form.
             </p>
           </motion.div>
         ) : (
