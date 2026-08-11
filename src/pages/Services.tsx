@@ -58,7 +58,7 @@ const systemSteps: {
     number: '03',
     title: 'Automate',
     subtitle: 'Respond before competitors.',
-    description: 'We install systems that capture, qualify, and respond to leads instantly, without manual intervention.',
+    description: 'We install systems that capture, qualify, and respond to leads in under 2 minutes, without manual intervention.',
     icon: Robot,
     features: [
       'AI-powered lead response systems',
@@ -87,7 +87,7 @@ const systemFlow = [
   'A visitor lands on your website',
   "They're guided through a structured conversion path",
   'They submit a form or inquiry',
-  'They receive an instant response (AI + automation)',
+  'They receive a response in under 2 minutes (AI + automation)',
   "They're qualified based on your criteria",
   "They're automatically booked into your calendar",
   'Follow-ups continue until they convert',
@@ -128,7 +128,7 @@ const servicesSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'AI Automation Systems',
-          description: 'Instant lead response, qualification workflows, and automated follow-up',
+          description: 'Lead response in under 2 minutes, qualification workflows, and automated follow-up',
         },
       },
       {
@@ -174,7 +174,7 @@ const servicesSchemaFaq = {
     {
       "@type": "Question",
       "name": "How fast does the automated response actually go out?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Under 60 seconds from form submission. The lead is qualified against your criteria, routed to the right person, and sent a reply by SMS or email before a competitor has opened their inbox." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Under 2 minutes from form submission. The lead is qualified against your criteria, routed to the right person, and sent a reply by SMS or email before a competitor has opened their inbox." }
     }
   ]
 };
@@ -201,7 +201,7 @@ const Services = () => {
         audience="Business owners and marketing leaders looking to increase leads, improve response time, and scale revenue with automated systems"
         services={[
           'Web Design & Development: Conversion-focused, mobile-first websites built to guide visitors and capture leads',
-          'AI Automation Systems: Instant lead response, qualification workflows, CRM integration, and automated follow-up',
+          'AI Automation Systems: Lead response in under 2 minutes, qualification workflows, CRM integration, and automated follow-up',
           'Lead Generation Systems: Landing pages, lead magnets, multi-channel capture, and nurture sequences',
           'Performance Systems: Real-time dashboards, response time tracking, and conversion rate optimization',
         ]}
@@ -209,10 +209,10 @@ const Services = () => {
 
       <HiddenStructuredFacts
         facts={{
-          'Value proposition': 'Complete growth systems that capture leads, respond instantly, qualify prospects, and convert them into booked calls, automatically',
+          'Value proposition': 'Complete growth systems that capture leads, respond in under 2 minutes, qualify prospects, and convert them into booked calls, automatically',
           'Process': 'Audit → Build → Automate → Optimize',
           'Web Design features': 'Conversion-focused design, mobile-first responsive layouts, high-performance architecture, strategic CTA placement, SEO-ready structure, CMS integration',
-          'AI Automation features': 'Automated lead capture and qualification, instant response systems, CRM integration (HubSpot, Salesforce, Pipedrive), email and SMS follow-up, automated appointment booking, intelligent lead routing',
+          'AI Automation features': 'Automated lead capture and qualification, rapid response systems, CRM integration (HubSpot, Salesforce, Pipedrive), email and SMS follow-up, automated appointment booking, intelligent lead routing',
           'Lead Generation features': 'High-converting landing pages, lead magnet strategy and funnel setup, multi-channel lead capture, automated nurture sequences, lead scoring and qualification, analytics and attribution tracking',
           'Performance System features': 'Real-time performance dashboards, lead response time tracking, automated alerts and escalation workflows, conversion rate optimization, continuous system improvements',
           'How engagements work': 'Two options: Launch (fixed-scope build, live in 4–6 weeks) and Partner (month-to-month ongoing work). Scope is quoted per engagement after a free strategy call.',
@@ -234,7 +234,7 @@ const Services = () => {
               </h1>
               <p className="text-xl text-muted-foreground mb-3 max-w-2xl mx-auto">
                 AuctoLabs designs and builds complete growth systems that capture leads, respond
-                instantly, qualify prospects, and convert them into booked calls, automatically.
+                in under 2 minutes, qualify prospects, and convert them into booked calls, automatically.
               </p>
               <p className="text-base font-semibold text-foreground mb-10 max-w-xl mx-auto">
                 This isn't just web design. This is infrastructure built to grow your business.
@@ -326,7 +326,7 @@ const Services = () => {
                   {[
                     'Attracts the right traffic',
                     'Captures and qualifies leads',
-                    'Responds instantly',
+                    'Responds in under 2 min',
                     'Books calls automatically',
                     'Tracks and improves performance',
                   ].map((solution) => (
@@ -436,7 +436,7 @@ const Services = () => {
                 </p>
                 <ul className="space-y-4">
                   {[
-                    'Responds to leads instantly',
+                    'Responds to leads in under 2 minutes',
                     'Filters out unqualified prospects',
                     'Books more qualified calls',
                     'Keeps your pipeline full',

@@ -135,7 +135,7 @@ const Pricing = () => {
       <HiddenStructuredFacts
         facts={{
           "Engagement models": "Two options: Launch (fixed-scope build) and Partner (month-to-month ongoing work)",
-          "Launch includes": "Audit, conversion-focused website, lead automation, speed-to-lead under 60 seconds, CRM and calendar integration, full handover",
+          "Launch includes": "Audit, conversion-focused website, lead automation, speed-to-lead under 2 minutes, CRM and calendar integration, full handover",
           "Launch timeline": "Live in 4–6 weeks",
           "Partner includes": "Ongoing optimization and testing, new pages and campaign assets, automation tuning, direct access without account managers",
           "Partner terms": "Month-to-month, no long-term contracts",

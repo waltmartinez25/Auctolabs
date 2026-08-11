@@ -20,7 +20,7 @@ const industries = [
     ],
     features: [
       'AI-powered case intake and qualification',
-      'Instant SMS/email response to new inquiries',
+      'SMS/email response to new inquiries in under 2 minutes',
       'CRM integration (Clio, HubSpot, Salesforce)',
       'After-hours automated lead capture',
       'Appointment booking and calendar sync',

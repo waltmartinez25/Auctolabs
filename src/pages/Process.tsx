@@ -76,7 +76,7 @@ const steps: {
     heading: 'Respond, Qualify, and Book Automatically',
     intro: 'Speed is everything. Most businesses lose leads because they respond too late.',
     description:
-      'We build automation systems that handle lead response, qualification, and follow-up instantly.',
+      'We build automation systems that handle lead response, qualification, and follow-up automatically.',
     listLabel: 'What We Implement',
     activities: [
       'AI-powered lead response systems',
@@ -111,7 +111,7 @@ const steps: {
 
 const deliverables = [
   'A website that converts traffic into leads',
-  'Instant lead response (no delays)',
+  'Lead response in under 2 minutes (no delays)',
   'Automated qualification and booking',
   'A structured, scalable growth system',
   'Clear visibility into performance',
@@ -572,7 +572,7 @@ const Process = () => {
                   <ul className="space-y-4">
                     {[
                       'One connected infrastructure',
-                      'Instant, automated response',
+                      'Fast, automated response',
                       'Real-time performance visibility',
                       'Continuous improvement built in',
                     ].map((s) => (

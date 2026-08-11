@@ -19,7 +19,7 @@ const lanes = [
     features: [
       'Audit, build, automate, optimize',
       'Site and automation from one team',
-      'Speed-to-lead under 60 seconds',
+      'Speed-to-lead under 2 minutes',
       'CRM and calendar integration',
       'Full handover. The system is yours',
     ],

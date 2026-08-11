@@ -17,7 +17,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 // part that sells — "Not by you", "12:00 Thursday".
 const CAPTIONS = [
   { lead: 'Ray finds you at', punch: '11:47pm on a Tuesday.' },
-  { lead: 'Answered in 4 seconds.', punch: 'Not by you.' },
+  { lead: 'Answered in under 2 minutes.', punch: 'Not by you.' },
   { lead: 'Booked.', punch: '12:00 Thursday.' },
 ] as const;
 

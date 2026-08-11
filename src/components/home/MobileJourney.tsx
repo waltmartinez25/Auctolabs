@@ -22,7 +22,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 // trail's wording — at 390px the full sentences wrap to three lines.
 const CAPTIONS = [
   { lead: 'Lands at', punch: '11:47pm.' },
-  { lead: 'Answered in 4s.', punch: 'Not by you.' },
+  { lead: 'Answered in under 2 min.', punch: 'Not by you.' },
   { lead: 'Booked.', punch: '12:00 Thursday.' },
 ] as const;
 

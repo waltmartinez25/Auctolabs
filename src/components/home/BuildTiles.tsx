@@ -16,7 +16,7 @@ const automationTile = {
   eyebrow: 'AI Automations',
   title: 'Systems that answer for you',
   body: 'Inquiries get replied to, qualified, and routed the moment they arrive, day or night.',
-  bullets: ['Instant auto-response', 'AI-assisted qualification', 'Smart routing to your team'],
+  bullets: ['Auto-response in under 2 minutes', 'AI-assisted qualification', 'Smart routing to your team'],
   href: '/services',
   linkText: 'Explore automations',
 };

@@ -121,7 +121,7 @@ const homeSchema = {
           "name": "How does the speed-to-lead automation work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses, all within seconds."
+            "text": "When a lead submits a form, our system automatically qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses, all in under 2 minutes."
           }
         },
         {
@@ -150,7 +150,7 @@ const Index = () => {
     <Layout>
       <SEO
         title="AuctoLabs | AI Automation & Web Design, Houston TX"
-        description="Houston agency building websites plus the automation behind them, so every lead is answered, qualified, and booked in under 60 seconds, day or night."
+        description="Houston agency building websites plus the automation behind them, so every lead is answered, qualified, and booked in under 2 minutes, day or night."
         keywords="web design, AI automations, lead generation, small business, CRM integration, speed to lead, conversion optimization"
         canonical="https://auctolabs.com/"
         jsonLd={homeSchema}
@@ -159,14 +159,14 @@ const Index = () => {
       {/* Plain-text summary for AI search engines */}
       <PageSummary
         topic="AuctoLabs - Web Design and AI Automation Agency"
-        purpose="We help small businesses turn their websites into client-getting machines with high-converting web design and AI-powered automations that respond to leads in under 60 seconds."
+        purpose="We help small businesses turn their websites into client-getting machines with high-converting web design and AI-powered automations that respond to leads in under 2 minutes."
         audience="Small business owners, service businesses, law firms, home services companies, healthcare practices, and B2B service providers who want to automate lead generation and improve response times"
         services={[
           "Custom web design and development",
           "AI-powered lead qualification chatbots",
           "CRM integration (HubSpot, Salesforce, Pipedrive)",
           "Email and SMS automation sequences",
-          "Speed-to-lead systems with under 60-second response times",
+          "Speed-to-lead systems with under 2-minute response times",
           "Lead generation and conversion optimization"
         ]}
       />
@@ -174,7 +174,7 @@ const Index = () => {
       {/* Structured facts for AI parsing */}
       <HiddenStructuredFacts
         facts={{
-          "Target speed to lead": "Under 5 minutes via automated systems",
+          "Target speed to lead": "Under 2 minutes via automated systems",
           "Industry stat, lead qualification": "21x more likely to qualify a lead responding in 5 min vs 30 min (InsideSales.com)",
           "Industry stat, first responder": "78% of buyers go with the first company to respond (Velocify)",
           "System uptime": "24/7",

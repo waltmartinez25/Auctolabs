@@ -154,7 +154,7 @@ const AutomationCard = ({ activeStep }: { activeStep: number }) => (
       {/* Main card headline */}
       <div>
         <h3 className="text-lg font-serif font-bold text-foreground leading-snug">
-          Respond, qualify, and book. Instantly.
+          Respond, qualify, and book. Automatically.
         </h3>
       </div>
 
@@ -187,7 +187,7 @@ const AutomationCard = ({ activeStep }: { activeStep: number }) => (
             ⚡
           </div>
           <div>
-            <div className="text-xs font-bold text-primary">Auto-replied in 4 seconds</div>
+            <div className="text-xs font-bold text-primary">Auto-replied in under 2 minutes</div>
             <div className="text-[10px] text-muted-foreground">AI response sent</div>
           </div>
         </div>

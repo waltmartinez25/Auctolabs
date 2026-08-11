@@ -27,7 +27,7 @@ const faqs = [
   {
     question: 'How does the speed-to-lead automation work?',
     answer:
-      'When a lead submits a form, our system instantly qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses, all within seconds.',
+      'When a lead submits a form, our system automatically qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses, all in under 2 minutes.',
   },
   {
     question: 'What happens after the project is complete?',

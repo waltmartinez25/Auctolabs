@@ -101,9 +101,9 @@ const About = () => {
         audience="Service business owners, law firms, home service companies, healthcare practices, and B2B providers looking for automated lead generation and conversion systems"
         services={[
           'Conversion-focused web design and development',
-          'AI-powered lead qualification and instant response systems',
+          'AI-powered lead qualification and rapid response systems',
           'CRM integration and workflow automation',
-          'Speed-to-lead systems with under 60-second response times',
+          'Speed-to-lead systems with under 2-minute response times',
         ]}
       />
 
@@ -115,7 +115,7 @@ const About = () => {
           'Founded on':
             'Watching good businesses lose work simply because they answered too late',
           'Systems deployed': '100+',
-          'Average response time achieved': 'Under 60 seconds',
+          'Average response time achieved': 'Under 2 minutes',
           'Average conversion improvement': '340%+',
           'System uptime': '24/7 automated',
           'Core principles': 'Build the whole system, measure what it does, automate the bottlenecks',
@@ -145,7 +145,7 @@ const About = () => {
               </p>
               <p className="text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
                 We combine conversion-focused websites with intelligent automation to create
-                systems that capture leads instantly, qualify prospects automatically, and book
+                systems that capture leads automatically, qualify prospects, and book
                 meetings while you sleep. This isn't just marketing. It's infrastructure for
                 growth.
               </p>
@@ -264,7 +264,7 @@ const About = () => {
                 <ul className="space-y-4">
                   {[
                     'Capture attention with a high-converting website',
-                    'Respond instantly to every lead',
+                    'Respond to every lead in under 2 minutes',
                     'Qualify prospects based on your criteria',
                     'Route opportunities to the right place',
                     'Book calls automatically',
@@ -294,7 +294,7 @@ const About = () => {
                 Make Every Business as Responsive as the Best
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                The best companies win because they move faster. They respond instantly, follow up
+                The best companies win because they move faster. They respond in minutes, follow up
                 consistently, and never miss an opportunity.
               </p>
               <p className="text-muted-foreground mb-10">

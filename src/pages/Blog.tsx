@@ -41,7 +41,7 @@ const Blog = () => {
               <div className="glass-card rounded-2xl p-10 text-left max-w-2xl mx-auto mb-12">
                 <p className="text-sm font-bold text-foreground mb-1">Get notified when we publish</p>
                 <p className="text-sm text-muted-foreground mb-6">
-                  We're writing guides on topics like: cutting lead response time to under 60 seconds, CRM automation setups that actually work, and what makes a high-converting agency website.
+                  We're writing guides on topics like: cutting lead response time to under 2 minutes, CRM automation setups that actually work, and what makes a high-converting agency website.
                 </p>
                 <Button asChild variant="hero" size="lg">
                   <Link to="/contact">
