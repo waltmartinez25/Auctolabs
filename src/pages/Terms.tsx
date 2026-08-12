@@ -1,6 +1,21 @@
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+
+const termsSchemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Terms of Service',
+      url: 'https://auctolabs.com/terms',
+      description: 'Terms and conditions for AuctoLabs web design, development, and automation services.',
+      publisher: { '@type': 'Organization', name: 'AuctoLabs', url: 'https://auctolabs.com' },
+    },
+    pageBreadcrumb('Terms of Service'),
+  ],
+};
 
 const Terms = () => {
   return (
@@ -10,6 +25,7 @@ const Terms = () => {
         description="AuctoLabs Terms of Service. Read our terms and conditions for web design, development, and AI automation services, covering payments, IP, and liability."
         keywords="terms of service, terms and conditions, AuctoLabs terms, service agreement"
         canonical="https://auctolabs.com/terms"
+        jsonLd={termsSchemaGraph}
       />
       
       <section className="section-padding">

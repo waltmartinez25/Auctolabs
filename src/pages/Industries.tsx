@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckLg, Calendar3 } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { CALENDLY_URL, CTA_BOOK } from '@/lib/constants';
@@ -89,7 +90,7 @@ const industries = [
 // 30-50 words so an answer engine can lift them verbatim.
 const industriesSchema = {
   "@context": "https://schema.org",
-  "@graph": [{
+  "@graph": [pageBreadcrumb('Industries'), {
   "@type": "FAQPage",
   "mainEntity": [
     {

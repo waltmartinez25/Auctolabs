@@ -1,6 +1,21 @@
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+
+const privacySchemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Privacy Policy',
+      url: 'https://auctolabs.com/privacy',
+      description: 'How AuctoLabs collects, uses, and protects personal information.',
+      publisher: { '@type': 'Organization', name: 'AuctoLabs', url: 'https://auctolabs.com' },
+    },
+    pageBreadcrumb('Privacy Policy'),
+  ],
+};
 
 const Privacy = () => {
   return (
@@ -10,6 +25,7 @@ const Privacy = () => {
         description="AuctoLabs Privacy Policy. Learn how we collect, use, and protect your personal information when you use our web design and AI automation services worldwide."
         keywords="privacy policy, data protection, personal information, AuctoLabs privacy"
         canonical="https://auctolabs.com/privacy"
+        jsonLd={privacySchemaGraph}
       />
       
       <section className="section-padding">

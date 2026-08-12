@@ -10,6 +10,7 @@ import {
 } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
@@ -118,7 +119,6 @@ const deliverables = [
 ];
 
 const processSchema = {
-  '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: 'AuctoLabs Growth System Process',
   description:
@@ -155,7 +155,7 @@ const processSchemaFaq = {
 
 const processSchemaGraph = {
   "@context": "https://schema.org",
-  "@graph": [processSchema, processSchemaFaq]
+  "@graph": [processSchema, processSchemaFaq, pageBreadcrumb('Process')]
 };
 
 const Process = () => {

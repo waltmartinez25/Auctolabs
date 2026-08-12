@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, CheckLg, XLg } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
@@ -53,7 +54,6 @@ const addOns = [
 ];
 
 const pricingSchema = {
-  "@context": "https://schema.org",
   "@type": "Product",
   "name": "AuctoLabs Web Design & Automation Services",
   "description": "Web design and AI automation packages for small businesses",
@@ -106,7 +106,7 @@ const pricingSchemaFaq = {
 
 const pricingSchemaGraph = {
   "@context": "https://schema.org",
-  "@graph": [pricingSchema, pricingSchemaFaq]
+  "@graph": [pricingSchema, pricingSchemaFaq, pageBreadcrumb('Pricing')]
 };
 
 const Pricing = () => {

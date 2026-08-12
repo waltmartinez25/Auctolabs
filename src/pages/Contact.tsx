@@ -5,6 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Layout } from '@/components/layout/Layout';
 import { CALENDLY_URL, CTA_BOOK } from '@/lib/constants';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
@@ -45,6 +46,42 @@ const faqs = [
     answer: 'Absolutely. We integrate with virtually any CRM, email platform, or business tool. During the audit phase, we will map out your current tech stack and plan the integration.',
   },
 ];
+
+// Contact details mirror the ProfessionalService schema on the homepage.
+// No telephone property: there is no published business line, and inventing
+// one would put a false NAP signal into local search.
+const contactSchemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ContactPage',
+      name: 'Contact AuctoLabs',
+      url: 'https://auctolabs.com/contact',
+      description:
+        'Book a free 30-minute strategy call with AuctoLabs, or send a message about a web design and lead automation project.',
+      mainEntity: {
+        '@type': 'Organization',
+        name: 'AuctoLabs',
+        url: 'https://auctolabs.com',
+        email: 'contact@auctolabs.com',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Houston',
+          addressRegion: 'TX',
+          addressCountry: 'US',
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'sales',
+          email: 'contact@auctolabs.com',
+          areaServed: 'US',
+          availableLanguage: 'English',
+        },
+      },
+    },
+    pageBreadcrumb('Contact'),
+  ],
+};
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -105,6 +142,7 @@ const Contact = () => {
         description="Book a free 30-minute strategy call with AuctoLabs. Based in Houston, working with service businesses nationwide. We reply within 2 hours."
         keywords="contact AuctoLabs, book strategy call, free consultation, web design inquiry, automation consultation"
         canonical="https://auctolabs.com/contact"
+        jsonLd={contactSchemaGraph}
       />
       
       {/* Plain-text summary for AI search engines */}

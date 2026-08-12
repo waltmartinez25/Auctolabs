@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
@@ -69,7 +70,6 @@ const problemFlow = [
 ];
 
 const aboutSchema = {
-  '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'AuctoLabs',
   description:
@@ -84,6 +84,11 @@ const aboutSchema = {
   ],
 };
 
+const aboutSchemaGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [aboutSchema, pageBreadcrumb('About')],
+};
+
 const About = () => {
   return (
     <Layout>
@@ -92,7 +97,7 @@ const About = () => {
         description="We build the website and the system behind it, so every lead gets answered and booked. Not just a site that looks good."
         keywords="about AuctoLabs, AI automation agency, automated lead generation, conversion-focused websites, growth systems, speed-to-lead, service business automation"
         canonical="https://auctolabs.com/about"
-        jsonLd={aboutSchema}
+        jsonLd={aboutSchemaGraph}
       />
 
       <PageSummary

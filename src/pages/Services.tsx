@@ -10,6 +10,7 @@ import {
 } from 'react-bootstrap-icons';
 import { Layout } from '@/components/layout/Layout';
 import { SEO } from '@/components/SEO';
+import { pageBreadcrumb } from '@/lib/breadcrumbs';
 import { PageSummary } from '@/components/PageSummary';
 import { HiddenStructuredFacts } from '@/components/StructuredFacts';
 import { Button } from '@/components/ui/button';
@@ -103,7 +104,6 @@ const whyItems = [
 ];
 
 const servicesSchema = {
-  '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Web Design, AI Automation, and Lead Generation Services',
   provider: {
@@ -181,7 +181,7 @@ const servicesSchemaFaq = {
 
 const servicesSchemaGraph = {
   "@context": "https://schema.org",
-  "@graph": [servicesSchema, servicesSchemaFaq]
+  "@graph": [servicesSchema, servicesSchemaFaq, pageBreadcrumb('Services')]
 };
 
 const Services = () => {
