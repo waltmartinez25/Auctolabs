@@ -45,8 +45,11 @@ export const SEO = ({
           this one points at, even while the page itself stays out of results. */}
       {noindex && <meta name="robots" content="noindex, follow" />}
 
-      {/* Open Graph / Facebook */}
+      {/* Open Graph / Facebook. og:site_name is also a secondary signal Google
+          uses for the bold site name in results, alongside WebSite structured
+          data (which stays the primary signal — see the homepage's JSON-LD). */}
       <meta property="og:type" content={ogType} />
+      <meta property="og:site_name" content="AuctoLabs" />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       {ogImage && <meta property="og:image" content={ogImage} />}
