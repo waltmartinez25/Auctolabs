@@ -99,7 +99,9 @@ export const MockupStack = () => {
               <img
                 src={shot.src}
                 alt={shot.alt}
-                className="block w-full"
+                width={1200}
+                height={750}
+                className="block w-full h-auto"
                 loading="lazy"
                 draggable={false}
               />

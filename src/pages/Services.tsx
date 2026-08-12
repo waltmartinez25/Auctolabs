@@ -151,37 +151,12 @@ const servicesSchema = {
   },
 };
 
-// Page schema plus FAQs. Answers are written to stand alone in the
-// first 30-50 words, which is the span answer engines extract.
-const servicesSchemaFaq = {
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you build the website, or just the automation?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Both, as one system. The site is designed around how visitors decide, and the automation behind it answers, qualifies, and books every inquiry. Buying them separately is where most businesses lose leads in the handoff." }
-    },
-    {
-      "@type": "Question",
-      "name": "How is this different from buying speed-to-lead software?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Software gives you a tool to configure. We design the workflow, connect it to your CRM and calendar, write the qualification logic, and hand over a system that already works. There is nothing for you to set up." }
-    },
-    {
-      "@type": "Question",
-      "name": "Which CRMs do you integrate with?",
-      "acceptedAnswer": { "@type": "Answer", "text": "HubSpot, Salesforce and Pipedrive most often, plus Clio for law firms. Anything with an API can be connected, including Zapier and Make for tools without a direct integration." }
-    },
-    {
-      "@type": "Question",
-      "name": "How fast does the automated response actually go out?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Under 2 minutes from form submission. The lead is qualified against your criteria, routed to the right person, and sent a reply by SMS or email before a competitor has opened their inbox." }
-    }
-  ]
-};
-
+// Google retired the FAQPage rich result in May 2026 — no FAQ member here
+// anymore. The visible FAQ accordion below is unaffected; only the schema
+// markup around it is gone.
 const servicesSchemaGraph = {
   "@context": "https://schema.org",
-  "@graph": [servicesSchema, servicesSchemaFaq, pageBreadcrumb('Services')]
+  "@graph": [servicesSchema, pageBreadcrumb('Services')]
 };
 
 const Services = () => {

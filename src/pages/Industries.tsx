@@ -86,30 +86,13 @@ const industries = [
   },
 ];
 
-// FAQ schema — this page had none. Answers stand alone in the first
-// 30-50 words so an answer engine can lift them verbatim.
+// Google retired the FAQPage rich result in May 2026, so this no longer
+// carries FAQ markup — the breadcrumb is the only structured data this page
+// needs. The visible Q&A copy on the page is untouched and still readable
+// by answer engines that don't depend on schema.org markup for it.
 const industriesSchema = {
   "@context": "https://schema.org",
-  "@graph": [pageBreadcrumb('Industries'), {
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you only work with law firms and home services?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Those are the most common, along with healthcare and B2B services. The common thread is any business where the first company to respond usually wins the client, not the industry itself." }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does industry matter for lead automation?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The qualifying questions differ. A law firm screens by practice area and case type; an HVAC company screens by job type and service area. The routing logic is built around your criteria, not a template." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work with businesses outside Houston?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. AuctoLabs is based in Houston, Texas and works with service businesses across the United States. The work is remote-first, so location is not a constraint." }
-    }
-  ]
-}]
+  "@graph": [pageBreadcrumb('Industries')]
 };
 
 const Industries = () => {

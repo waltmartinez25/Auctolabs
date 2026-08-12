@@ -118,44 +118,14 @@ const deliverables = [
   'Clear visibility into performance',
 ];
 
-const processSchema = {
-  '@type': 'HowTo',
-  name: 'AuctoLabs Growth System Process',
-  description:
-    'A proven four-step method: audit, build, automate, optimize. Built to turn traffic into clients predictably.',
-  step: steps.map((s) => ({
-    '@type': 'HowToStep',
-    name: s.title,
-    text: s.description,
-  })),
-};
-
-// Page schema plus FAQs. Answers are written to stand alone in the
-// first 30-50 words, which is the span answer engines extract.
-const processSchemaFaq = {
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How long does the whole process take?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Four to six weeks end to end. Week one is the audit, weeks two and three are the build, weeks three and four bring the automation online, and optimisation continues from week four." }
-    },
-    {
-      "@type": "Question",
-      "name": "What do you need from me during the build?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A kickoff call, access to your existing tools, and feedback at two review points. Most clients spend two to three hours total across the entire project." }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens after launch?",
-      "acceptedAnswer": { "@type": "Answer", "text": "You get the system and training on it. If you take the Partner option we keep testing and tuning it; if not, everything is handed over and it is yours to run." }
-    }
-  ]
-};
-
+// Google retired both the HowTo and FAQPage rich results in May 2026, so
+// this page's structured data is down to the breadcrumb. The visible
+// four-step process and FAQ accordion below are unaffected — only the
+// schema markup that used to target those two dead rich-result types
+// is gone.
 const processSchemaGraph = {
   "@context": "https://schema.org",
-  "@graph": [processSchema, processSchemaFaq, pageBreadcrumb('Process')]
+  "@graph": [pageBreadcrumb('Process')]
 };
 
 const Process = () => {

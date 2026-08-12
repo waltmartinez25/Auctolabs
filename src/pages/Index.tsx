@@ -88,59 +88,6 @@ const homeSchema = {
       "url": "https://auctolabs.com",
       "name": "AuctoLabs",
       "publisher": { "@id": "https://auctolabs.com/#organization" }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How long does a typical project take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most websites launch within 4–6 weeks depending on the scope of the project. This includes design, development, automation setup, and integration testing."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What makes an AuctoLabs website different?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We combine modern web design with automation and performance strategy to create websites that don't just look great. They actively help grow your business. Every build is engineered for speed, conversion, and long-term results."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can my website integrate with my existing tools?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. AuctoLabs websites integrate with CRM systems, marketing platforms, analytics tools, and other essential software, including HubSpot, Salesforce, Pipedrive, and more."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does the speed-to-lead automation work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "When a lead submits a form, our system automatically qualifies them using AI, routes them to the right team member, and sends personalized SMS/email responses, all in under 2 minutes."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens after the project is complete?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We provide training for your team and include support in all packages. For ongoing optimization and growth, we offer monthly retainer options."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where is AuctoLabs located and who do you work with?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "AuctoLabs is based in Houston, Texas and works with service businesses across the United States. The work is remote-first, so location is not a constraint. Houston-area clients can meet in person."
-          }
-        }
-      ]
     }
   ]
 };
