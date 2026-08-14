@@ -1,0 +1,35 @@
+# NOTE (2026-08-14): in the current production deploy, only the `build:` block
+# below is actually used. ~/auctolabs-autoupdate.sh runs `docker compose build`
+# and then starts the container itself with `docker run -p 8080:80`, so the
+# runtime topology here (app-net, the bundled cloudflared service) does NOT
+# reflect what runs on the server — the Cloudflare tunnels are separate
+# long-lived containers. Kept because it makes the image build reproducible.
+# See ~/auctolabs/DEPLOYMENT.md.
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
+        VITE_GA_MEASUREMENT_ID: ${VITE_GA_MEASUREMENT_ID}
+    restart: unless-stopped
+    # No ports exposed — cloudflared handles all ingress
+    networks:
+      - app-net
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - web
+    restart: unless-stopped
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
